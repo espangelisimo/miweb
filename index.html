@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ángel Velarde — Diseño y desarrollo web para negocios locales en Sevilla</title>
+  <meta name="description" content="Diseño y desarrollo webs rápidas, accesibles y pensadas para convertir visitas en clientes. Especializado en negocios locales y sector salud en Sevilla.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="[[PENDIENTE: URL del sitio]]">
+  <meta property="og:title" content="Ángel Velarde — Diseño y desarrollo web para negocios locales en Sevilla">
+  <meta property="og:description" content="Diseño y desarrollo webs rápidas, accesibles y pensadas para convertir visitas en clientes. Especializado en negocios locales y sector salud en Sevilla.">
+  <meta property="og:image" content="[[PENDIENTE: URL del sitio]]/assets/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ángel Velarde — Diseño y desarrollo web para negocios locales en Sevilla">
+  <meta name="twitter:description" content="Diseño y desarrollo webs rápidas, accesibles y pensadas para convertir visitas en clientes. Especializado en negocios locales y sector salud en Sevilla.">
+  <meta name="twitter:image" content="[[PENDIENTE: URL del sitio]]/assets/og-image.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="[[PENDIENTE: URL del sitio]]">
+
+  <!-- Favicon set -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0E1E30">
+
+  <!-- JSON-LD: Person + LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "[[PENDIENTE: URL del sitio]]/#angel-velarde",
+        "name": "Ángel Velarde",
+        "jobTitle": "Diseñador y desarrollador web",
+        "url": "[[PENDIENTE: URL del sitio]]",
+        "email": "[[PENDIENTE: email]]",
+        "telephone": "[[PENDIENTE: teléfono]]",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "La Rinconada",
+          "addressRegion": "Sevilla",
+          "addressCountry": "ES"
+        },
+        "sameAs": [
+          "[[PENDIENTE: URL LinkedIn]]",
+          "[[PENDIENTE: URL GitHub]]"
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "[[PENDIENTE: URL del sitio]]/#negocio",
+        "name": "Ángel Velarde — Diseño web",
+        "description": "Diseño y desarrollo de webs rápidas, accesibles y optimizadas para SEO local. Especializado en negocios locales y sector salud en Sevilla.",
+        "url": "[[PENDIENTE: URL del sitio]]",
+        "telephone": "[[PENDIENTE: teléfono]]",
+        "email": "[[PENDIENTE: email]]",
+        "founder": { "@id": "[[PENDIENTE: URL del sitio]]/#angel-velarde" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "La Rinconada",
+          "addressRegion": "Sevilla",
+          "postalCode": "[[PENDIENTE: código postal]]",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "[[PENDIENTE: latitud]]",
+          "longitude": "[[PENDIENTE: longitud]]"
+        },
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": "37.3891",
+            "longitude": "-5.9845"
+          },
+          "geoRadius": "50000"
+        },
+        "priceRange": "[[PENDIENTE: rango de precio, ej. €€]]",
+        "image": "[[PENDIENTE: URL del sitio]]/assets/og-image.jpg",
+        "sameAs": [
+          "[[PENDIENTE: URL LinkedIn]]",
+          "[[PENDIENTE: URL GitHub]]"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts: Syne + DM Sans (variables) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css?v=1">
+</head>
+<body>
+
+  <!-- SKIP LINK (accesibilidad — primer elemento del DOM) -->
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- CABECERA -->
+  <header class="site-header" role="banner">
+    <div class="contenedor site-header__inner">
+
+      <a href="/" class="logo" aria-label="Ángel Velarde — Ir al inicio">
+        Ángel <span class="logo__apellido">Velarde</span>
+      </a>
+
+      <nav id="menu-principal" class="nav-principal" aria-label="Navegación principal">
+        <ul class="nav-lista" role="list">
+          <li><a class="nav-enlace" href="#inicio">Inicio</a></li>
+          <li><a class="nav-enlace" href="#servicios">Servicios</a></li>
+          <li><a class="nav-enlace" href="#proceso">Proceso</a></li>
+          <li><a class="nav-enlace" href="#portafolio">Proyectos</a></li>
+          <li><a class="nav-enlace" href="#sobre-mi">Sobre mí</a></li>
+          <li><a class="nav-enlace" href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="#contacto" class="btn btn--cta nav-cta">Pide presupuesto</a>
+      </nav>
+
+      <button class="hamburguesa"
+              aria-controls="menu-principal"
+              aria-expanded="false"
+              aria-label="Abrir menú de navegación">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Overlay del menú móvil (fuera del header para stacking correcto) -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="contenido-principal">
+
+    <!-- HERO -->
+    <section id="inicio" class="hero" aria-label="Inicio">
+      <div class="contenedor">
+        <div class="hero-contenido">
+
+          <p class="hero-eyebrow">Diseñador &amp; desarrollador web · Sevilla</p>
+
+          <h1 class="hero-titulo">
+            Diseño y desarrollo webs<br>
+            que convierten visitas<br>
+            en <span class="hero-acento">clientes.</span>
+          </h1>
+
+          <p class="hero-subtitulo">
+            Especializado en negocios locales y sector salud en Sevilla.
+            Rápida, accesible y pensada para que te encuentren en Google.
+            Sin plantillas genéricas.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="https://wa.me/[[PENDIENTE: número sin espacios ni +]]"
+               class="btn btn--cta"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Pide presupuesto por WhatsApp (abre WhatsApp)">
+              Pide presupuesto
+              <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+            <a href="#portafolio" class="btn btn--ghost-claro">
+              Ver proyectos
+              <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3v10M4 9l4 4 4-4"/>
+              </svg>
+            </a>
+          </div>
+
+          <ul class="hero-confianza" role="list" aria-label="Por qué confiar">
+            <li>Sevilla · La Rinconada</li>
+            <li>Demos en vivo verificables</li>
+            <li>WCAG 2.2 accesible</li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="servicios" aria-labelledby="servicios-titulo">
+      <div class="contenedor">
+        <header class="seccion-cabecera texto-centro">
+          <h2 id="servicios-titulo">Qué consigues con una web bien hecha</h2>
+          <p class="seccion-subtitulo">No es solo tener una página en internet. Es tener un comercial disponible 24 horas que transmite confianza, aparece en Google y convierte visitas en clientes.</p>
+        </header>
+        <div class="servicios-grid">
+          <article class="servicio-card">
+            <div class="servicio-icono" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </div>
+            <h3>Diseño a medida</h3>
+            <p>Cada web la diseño desde cero pensando en tu negocio y en tus clientes. Nada de plantillas que podrían ser de cualquiera.</p>
+          </article>
+          <article class="servicio-card">
+            <div class="servicio-icono" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h8l-2 8 10-12h-8Z"/></svg>
+            </div>
+            <h3>Rápida y optimizada</h3>
+            <p>Las webs lentas se abandonan antes de leer. Optimizo cada detalle para que cargue en menos de 2 segundos y Google te ponga arriba.</p>
+          </article>
+          <article class="servicio-card">
+            <div class="servicio-icono" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="m10 10-3 9h2l2-4 1 2 1-2 2 4h2l-3-9Z"/></svg>
+            </div>
+            <h3>Accesible y conforme</h3>
+            <p>Cumple con WCAG 2.2 nivel AA y la normativa europea EAA. Tu negocio llega a más personas y sin riesgo legal.</p>
+          </article>
+          <article class="servicio-card">
+            <div class="servicio-icono" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <h3>SEO local en Sevilla</h3>
+            <p>Aparece cuando alguien en Sevilla busca lo que ofreces. Posicionamiento local en Google sin pagar por cada clic.</p>
+          </article>
+        </div>
+        <div class="seccion-cta texto-centro">
+          <a href="#contacto" class="btn btn--cta">Pide presupuesto sin compromiso</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" class="proceso" aria-labelledby="proceso-titulo">
+      <div class="contenedor">
+        <header class="seccion-cabecera texto-centro">
+          <h2 id="proceso-titulo">Así trabajamos juntos</h2>
+          <p class="seccion-subtitulo">Un proceso claro de principio a fin. Sabrás en todo momento en qué punto estamos y no habrá sorpresas.</p>
+        </header>
+        <ol class="proceso-lista" role="list">
+          <li class="proceso-paso">
+            <span class="proceso-numero" aria-hidden="true">01</span>
+            <h3 class="proceso-nombre">Hablamos</h3>
+            <p class="proceso-desc">Me cuentas tu negocio, tus clientes y lo que necesitas. Sin tecnicismos, sin compromiso. <em>[[PENDIENTE: plazo orientativo]]</em></p>
+          </li>
+          <li class="proceso-paso">
+            <span class="proceso-numero" aria-hidden="true">02</span>
+            <h3 class="proceso-nombre">Propuesta y diseño</h3>
+            <p class="proceso-desc">Te presento el diseño antes de desarrollar nada. Ves cómo quedará antes de que exista. <em>[[PENDIENTE: plazo orientativo]]</em></p>
+          </li>
+          <li class="proceso-paso">
+            <span class="proceso-numero" aria-hidden="true">03</span>
+            <h3 class="proceso-nombre">Desarrollo</h3>
+            <p class="proceso-desc">Construyo la web con código limpio, rápido y accesible. Cada sección, optimizada. <em>[[PENDIENTE: plazo orientativo]]</em></p>
+          </li>
+          <li class="proceso-paso">
+            <span class="proceso-numero" aria-hidden="true">04</span>
+            <h3 class="proceso-nombre">Revisiones</h3>
+            <p class="proceso-desc">Te enseño la web y ajustamos lo que necesites. Revisiones incluidas hasta que quedes satisfecho. <em>[[PENDIENTE: número de rondas]]</em></p>
+          </li>
+          <li class="proceso-paso">
+            <span class="proceso-numero" aria-hidden="true">05</span>
+            <h3 class="proceso-nombre">Publicación y soporte</h3>
+            <p class="proceso-desc">Lanzamos y quedo disponible para lo que surja. <em>[[PENDIENTE: condiciones de soporte]]</em></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PORTAFOLIO -->
+    <section id="portafolio" class="portafolio" aria-labelledby="portafolio-titulo">
+      <div class="contenedor">
+        <header class="seccion-cabecera texto-centro">
+          <h2 id="portafolio-titulo">Proyectos en vivo</h2>
+          <p class="seccion-subtitulo">Puedes visitarlos ahora mismo y ver cómo funcionan de verdad. No capturas: webs reales que puedes tocar.</p>
+        </header>
+        <div class="portafolio-grid">
+          <article class="proyecto-card">
+            <a href="https://espangelisimo.github.io/fisiosalud/"
+               class="proyecto-imagen proyecto-imagen--fisio"
+               target="_blank" rel="noopener noreferrer"
+               aria-hidden="true" tabindex="-1">
+              <span class="proyecto-imagen__placeholder">[[PENDIENTE: captura WebP]]</span>
+            </a>
+            <div class="proyecto-info">
+              <p class="proyecto-tag">Fisioterapia · San José de la Rinconada · Sevilla</p>
+              <h3 class="proyecto-nombre">FisioSalud San José</h3>
+              <p class="proyecto-resultado">Web rápida, accesible y adaptada al móvil para una clínica de fisioterapia local.</p>
+              <div class="proyecto-ctas">
+                <a href="proyectos/fisiosalud.html" class="btn btn--secundario">Ver caso de estudio</a>
+                <a href="https://espangelisimo.github.io/fisiosalud/"
+                   class="btn btn--cta" target="_blank" rel="noopener noreferrer"
+                   aria-label="Demo en vivo de FisioSalud (abre en nueva pestaña)">
+                  Demo en vivo
+                  <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M10 2h4v4M14 2 8 8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="proyecto-card">
+            <a href="https://espangelisimo.github.io/miclila/"
+               class="proyecto-imagen proyecto-imagen--clini"
+               target="_blank" rel="noopener noreferrer"
+               aria-hidden="true" tabindex="-1">
+              <span class="proyecto-imagen__placeholder">[[PENDIENTE: captura WebP]]</span>
+            </a>
+            <div class="proyecto-info">
+              <p class="proyecto-tag">Laboratorio clínico · Sevilla</p>
+              <h3 class="proyecto-nombre">Clinilab Pastor</h3>
+              <p class="proyecto-resultado">Presencia digital clara y accesible para un laboratorio de análisis clínicos, optimizada para búsquedas locales.</p>
+              <div class="proyecto-ctas">
+                <a href="proyectos/clinilab.html" class="btn btn--secundario">Ver caso de estudio</a>
+                <a href="https://espangelisimo.github.io/miclila/"
+                   class="btn btn--cta" target="_blank" rel="noopener noreferrer"
+                   aria-label="Demo en vivo de Clinilab Pastor (abre en nueva pestaña)">
+                  Demo en vivo
+                  <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M10 2h4v4M14 2 8 8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="sobre-mi" aria-labelledby="sobre-mi-titulo">
+      <div class="contenedor">
+        <div class="sobre-mi-inner">
+          <div class="sobre-mi-foto" role="img" aria-label="Foto de Ángel Velarde — [[PENDIENTE: añadir imagen WebP]]">
+            <span aria-hidden="true">[[PENDIENTE: foto]]</span>
+          </div>
+          <div class="sobre-mi-texto">
+            <p class="seccion-eyebrow">Sobre mí</p>
+            <h2 id="sobre-mi-titulo">Hola, soy Ángel</h2>
+            <p>Diseñador y desarrollador web en La Rinconada (Sevilla). Me especializo en webs para negocios locales y del sector salud: rápidas, accesibles y hechas para conseguir clientes.</p>
+            <p>Trabajas directamente conmigo desde la primera llamada hasta el día de publicación. Trato directo, sin intermediarios y sin sorpresas.</p>
+            <a href="#contacto" class="btn btn--cta">Hablamos sin compromiso</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="testimonios" aria-labelledby="testimonios-titulo">
+      <div class="contenedor">
+        <header class="seccion-cabecera texto-centro">
+          <h2 id="testimonios-titulo">Lo que dicen los clientes</h2>
+        </header>
+        <div class="testimonios-grid">
+          <blockquote class="testimonio-card">
+            <p class="testimonio-cita">[[PENDIENTE: testimonio real — frase del cliente]]</p>
+            <footer class="testimonio-autor">
+              <div class="testimonio-foto" aria-hidden="true">[[PENDIENTE]]</div>
+              <div>
+                <cite class="testimonio-nombre">[[PENDIENTE: nombre]]</cite>
+                <p class="testimonio-negocio">[[PENDIENTE: nombre del negocio]]</p>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonio-card">
+            <p class="testimonio-cita">[[PENDIENTE: testimonio real — frase del cliente]]</p>
+            <footer class="testimonio-autor">
+              <div class="testimonio-foto" aria-hidden="true">[[PENDIENTE]]</div>
+              <div>
+                <cite class="testimonio-nombre">[[PENDIENTE: nombre]]</cite>
+                <p class="testimonio-negocio">[[PENDIENTE: nombre del negocio]]</p>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonio-card">
+            <p class="testimonio-cita">[[PENDIENTE: testimonio real — frase del cliente]]</p>
+            <footer class="testimonio-autor">
+              <div class="testimonio-foto" aria-hidden="true">[[PENDIENTE]]</div>
+              <div>
+                <cite class="testimonio-nombre">[[PENDIENTE: nombre]]</cite>
+                <p class="testimonio-negocio">[[PENDIENTE: nombre del negocio]]</p>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq" aria-labelledby="faq-titulo">
+      <div class="contenedor contenedor--estrecho">
+        <header class="seccion-cabecera texto-centro">
+          <h2 id="faq-titulo">Preguntas frecuentes</h2>
+          <p class="seccion-subtitulo">Todo lo que suele preguntarse antes de contratar. Si tienes alguna duda que no esté aquí, escríbeme.</p>
+        </header>
+        <div class="faq-lista">
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Cuánto cuesta una web?</summary>
+            <div class="faq-respuesta"><p>Depende del alcance y las necesidades de tu negocio. Pide presupuesto sin compromiso y te doy un precio claro en menos de 24 h. <em>[[PENDIENTE: añadir rango orientativo de precios]]</em></p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Cuánto tiempo tarda?</summary>
+            <div class="faq-respuesta"><p>Normalmente entre <em>[[PENDIENTE: plazo orientativo]]</em> semanas desde que arrancamos, dependiendo de la complejidad y de la rapidez con la que me facilites los contenidos. Te doy una fecha estimada desde el primer momento.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Y si no me gusta el diseño?</summary>
+            <div class="faq-respuesta"><p>Antes de desarrollar nada te enseño el diseño para que lo apruebes. Incluye rondas de revisión hasta que quedes satisfecho. <em>[[PENDIENTE: especificar número de revisiones]]</em></p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Podré actualizar la web yo mismo?</summary>
+            <div class="faq-respuesta"><p>Para cambios de texto o imágenes puntuales, te explico cómo hacerlo. Para cambios más complejos, puedo hacerme cargo por un pequeño coste. <em>[[PENDIENTE: condiciones de mantenimiento]]</em></p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Se verá bien en el móvil?</summary>
+            <div class="faq-respuesta"><p>Sí, siempre. Diseño con criterio <em>mobile-first</em>: primero pienso en el móvil, donde llega la mayoría de las visitas, y luego adapto al escritorio. La web se prueba en distintos dispositivos antes de publicarla.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Me encontrarán en Google?</summary>
+            <div class="faq-respuesta"><p>El SEO local está incluido: estructura semántica, velocidad de carga, metadatos y datos estructurados. No prometo el primer puesto desde el día uno, pero sí una base técnica sólida sobre la que construir posicionamiento orgánico.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Eres fiable? ¿No desaparecerás?</summary>
+            <div class="faq-respuesta"><p>Soy de La Rinconada (Sevilla) — si algo sale mal, puedes venir a verme. Puedes visitar ahora mismo las webs que he hecho y comprobar que siguen funcionando. En el momento de la entrega recibes acceso total a todos los archivos.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-pregunta">¿Por qué no hacerme la web con Wix o con IA?</summary>
+            <div class="faq-respuesta"><p>Puedes, y para algunos casos tiene sentido. Pero si tu web es tu principal herramienta de captación, la diferencia entre una plantilla genérica y una web bien diseñada es la diferencia entre "existir en internet" y "conseguir clientes desde internet".</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contacto" aria-labelledby="contacto-titulo">
+      <div class="contenedor">
+        <div class="contacto-inner">
+          <div class="contacto-info">
+            <h2 id="contacto-titulo">¿Hablamos?</h2>
+            <p class="contacto-desc">Cuéntame en qué consiste tu negocio y qué necesitas. Te respondo en menos de 24 horas.</p>
+            <a href="https://wa.me/[[PENDIENTE: número sin espacios ni +]]"
+               class="btn btn--cta contacto-whatsapp"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Escríbeme por WhatsApp (abre WhatsApp)">
+              <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Escríbeme por WhatsApp
+            </a>
+            <p class="contacto-alternativa">
+              O envíame un correo a <a href="mailto:[[PENDIENTE: email]]">[[PENDIENTE: email]]</a>
+            </p>
+          </div>
+
+          <div class="contacto-formulario">
+            <!-- Formspree: crea tu formulario en formspree.io y pon el ID en el action -->
+            <form id="formulario-contacto"
+                  action="https://formspree.io/f/[[PENDIENTE: Form-ID]]"
+                  method="POST"
+                  novalidate>
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
+              <div class="form-grupo">
+                <label for="f-nombre">Nombre <span aria-label="obligatorio">*</span></label>
+                <input type="text" id="f-nombre" name="nombre" autocomplete="name" required aria-required="true">
+              </div>
+              <div class="form-grupo">
+                <label for="f-contacto">Email o teléfono <span aria-label="obligatorio">*</span></label>
+                <input type="text" id="f-contacto" name="contacto" autocomplete="email" required aria-required="true">
+              </div>
+              <div class="form-grupo">
+                <label for="f-mensaje">¿En qué puedo ayudarte?</label>
+                <textarea id="f-mensaje" name="mensaje" rows="4" placeholder="Cuéntame brevemente tu negocio y qué necesitas…"></textarea>
+              </div>
+              <div class="form-estado" id="form-estado" role="status" aria-live="polite" aria-atomic="true"></div>
+              <button type="submit" class="btn btn--cta">
+                Enviar mensaje
+                <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="contenedor footer-inner">
+
+      <div class="footer-marca">
+        <p class="footer-nombre">Ángel Velarde</p>
+        <p class="footer-eslogan">Diseño y desarrollo web · Sevilla · La Rinconada</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegación del pie de página">
+        <ul role="list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#portafolio">Proyectos</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contacto">
+        <a href="https://wa.me/[[PENDIENTE: número sin espacios ni +]]"
+           class="footer-contacto__enlace"
+           rel="noopener noreferrer"
+           aria-label="Escríbeme por WhatsApp">
+          WhatsApp
+        </a>
+        <a href="mailto:[[PENDIENTE: email]]"
+           class="footer-contacto__enlace">
+          [[PENDIENTE: email]]
+        </a>
+        <!-- [[PENDIENTE: redes sociales]] -->
+      </div>
+
+      <div class="footer-inferior">
+        <p>© <span class="footer-anio">2025</span> Ángel Velarde. Todos los derechos reservados.</p>
+        <div class="footer-legal">
+          <a href="[[PENDIENTE: /accesibilidad.html]]">Declaración de accesibilidad</a>
+          <a href="[[PENDIENTE: /aviso-legal.html]]">Aviso legal y privacidad</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=1"></script>
+</body>
+</html>

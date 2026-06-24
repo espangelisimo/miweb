@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Inicio (portafolio one-page) -->
+  <url>
+    <loc>[[PENDIENTE: URL del sitio]]/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Caso de estudio: FisioSalud San José -->
+  <url>
+    <loc>[[PENDIENTE: URL del sitio]]/proyectos/fisiosalud.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Caso de estudio: Clinilab Pastor -->
+  <url>
+    <loc>[[PENDIENTE: URL del sitio]]/proyectos/clinilab.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada — Ángel Velarde</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0E1E30">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css?v=1">
+</head>
+<body>
+
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="site-header con-sombra" role="banner">
+    <div class="contenedor site-header__inner">
+      <a href="/" class="logo" aria-label="Ángel Velarde — Ir al inicio">
+        Ángel <span class="logo__apellido">Velarde</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="contenido-principal" class="error-404">
+    <div class="contenedor error-404__inner">
+      <p class="error-404__codigo" aria-hidden="true">404</p>
+      <h1 class="error-404__titulo">Página no encontrada</h1>
+      <p class="error-404__desc">El enlace que has seguido no existe o ha sido movido. Puede que hayas escrito la URL directamente — comprueba que está bien escrita.</p>
+      <nav class="error-404__nav" aria-label="Opciones de navegación">
+        <a href="/" class="btn btn--cta">Ir al inicio</a>
+        <a href="/#contacto" class="btn btn--secundario">Contactar</a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="contenedor footer-inner">
+      <div class="footer-marca">
+        <p class="footer-nombre">Ángel Velarde</p>
+        <p class="footer-eslogan">Diseño y desarrollo web · Sevilla · La Rinconada</p>
+      </div>
+      <div class="footer-inferior">
+        <p>© <span class="footer-anio">2025</span> Ángel Velarde. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const anio = document.querySelector('.footer-anio');
+    if (anio) anio.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
