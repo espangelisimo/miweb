@@ -136,6 +136,11 @@ if (hamburguesa && navPrincipal && navOverlay) {
   const items = Array.from(lista.querySelectorAll('.faq-item'));
 
   items.forEach(item => {
+    const btn = item.querySelector('.faq-pregunta');
+    btn.setAttribute('aria-expanded', item.classList.contains('abierto') ? 'true' : 'false');
+  });
+
+  items.forEach(item => {
     item.querySelector('.faq-pregunta').addEventListener('click', () => {
       const estaAbierto = item.classList.contains('abierto');
 
