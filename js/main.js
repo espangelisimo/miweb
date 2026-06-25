@@ -1,257 +1,206 @@
-'use strict';
+/**
+ * main.js — Lógica principal de Ángel Velarde Portfolio
+ * Optimizado para rendimiento y accesibilidad (sin dependencias)
+ */
 
-/* ─── Año automático en el footer ───────────────────────────────── */
-const footerAnio = document.querySelector('.footer-anio');
-if (footerAnio) footerAnio.textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+  initMenuMovil();
+  initHeaderScroll();
+  initScrollSpy();
+  initFaqAccordion();
+  initScrollReveal();
+  initFormContacto();
+});
 
+/**
+ * Gestión del Menú Móvil
+ */
+function initMenuMovil() {
+  const btnAbrir = document.querySelector('.hamburguesa');
+  const nav = document.querySelector('.nav-principal');
+  const overlay = document.querySelector('.nav-overlay');
+  const enlaces = document.querySelectorAll('.nav-enlace, .nav-cta');
 
-/* ─── Sombra del header al hacer scroll ─────────────────────────── */
-const header = document.querySelector('.site-header');
+  if (!btnAbrir || !nav || !overlay) return;
 
-if (header) {
-  const actualizarHeader = () =>
-    header.classList.toggle('con-sombra', window.scrollY > 10);
-  window.addEventListener('scroll', actualizarHeader, { passive: true });
-  actualizarHeader();
-}
+  const toggleMenu = (estado) => {
+    const abriendo = estado !== undefined ? estado : !nav.classList.contains('activo');
+    nav.classList.toggle('activo', abriendo);
+    overlay.classList.toggle('activo', abriendo);
+    btnAbrir.setAttribute('aria-expanded', abriendo);
+    
+    // Bloquear scroll del body si está abierto
+    document.body.style.overflow = abriendo ? 'hidden' : '';
+  };
 
+  btnAbrir.addEventListener('click', () => toggleMenu());
+  overlay.addEventListener('click', () => toggleMenu(false));
 
-/* ─── Menú móvil ─────────────────────────────────────────────────── */
-const hamburguesa  = document.querySelector('.hamburguesa');
-const navPrincipal = document.querySelector('#menu-principal');
-const navOverlay   = document.querySelector('#nav-overlay');
-
-function abrirMenu() {
-  hamburguesa.setAttribute('aria-expanded', 'true');
-  hamburguesa.setAttribute('aria-label', 'Cerrar menú de navegación');
-  navPrincipal.classList.add('abierto');
-  navPrincipal.removeAttribute('inert');
-  navOverlay.classList.add('activo');
-  navOverlay.removeAttribute('aria-hidden');
-  document.body.classList.add('menu-abierto');
-  navPrincipal.querySelector('.nav-enlace')?.focus();
-}
-
-/* enfocarBoton: true cuando se cierra via Escape/overlay (el foco vuelve al disparador)
-   false cuando se cierra via clic en enlace (el foco sigue al destino del ancla) */
-function cerrarMenu(enfocarBoton = true) {
-  hamburguesa.setAttribute('aria-expanded', 'false');
-  hamburguesa.setAttribute('aria-label', 'Abrir menú de navegación');
-  navPrincipal.classList.remove('abierto');
-  navPrincipal.setAttribute('inert', '');
-  navOverlay.classList.remove('activo');
-  navOverlay.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('menu-abierto');
-  if (enfocarBoton) hamburguesa.focus();
-}
-
-if (hamburguesa && navPrincipal && navOverlay) {
-  const esMobil = () => getComputedStyle(hamburguesa).display !== 'none';
-  if (esMobil()) navPrincipal.setAttribute('inert', '');
-
-  hamburguesa.addEventListener('click', () => {
-    hamburguesa.getAttribute('aria-expanded') === 'true' ? cerrarMenu() : abrirMenu();
+  // Cerrar al hacer clic en un enlace (para single-page)
+  enlaces.forEach(enlace => {
+    enlace.addEventListener('click', () => toggleMenu(false));
   });
 
-  /* Botón cerrar dentro del drawer */
-  const navCerrar = navPrincipal.querySelector('.nav-cerrar');
-  if (navCerrar) navCerrar.addEventListener('click', () => cerrarMenu());
-
-  navOverlay.addEventListener('click', () => cerrarMenu());
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && hamburguesa.getAttribute('aria-expanded') === 'true') cerrarMenu();
-  });
-
-  /* Cerrar al hacer clic en un enlace.
-     No prevenimos el default: la navegación nativa gestiona el scroll
-     (tanto anclas internas como enlaces a otra página).
-     scroll-behavior:smooth + scroll-padding-top en html cubren el offset
-     del header sticky sin ningún cálculo JS ni rAF. */
-  navPrincipal.querySelectorAll('a').forEach(enlace =>
-    enlace.addEventListener('click', () => {
-      if (!esMobil() || hamburguesa.getAttribute('aria-expanded') !== 'true') return;
-      cerrarMenu(false);
-    })
-  );
-
-  window.addEventListener('resize', () => {
-    if (!esMobil()) {
-      navPrincipal.removeAttribute('inert');
-      document.body.classList.remove('menu-abierto');
-    } else if (hamburguesa.getAttribute('aria-expanded') === 'false') {
-      navPrincipal.setAttribute('inert', '');
+  // Cerrar con Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('activo')) {
+      toggleMenu(false);
     }
-  }, { passive: true });
+  });
 }
 
+/**
+ * Efecto de scroll en la cabecera (Glassmorphism shadow)
+ */
+function initHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
 
-/* ─── Sección activa en la nav ───────────────────────────────────── */
-/* Scroll listener en lugar de IntersectionObserver para evitar race
-   conditions con la detección de la sección más cercana. */
-(function initNavActiva() {
-  const secciones  = [...document.querySelectorAll('main section[id]')];
-  const navEnlaces = document.querySelectorAll('.nav-enlace');
-  if (!secciones.length || !navEnlaces.length) return;
-
-  function actualizar() {
-    const umbral = (header?.offsetHeight ?? 64) + 10;
-    let activa = null;
-    /* Recorre en orden DOM: la última sección cuyo top ha pasado el umbral gana */
-    for (const s of secciones) {
-      if (s.getBoundingClientRect().top <= umbral) activa = s;
+  const checkScroll = () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
     }
-    navEnlaces.forEach(e =>
-      e.classList.toggle('activo', !!activa && e.getAttribute('href') === `#${activa.id}`)
-    );
-  }
+  };
 
-  window.addEventListener('scroll', actualizar, { passive: true });
-  actualizar();
-})();
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll(); // Comprobación inicial
+}
 
+/**
+ * ScrollSpy para resaltar el enlace activo
+ */
+function initScrollSpy() {
+  const secciones = document.querySelectorAll('section[id]');
+  const enlacesMenu = document.querySelectorAll('.nav-enlace');
 
-/* ─── FAQ: acordeón animado con cierre automático ───────────────── */
-/* CSS controla la animación (grid-template-rows: 0fr ↔ 1fr).
-   JS solo gestiona la clase .abierto (no <details>/<summary> para
-   evitar interferencias con el UA de Chrome). */
-(function initFaq() {
-  const lista = document.querySelector('.faq-lista');
-  if (!lista) return;
+  if (secciones.length === 0 || enlacesMenu.length === 0) return;
 
-  lista.setAttribute('data-faq-anim', '');
-  const items = Array.from(lista.querySelectorAll('.faq-item'));
+  const options = {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  };
 
-  items.forEach(item => {
-    const btn = item.querySelector('.faq-pregunta');
-    btn.setAttribute('aria-expanded', item.classList.contains('abierto') ? 'true' : 'false');
-  });
-
-  items.forEach(item => {
-    item.querySelector('.faq-pregunta').addEventListener('click', () => {
-      const estaAbierto = item.classList.contains('abierto');
-
-      /* Cerrar todos */
-      items.forEach(otro => {
-        otro.classList.remove('abierto');
-        otro.querySelector('.faq-pregunta').setAttribute('aria-expanded', 'false');
-      });
-
-      /* Abrir el pulsado si estaba cerrado */
-      if (!estaAbierto) {
-        item.classList.add('abierto');
-        item.querySelector('.faq-pregunta').setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-})();
-
-
-/* ─── Animaciones de aparición al hacer scroll ───────────────────── */
-(function initScrollAnim() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const observer = new IntersectionObserver(entries => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        const id = entry.target.getAttribute('id');
+        enlacesMenu.forEach(enlace => {
+          enlace.classList.remove('activo');
+          enlace.style.color = 'var(--text-muted)';
+          
+          if (enlace.getAttribute('href') === `#${id}`) {
+            enlace.classList.add('activo');
+            enlace.style.color = 'var(--accent)'; // Resaltar visualmente
+          }
+        });
       }
     });
-  }, { threshold: 0.1 });
+  }, options);
 
-  document.querySelectorAll([
-    '.seccion-cabecera',
-    '.proceso-paso',
-    '.sobre-mi-inner',
-    '.faq-item',
-    '.contacto-info',
-    '.contacto-formulario'
-  ].join(', ')).forEach(el => {
-    el.classList.add('aparece');
-    observer.observe(el);
-  });
+  secciones.forEach(seccion => observer.observe(seccion));
+}
 
-  document.querySelectorAll(
-    '.servicios-grid > *, .portafolio-grid > *, .testimonios-grid > *'
-  ).forEach(el => {
-    const idx = [...el.parentElement.children].indexOf(el);
-    el.style.transitionDelay = (idx * 70) + 'ms';
-    el.classList.add('aparece');
-    observer.observe(el);
-  });
-})();
+/**
+ * FAQ Accordion con soporte de accesibilidad (ARIA)
+ */
+function initFaqAccordion() {
+  const botonesFaq = document.querySelectorAll('.faq-question');
 
-
-/* ─── Banner de cookies ──────────────────────────────────────────── */
-(function initCookies() {
-  if (localStorage.getItem('cookies-ok')) return;
-
-  const banner = document.createElement('div');
-  banner.className = 'cookie-banner';
-  banner.setAttribute('role', 'region');
-  banner.setAttribute('aria-label', 'Aviso de cookies');
-  banner.innerHTML =
-    '<p class="cookie-texto">' +
-      'Esta web usa únicamente cookies técnicas necesarias para su funcionamiento. ' +
-      'No rastreamos tu actividad ni compartimos datos con terceros.' +
-    '</p>' +
-    '<div class="cookie-acciones">' +
-      '<button class="btn btn--cta cookie-btn-aceptar">Entendido</button>' +
-    '</div>';
-
-  banner.querySelector('.cookie-btn-aceptar').addEventListener('click', () => {
-    localStorage.setItem('cookies-ok', '1');
-    banner.classList.remove('cookie-banner--visible');
-    banner.classList.add('cookie-banner--oculto');
-    banner.addEventListener('transitionend', () => banner.remove(), { once: true });
-  });
-
-  document.body.appendChild(banner);
-
-  /* Pequeño retraso para que la transición de entrada sea visible */
-  requestAnimationFrame(() => requestAnimationFrame(() =>
-    banner.classList.add('cookie-banner--visible')
-  ));
-})();
-
-
-/* ─── Formulario de contacto (Formspree via fetch) ──────────────── */
-const form       = document.getElementById('formulario-contacto');
-const formEstado = document.getElementById('form-estado');
-
-if (form && formEstado) {
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    const boton = form.querySelector('[type="submit"]');
-    const textoOriginal = boton.textContent.trim();
-    boton.disabled = true;
-    boton.textContent = 'Enviando…';
-    formEstado.className = 'form-estado';
-    formEstado.textContent = '';
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
+  botonesFaq.forEach(boton => {
+    boton.addEventListener('click', () => {
+      const isExpanded = boton.getAttribute('aria-expanded') === 'true';
+      
+      // Opcional: Cerrar otros abiertos (accordion style)
+      botonesFaq.forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
       });
 
-      if (res.ok) {
-        formEstado.className = 'form-estado form-estado--ok';
-        formEstado.textContent = '¡Mensaje enviado! Te respondo en menos de 24 h.';
+      // Toggle current
+      boton.setAttribute('aria-expanded', !isExpanded);
+    });
+  });
+}
+
+/**
+ * Scroll Reveal Animations usando IntersectionObserver
+ */
+function initScrollReveal() {
+  // Respetar prefers-reduced-motion
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mediaQuery.matches) return;
+
+  const elementos = document.querySelectorAll('.reveal');
+  if (elementos.length === 0) return;
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target); // Animamos solo una vez
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -10% 0px',
+    threshold: 0.1
+  });
+
+  elementos.forEach(el => observer.observe(el));
+}
+
+/**
+ * Manejo asíncrono del formulario (Formspree fallback)
+ */
+function initFormContacto() {
+  const form = document.getElementById('formulario-contacto');
+  const divEstado = document.getElementById('form-estado');
+
+  if (!form || !divEstado) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const btn = form.querySelector('button[type="submit"]');
+    const textoOriginal = btn.innerHTML;
+    
+    // UI state
+    btn.innerHTML = 'Enviando...';
+    btn.disabled = true;
+    divEstado.textContent = '';
+    divEstado.className = 'form-status';
+
+    try {
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        divEstado.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.';
+        divEstado.classList.add('exito');
         form.reset();
       } else {
-        throw new Error();
+        throw new Error('Error en la respuesta del servidor');
       }
-    } catch {
-      formEstado.className = 'form-estado form-estado--err';
-      formEstado.textContent = 'Algo salió mal. Escríbeme directamente por WhatsApp o al correo.';
+    } catch (error) {
+      divEstado.textContent = 'Hubo un problema al enviar el mensaje. Por favor, escríbeme por WhatsApp o email.';
+      divEstado.classList.add('error');
     } finally {
-      boton.disabled = false;
-      boton.innerHTML = textoOriginal +
-        '<svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+      btn.innerHTML = textoOriginal;
+      btn.disabled = false;
     }
   });
 }
