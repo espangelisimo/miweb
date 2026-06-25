@@ -17,22 +17,6 @@
   /* Tipografía */
   --fuente-display: 'Syne', system-ui, sans-serif;
   --fuente-cuerpo:  'DM Sans', system-ui, sans-serif;
-  --fuente-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-     --fuente-cuerpo:  'Inter', system-ui, sans-serif;
-
-  /* ── Fuentes alternativas: sustituye las dos líneas de arriba y cambia
-        el <link> de Google Fonts en cada HTML por la opción elegida ──────
-
-     Opción A · Plus Jakarta Sans + Inter  (moderna, redondeada, muy legible)
-     
-
-     Opción B · Outfit + Nunito Sans  (geométrica, amable, más cercana)
-     --fuente-display: 'Outfit', system-ui, sans-serif;
-     --fuente-cuerpo:  'Nunito Sans', system-ui, sans-serif;
-
-     Opción C · Raleway + DM Sans  (elegante, ligero; mantiene el cuerpo actual)
-     --fuente-display: 'Raleway', system-ui, sans-serif;
-     ──────────────────────────────────────────────────────────────────────── */
 
   /* Escala de texto (fluid/responsive) */
   --texto-xs:   clamp(0.75rem,  1.5vw, 0.875rem);
