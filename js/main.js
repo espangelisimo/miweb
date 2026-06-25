@@ -63,28 +63,15 @@ if (hamburguesa && navPrincipal && navOverlay) {
     if (e.key === 'Escape' && hamburguesa.getAttribute('aria-expanded') === 'true') cerrarMenu();
   });
 
-  /* Cerrar al hacer clic en un enlace. */
+  /* Cerrar al hacer clic en un enlace.
+     No prevenimos el default: la navegación nativa gestiona el scroll
+     (tanto anclas internas como enlaces a otra página).
+     scroll-behavior:smooth + scroll-padding-top en html cubren el offset
+     del header sticky sin ningún cálculo JS ni rAF. */
   navPrincipal.querySelectorAll('a').forEach(enlace =>
-    enlace.addEventListener('click', e => {
+    enlace.addEventListener('click', () => {
       if (!esMobil() || hamburguesa.getAttribute('aria-expanded') !== 'true') return;
-
-      const href = enlace.getAttribute('href');
-
-      /* Cerramos el menú sin devolver el foco al botón (el foco sigue al ancla) */
       cerrarMenu(false);
-
-      /* Solo para anclas internas reales: prevenimos el salto y hacemos scroll suave.
-         Enlaces externos o a otra página navegan de forma nativa. */
-      if (href && href.startsWith('#') && href.length > 1) {
-        e.preventDefault();
-        const destino = document.querySelector(href);
-        if (destino) {
-          requestAnimationFrame(() => {
-            destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            history.pushState(null, '', href);
-          });
-        }
-      }
     })
   );
 
