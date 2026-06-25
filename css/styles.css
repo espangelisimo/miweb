@@ -990,14 +990,10 @@ main section[id] {
   justify-content: space-between;
   align-items: center;
   gap: var(--e-4);
-  list-style: none;
   user-select: none;
   min-height: 44px;
   transition: background-color var(--t-normal);
 }
-
-.faq-pregunta::-webkit-details-marker { display: none; }
-.faq-pregunta::marker { display: none; }
 
 .faq-pregunta:hover { background: var(--color-superficie); }
 
@@ -1584,20 +1580,7 @@ figcaption {
    UTILIDADES
    ============================================================ */
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
 .texto-centro { text-align: center; }
-.texto-equilibrado { text-wrap: balance; }
 
 /* Animaciones de aparición en scroll (JS añade .aparece; al entrar en viewport, añade .visible) */
 .aparece {
