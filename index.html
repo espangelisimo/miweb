@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ángel Velarde — Diseño y desarrollo web en Sevilla</title>
+  <title>websinlio | Desarrollo WEB</title>
   <meta name="description" content="Diseño web profesional para negocios locales en Sevilla. Webs modernas, rápidas y accesibles diseñadas para convertir visitas en clientes.">
 
   <!-- Open Graph -->
@@ -25,10 +25,12 @@
   <link rel="canonical" href="[[PENDIENTE: URL del sitio]]">
 
   <!-- Favicon set -->
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-white.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
-  <meta name="theme-color" content="#233A5C">
+  <meta name="theme-color" content="#233A5C" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121C2A" media="(prefers-color-scheme: dark)">
 
   <!-- JSON-LD: Person + LocalBusiness -->
   <script type="application/ld+json">
@@ -89,7 +91,13 @@
   <header class="site-header" role="banner">
     <div class="container site-header__inner">
       <a href="index.html" class="logo" aria-label="Inicio">
-        Ángel Velarde<span class="logo__dot">.</span>
+        <picture>
+          <source srcset="assets/favicon-white.svg" media="(prefers-color-scheme: dark)">
+          <img src="assets/favicon.svg" alt="Logo de la empresa" class="logo__img" width="75">
+        </picture>
+        <span class="logo__text">
+          <span class="logo__color-1">web</span><span class="logo__color-2">sin</span><span class="logo__color-1">lio</span>
+        </span>
       </a>
 
       <nav id="menu-principal" class="nav-principal" aria-label="Navegación principal">
@@ -144,8 +152,8 @@
         
         <div class="hero-image-wrapper reveal" style="transition-delay: 200ms;">
           <picture>
-            <source srcset="img/hero-image.avif" type="image/avif">
-            <source srcset="img/hero-image.webp" type="image/webp">
+            <source srcset="img/hero-image.webp" type="image/avif">
+            <source srcset="img/hero-image.avif" type="image/webp">
             <!-- Fallback img para LCP: eager + fetchpriority high. Dimensiones 800x1000 (aspect 4:5) -->
             <img src="img/hero-image.jpg" alt="[MARCADOR: Foto de Ángel Velarde trabajando / Oficina]" 
                  width="800" height="1000" loading="eager" decoding="async" fetchpriority="high"
@@ -302,8 +310,8 @@
           <div class="about-grid">
             <div class="about-image">
               <picture>
-                <source srcset="img/about.avif" type="image/avif">
                 <source srcset="img/about.webp" type="image/webp">
+                <source srcset="img/about.jpg" type="image/jpg">
                 <img src="img/about.jpg" alt="[MARCADOR: Retrato de Ángel Velarde]" width="600" height="600" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
               </picture>
             </div>
@@ -456,7 +464,15 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Ángel Velarde<span class="logo__dot">.</span></a>
+          <a href="index.html" class="logo" aria-label="Inicio">
+            <picture>
+              <source srcset="assets/favicon-white.svg" media="(prefers-color-scheme: dark)">
+              <img src="assets/favicon.svg" alt="Logo Ángel Velarde" class="logo__img" width="75">
+            </picture>
+            <span class="logo__text">
+              <span class="logo__color-1">web</span><span class="logo__color-2">sin</span><span class="logo__color-1">lio</span>
+            </span>
+          </a>
           <p>Diseño y desarrollo web en Sevilla. Creando sitios que inspiran confianza, respetan a los usuarios y logran objetivos.</p>
         </div>
         
