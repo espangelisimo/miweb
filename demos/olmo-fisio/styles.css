@@ -2193,3 +2193,35 @@ select.form-select {
     transform: none;
   }
 }
+/* ── BARRA DE ACCIÓN MÓVIL ───────────────────────────────────── */
+.mobile-action-bar { display: none; }
+@media (max-width: 900px) {
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+  .btn-whatsapp-float { display: none; }
+  .mobile-action-bar {
+    display: flex;
+    gap: 8px;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 160;
+    padding: 10px 12px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    background: var(--rosa-800);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, .18);
+  }
+  .mab-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: .95rem;
+    text-decoration: none;
+    color: var(--rosa-800);
+    background: #fff;
+  }
+  .mab-wa { background: #25D366; color: #fff; }
+  .mab-cita { background: var(--rosa-600); color: #fff; }
+}

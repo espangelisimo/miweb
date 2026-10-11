@@ -507,12 +507,13 @@ strong { color: var(--color-text); font-weight: 600; }
   background: var(--color-primary-dark);
   border-top: 1px solid rgba(253,251,248,.1);
   padding: var(--space-3) var(--space-4);
+  padding-bottom: calc(var(--space-3) + env(safe-area-inset-bottom));
   gap: var(--space-3);
   box-shadow: 0 -4px 24px rgba(18,32,46,.30);
 }
 @media (max-width: 900px) {
   .mobile-bar { display: flex; }
-  body { padding-bottom: var(--mobile-bar-height); }
+  body { padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom)); }
 }
 .mobile-bar__btn {
   flex: 1;
@@ -595,7 +596,7 @@ strong { color: var(--color-text); font-weight: 600; }
 .cookie-banner a { color: var(--color-accent); text-decoration: underline; }
 .cookie-banner__actions { display: flex; gap: var(--space-3); flex-shrink: 0; }
 @media (max-width: 900px) {
-  .cookie-banner { bottom: 0; }
+  .cookie-banner { bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom)); z-index: 960; }
 }
 
 /* ── Breadcrumb ── */
@@ -638,3 +639,7 @@ strong { color: var(--color-text); font-weight: 600; }
 .reveal-delay-2        { transition-delay: .22s; }
 .reveal-delay-3        { transition-delay: .34s; }
 .reveal-delay-4        { transition-delay: .46s; }
+
+/* Insignia Google en hero */
+.hero__rating { display:inline-flex; align-items:center; gap:.35rem; margin-bottom:var(--space-4); padding:.3rem .8rem; border-radius:999px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); color:#fff; font-size:.85rem; font-weight:600; }
+.hero__rating span { color:#F5B301; }

@@ -170,3 +170,24 @@
 .contact > *, .project > * { min-width: 0; }
 .contact-way b { overflow-wrap: anywhere; }
 .range output { white-space: nowrap; }
+
+/* ---------- PRECIO (pasos) ---------- */
+.price-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 980px; margin: 0 auto; padding: 0; list-style: none; counter-reset: ps; }
+@media (max-width: 760px) { .price-steps { grid-template-columns: 1fr; } }
+.price-steps li { counter-increment: ps; display: grid; align-content: start; gap: .35rem; padding: 1.5rem; border-radius: var(--radius); background: var(--bg-alt); border: 1px solid var(--border); }
+.price-steps li::before { content: counter(ps); display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: .5rem; border-radius: 50%; background: var(--accent); color: var(--ink-900); font-weight: 800; }
+.price-steps b { color: var(--brand-ink); font-family: var(--font-display); font-size: var(--fs-lg); }
+.price-steps span { color: var(--text-muted); font-size: var(--fs-sm); }
+
+/* ---------- MANTENIMIENTO ---------- */
+#mantenimiento { background: var(--ink-900); }
+#mantenimiento .section-head p { color: rgb(255 255 255 / .7); }
+#mantenimiento .eyebrow { color: var(--accent); }
+.maint-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem); }
+.maint-head .section-head { max-width: 640px; }
+.maint__item { padding: 1.6rem; border-radius: var(--radius); background: rgb(255 255 255 / .04); border: 1px solid rgb(255 255 255 / .1); transition: border-color .25s, background-color .25s; }
+.maint__item:hover { border-color: color-mix(in oklch, var(--accent), transparent 50%); background: rgb(255 255 255 / .07); }
+.maint__item h3 { display: flex; align-items: center; gap: .6rem; font-size: var(--fs-lg); color: #fff; }
+.maint__item h3::before { content: "✓"; display: grid; place-items: center; flex: none; width: 26px; height: 26px; border-radius: 8px; background: var(--accent); color: var(--ink-900); font-size: .8rem; }
+.maint__item p { margin-top: .6rem; font-size: var(--fs-sm); color: rgb(255 255 255 / .65); }
+.maint__note { margin-top: 2rem; text-align: center; font-size: var(--fs-sm); color: rgb(255 255 255 / .6); }

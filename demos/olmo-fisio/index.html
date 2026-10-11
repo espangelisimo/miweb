@@ -103,7 +103,7 @@
       <!-- Logo -->
       <a href="#inicio" class="site-logo" aria-label="Olmo Fisioterapia — Ir al inicio">
         <div class="logo-mark" aria-hidden="true">
-          <img src="assets/icons/favicon.svg" alt="Logo de Olmo Fisioterapia" width="36" height="36">
+          <img src="assets/icons/favicon.svg" alt="Logo de Olmo Fisioterapia" width="36" height="36" loading="lazy" decoding="async">
         </div>
         <div class="logo-text-wrap">
           <span class="logo-name">Olmo Fisioterapia</span>
@@ -144,7 +144,7 @@
         <a href="#inicio" class="site-logo mobile-nav-link" style="padding:0;border-radius:0;font-size:inherit;"
           aria-label="Inicio">
           <div class="logo-mark" style="width:32px;height:32px;" aria-hidden="true">
-            <img src="assets/icons/favicon.svg" alt="Logo de Olmo Fisioterapia" width="32" height="32">
+            <img src="assets/icons/favicon.svg" alt="Logo de Olmo Fisioterapia" width="32" height="32" loading="lazy" decoding="async">
           </div>
           <span class="logo-name" style="font-size:0.9rem;">Olmo Fisioterapia</span>
         </a>
@@ -209,6 +209,12 @@
             solo calmar el síntoma.
           </p>
           <div class="hero-badges" role="list">
+            <a href="#opiniones" class="hero-badge hero-badge-google" role="listitem" aria-label="Nota 4,9 sobre 5 en Google, 86 reseñas" style="text-decoration:none;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" />
+              </svg>
+              4,9★ · 86 reseñas en Google
+            </a>
             <span class="hero-badge" role="listitem">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
@@ -236,7 +242,7 @@
             <a href="https://wa.me/34600000000" class="btn btn-secondary" target="_blank" rel="noopener"
               aria-label="Pedir cita por WhatsApp (abre en nueva pestaña)">
               <img src="assets/icons/whatsapp-icon-verde-agua.svg" width="20" height="20"
-                alt="icono whatsapp rosa o verde agua">
+                alt="WhatsApp" loading="lazy" decoding="async">
               WhatsApp
             </a>
             <a href="tel:+34600000000" class="btn btn-secondary" aria-label="Llamar al 600 000 000">
@@ -254,7 +260,7 @@
           <div class="hero-img-deco"></div>
           <img src="assets/img/hero.webp"
             alt="Fisioterapeuta aplicando terapia manual a un paciente en la consulta de Olmo Fisioterapia"
-            width="600" height="500" class="hero-img" fetchpriority="high">
+            width="1200" height="800" class="hero-img" fetchpriority="high" decoding="async">
         </div>
       </div>
     </section>
@@ -310,430 +316,7 @@
       </div>
     </section>
 
-    <!-- ─── THREAD WRAPPER (hilo continuo) ───────────────── -->
-    <div class="thread-wrapper">
-      <div class="thread-rail" aria-hidden="true"></div>
-
-      <!-- ─── EL CENTRO / FILOSOFÍA ───────────────────────── -->
-      <section class="section" id="centro" aria-labelledby="centro-title">
-        <div class="container">
-          <div class="centro-inner">
-            <div class="centro-content reveal">
-              <div class="section-header">
-                <p class="eyebrow">Nuestro centro</p>
-                <h2 id="centro-title">Bienvenidos a Olmo Fisioterapia</h2>
-              </div>
-              <p>
-                Somos un centro de fisioterapia con más de 15 años de experiencia profesional. A través de la
-                fisioterapia y de las distintas formaciones realizadas a lo largo de nuestra trayectoria, ayudamos a
-                nuestros pacientes a cuidar, mantener y restablecer su estado de salud.
-              </p>
-              <p style="margin-top:16px;">
-                Partimos de una visión <strong class="centro-highlight">global</strong> del cuerpo: lo entendemos como
-                un todo interrelacionado, profundizando en las posibles <strong class="centro-highlight">causas</strong>
-                del problema y no solo en el foco de la dolencia.
-              </p>
-              <p style="margin-top:16px;">
-                El reciclaje y el aprendizaje continuo de nuevas técnicas de tratamiento —todas con <strong
-                  class="centro-highlight">evidencia científica</strong> y homologadas— es una máxima en nuestro
-                desarrollo profesional y una seña de identidad del centro.
-              </p>
-              <div style="margin-top:28px;">
-                <a href="#contacto" class="btn btn-primary">Pide tu cita ahora</a>
-              </div>
-            </div>
-            <div class="reveal reveal-delay-2">
-              <img src="assets/img/centro.svg"
-                alt="Interior de la consulta de Olmo Fisioterapia, ambiente luminoso y profesional" width="560"
-                height="420" class="centro-img" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── SERVICIOS / TÉCNICAS ─────────────────────────── -->
-      <section class="section section-mid" id="servicios" aria-labelledby="servicios-title">
-        <div class="container">
-          <div class="section-header centered">
-            <p class="eyebrow">Nuestros servicios</p>
-            <h2 id="servicios-title">Técnicas y tratamientos</h2>
-            <p class="text-lead" style="margin-top:12px;">
-              Formación continua para ofrecerte las técnicas más eficaces, siempre con base científica y adaptadas a tu
-              caso.
-            </p>
-          </div>
-
-          <div class="servicios-grid">
-
-            <!-- 1. Osteopatía -->
-            <article class="servicio-card reveal">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <ellipse cx="14" cy="8" rx="5" ry="7" stroke="currentColor" stroke-width="2" />
-                  <path d="M9 14c0 4 2 9 5 9s5-5 5-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M6 18h4M18 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Osteopatía</h3>
-              <p class="servicio-desc servicio-short">Acercamiento diagnóstico y terapéutico manual a las disfunciones
-                de movilidad articular y de los tejidos, buscando la pérdida de movilidad en cualquier estructura del
-                cuerpo para prevenirla y restaurarla.</p>
-              <p class="servicio-desc servicio-full">Acercamiento diagnóstico y terapéutico manual a las disfunciones de
-                movilidad articular y de los tejidos en general, por su implicación en la aparición de enfermedades.
-                Busca la pérdida de movilidad en cualquier estructura del cuerpo (óseo, visceral, craneal…) y la
-                restablece mediante técnicas manuales para prevenir y recuperar lesiones.</p>
-              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
-            </article>
-
-            <!-- 2. Método Poyet -->
-            <article class="servicio-card reveal reveal-delay-1">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M8 20c0-5 3-10 6-10s6 5 6 10" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" />
-                  <path d="M5 14c1-3 3-5 5-5M23 14c-1-3-3-5-5-5" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" />
-                  <circle cx="14" cy="8" r="2" fill="currentColor" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Método Poyet</h3>
-              <p class="servicio-desc servicio-short">Terapia manual basada en la osteopatía que considera la globalidad
-                del cuerpo: todo está entrelazado y no puede tratarse por partes aisladas. Busca la causa primaria y
-                restablece el equilibrio del organismo.</p>
-              <p class="servicio-desc servicio-full">Terapia manual basada en la osteopatía que considera la globalidad
-                del cuerpo: todo está entrelazado y no puede tratarse por partes aisladas. A lo largo de la vida el
-                cuerpo genera compensaciones (musculares, articulares, fasciales, viscerales…) buscando armonía; cuando
-                esa armonía se pierde, aparece la patología. El Método Poyet busca la causa primaria y restablece el
-                equilibrio para devolver al organismo la armonía perdida.</p>
-              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
-            </article>
-
-            <!-- 3. Inducción miofascial -->
-            <article class="servicio-card reveal reveal-delay-2">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M4 14c4-6 8-6 12 0s8 6 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M4 18c4-4 8-4 12 0s8 4 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    opacity="0.6" />
-                  <path d="M4 10c4-4 8-4 12 0s8 4 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    opacity="0.4" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Inducción miofascial</h3>
-              <p class="servicio-desc servicio-short">Método de evaluación y tratamiento del sistema fascial mediante
-                presiones sostenidas y estiramientos muy suaves. Apto para todas las edades, desde bebés hasta personas
-                de la tercera edad.</p>
-              <p class="servicio-desc servicio-full">Método de evaluación y tratamiento tridimensional del sistema
-                fascial mediante presiones sostenidas, posicionamientos específicos y estiramientos muy suaves, para
-                eliminar restricciones y equilibrar la función corporal. La fascia envuelve órganos, músculos y fibras
-                de forma continua, de ahí la importancia de tratarla. Son técnicas muy suaves, aptas para pacientes de
-                todas las edades, desde bebés hasta personas de la tercera edad.</p>
-              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
-            </article>
-
-            <!-- 4. Método Pialoux -->
-            <article class="servicio-card reveal">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <line x1="14" y1="4" x2="14" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M10 8c0 2 4 3 4 5s-4 3-4 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    opacity="0.6" />
-                  <path d="M18 8c0 2-4 3-4 5s4 3 4 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    opacity="0.6" />
-                  <circle cx="14" cy="6" r="2" fill="currentColor" opacity="0.5" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Método Pialoux (acupuntura)</h3>
-              <p class="servicio-desc servicio-short">Toma de la Medicina Tradicional China la acupuntura para localizar
-                desequilibrios energéticos y restablecer la circulación normal de la energía. Su finalidad principal es
-                la prevención y el mantenimiento del equilibrio.</p>
-              <p class="servicio-desc servicio-full">Toma de la Medicina Tradicional China la acupuntura. Mediante
-                agujas y el diagnóstico sobre la arteria radial se localizan los desequilibrios energéticos del cuerpo
-                para restablecer la circulación normal de la energía, de modo que todas las estructuras del organismo
-                funcionen correctamente. Su finalidad principal es la prevención: ayudar a mantener el equilibrio y una
-                buena higiene de vida (idealmente con una visita por estación, o más frecuente ante un problema agudo).
-              </p>
-              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
-            </article>
-
-            <!-- 5. Fisioterapia en músicos -->
-            <article class="servicio-card reveal reveal-delay-1">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M18 4v12a4 4 0 11-2-3.46V8l-8 2v10a4 4 0 11-2-3.46V6l12-2z" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Fisioterapia en músicos</h3>
-              <p class="servicio-desc servicio-short">El músico enfrenta alto riesgo de lesión por movimientos
-                repetitivos y posturas forzadas. Valoramos las alteraciones posturales y aplicamos fisioterapia
-                específica, mejorando también la calidad y creatividad musical.</p>
-              <p class="servicio-desc servicio-full">El trabajo del músico conlleva alto riesgo de lesión por
-                movimientos repetitivos y posturas forzadas. Mediante la valoración de las alteraciones posturales, el
-                tratamiento de fisioterapia adaptado a cada lesión y la reeducación postural (con y sin instrumento),
-                mejoran la recuperación, la prevención de lesiones y la propia calidad y creatividad del músico.</p>
-              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
-            </article>
-
-            <!-- 6. Recomendaciones nutricionales -->
-            <article class="servicio-card reveal reveal-delay-2">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M14 4c-5 0-8 5-8 10 0 3 2 6 5 7l1 3h4l1-3c3-1 5-4 5-7 0-5-3-10-8-10z" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M14 4c0 4-4 7-4 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    opacity="0.5" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Recomendaciones nutricionales</h3>
-              <p class="servicio-desc servicio-short">La alimentación influye directamente en la salud del aparato
-                locomotor. Con orientación nutricional se pueden tratar y mejorar tendinitis, cefaleas, dolor, fatiga y
-                otros síntomas relacionados.</p>
-              <p class="servicio-desc servicio-full">Del "somos lo que comemos" se entiende la importancia de la
-                alimentación para la salud. Con consejos nutricionales se pueden tratar y mejorar muchas patologías:
-                tendinitis, cefaleas, dolor, fatiga y otros síntomas relacionados. El nutriente no es solo energía:
-                puede favorecer la regeneración celular o, al contrario, la degeneración.</p>
-              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
-            </article>
-
-            <!-- 7. Terapia craneal bebés -->
-            <article class="servicio-card reveal">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <circle cx="14" cy="12" r="7" stroke="currentColor" stroke-width="2" />
-                  <path d="M10 19l-2 6M18 19l2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M12 8c0 1 1 2 2 2s2-1 2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    opacity="0.6" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Terapia craneal en bebés y niños</h3>
-              <p class="servicio-desc">Terapia craneal suave, especialmente indicada para los más pequeños. Un cuidado
-                delicado y experto desde los primeros meses de vida.</p>
-            </article>
-
-            <!-- 8. Fisioterapia deportiva -->
-            <article class="servicio-card reveal reveal-delay-1">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <circle cx="18" cy="5" r="2.5" fill="currentColor" opacity="0.7" />
-                  <path d="M14 9l-4 8 4 4M14 9l4 4-2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                  <path d="M6 17l4-4M22 17l-4-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Fisioterapia deportiva</h3>
-              <p class="servicio-desc">Tratamiento y prevención de lesiones en deportistas de todos los niveles, con
-                protocolos adaptados a las demandas específicas de cada actividad deportiva.</p>
-            </article>
-
-            <!-- 9. Medio acuático -->
-            <article class="servicio-card reveal reveal-delay-2">
-              <div class="servicio-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M4 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" />
-                  <path d="M4 22c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" opacity="0.5" />
-                  <path d="M9 14c2-4 5-7 8-7 1.5 0 2.5.5 3 1.5" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" />
-                  <circle cx="19" cy="8" r="2" fill="currentColor" opacity="0.6" />
-                </svg>
-              </div>
-              <h3 class="servicio-name">Reeducación en el medio acuático</h3>
-              <p class="servicio-desc">Programa de reeducación del movimiento en agua para la prevención y la
-                recuperación de lesiones, aprovechando las propiedades terapéuticas del medio acuático.</p>
-            </article>
-
-          </div><!-- /servicios-grid -->
-        </div>
-      </section>
-
-      <!-- ─── ¿QUÉ TRATAMOS? ───────────────────────────────── -->
-      <section class="section section-deepdark" id="dolencias" aria-labelledby="dolencias-title">
-        <div class="container">
-          <div class="section-header centered">
-            <p class="eyebrow">¿Te identificas con alguno de estos problemas?</p>
-            <h2 id="dolencias-title">Te ayudamos con…</h2>
-            <p style="margin-top:12px;color:var(--rosa-300);max-width:52ch;text-align:center;">
-              Si llevas tiempo conviviendo con cualquiera de estas molestias, tenemos la formación y la experiencia para
-              ayudarte a superarlas.
-            </p>
-          </div>
-          <div class="dolencias-grid">
-            <div class="dolencia-chip reveal">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 2C8 2 5 7 5 12s3 10 7 10 7-5 7-10S16 2 12 2z" stroke="currentColor" stroke-width="2" />
-                <path d="M12 8v8M9 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-              Cervicalgias
-            </div>
-            <div class="dolencia-chip reveal reveal-delay-1">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 2v20M8 6l4-4 4 4M8 18l4 4 4-4" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" />
-              </svg>
-              Lumbalgias
-            </div>
-            <div class="dolencia-chip reveal reveal-delay-2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 12c0-3 2-6 6-6s6 3 6 6-3 5-6 5" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" />
-                <path d="M12 17v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-              Contracturas musculares
-            </div>
-            <div class="dolencia-chip reveal reveal-delay-3">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 12c4-8 12-8 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                <path d="M4 16c4-6 12-6 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  opacity="0.6" />
-              </svg>
-              Problemas musculares
-            </div>
-            <div class="dolencia-chip reveal">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
-                <path d="M8 12c0-2 2-4 4-4s4 2 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-              Tendinitis
-            </div>
-            <div class="dolencia-chip reveal reveal-delay-1">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="2" />
-                <path d="M12 13v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-              Cefaleas y migrañas
-            </div>
-            <div class="dolencia-chip reveal reveal-delay-2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M14 5c3 0 5 2 5 5 0 4-5 9-7 9S5 14 5 10c0-3 2-5 5-5" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" />
-                <circle cx="12" cy="10" r="2" fill="currentColor" opacity="0.5" />
-              </svg>
-              Lesiones deportivas
-            </div>
-          </div>
-          <div class="dolencias-cta reveal">
-            <p style="color:var(--rosa-300);margin-bottom:20px;text-align:center;">¿Tienes alguna otra molestia?
-              Consúltanos sin compromiso.</p>
-            <a href="#contacto" class="btn btn-primary">Pide tu valoración</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── EQUIPO ─────────────────────────────────────────── -->
-      <section class="section" id="equipo" aria-labelledby="equipo-title">
-        <div class="container">
-          <div class="section-header centered">
-            <p class="eyebrow">Nuestro equipo</p>
-            <h2 id="equipo-title">Profesionales comprometidos con tu salud</h2>
-            <p class="text-lead" style="margin-top:12px;text-align:center;">
-              Dos fisioterapeutas colegiados con más de 15 años de experiencia, en formación permanente para ofrecerte
-              siempre lo mejor.
-            </p>
-          </div>
-          <div class="equipo-grid">
-
-            <!-- Marta -->
-            <article class="equipo-card reveal">
-              <div class="equipo-img-wrap">
-                <img src="assets/img/equipo-marta.svg"
-                  alt="Marta, fisioterapeuta colegiado/a en Olmo Fisioterapia" width="400" height="300"
-                  class="equipo-img" loading="lazy">
-                <span class="equipo-coleg-badge">Colegiado/a</span>
-              </div>
-              <div class="equipo-body">
-                <p class="equipo-titulo">Fisioterapeuta</p>
-                <h3 class="equipo-name">Marta</h3>
-                <p class="equipo-exp">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
-                    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  </svg>
-                  Más de 15 años de experiencia
-                </p>
-                <div class="equipo-especialidades" aria-label="Especialidades de Marta">
-                  <span class="tag">Inducción miofascial</span>
-                  <span class="tag">Osteopatía</span>
-                  <span class="tag">Nutrición y lesiones</span>
-                  <span class="tag">Terapia craneal bebés</span>
-                  <span class="tag">Fisioterapia en músicos</span>
-                  <span class="tag">Fisioterapia deportiva</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Daniel -->
-            <article class="equipo-card reveal reveal-delay-2">
-              <div class="equipo-img-wrap">
-                <img src="assets/img/equipo-daniel.svg"
-                  alt="Daniel, fisioterapeuta colegiado/a en Olmo Fisioterapia" width="400" height="300"
-                  class="equipo-img" loading="lazy">
-                <span class="equipo-coleg-badge">Colegiado/a</span>
-              </div>
-              <div class="equipo-body">
-                <p class="equipo-titulo">Fisioterapeuta</p>
-                <h3 class="equipo-name">Daniel</h3>
-                <p class="equipo-exp">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
-                    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  </svg>
-                  Más de 15 años de experiencia
-                </p>
-                <div class="equipo-especialidades" aria-label="Especialidades de Daniel">
-                  <span class="tag">Método Poyet</span>
-                  <span class="tag">Método Pialoux</span>
-                  <span class="tag">Terapia craneal bebés</span>
-                  <span class="tag">Fisioterapia en músicos</span>
-                  <span class="tag">Fisioterapia deportiva</span>
-                  <span class="tag">Reeducación acuática</span>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── TU PRIMERA VISITA ─────────────────────────────── -->
-      <section class="section section-mid" id="proceso" aria-labelledby="proceso-title">
-        <div class="container">
-          <div class="section-header centered">
-            <p class="eyebrow">Cómo trabajamos</p>
-            <h2 id="proceso-title">Tu primera visita, paso a paso</h2>
-            <p class="text-lead" style="margin-top:12px;text-align:center;max-width:54ch;">
-              Sabemos que llegar a una consulta nueva puede generar dudas. Aquí te contamos exactamente qué esperar
-              desde el primer momento.
-            </p>
-          </div>
-          <div class="proceso-steps">
-            <div class="proceso-step reveal">
-              <h3 class="proceso-step-title">Valoración</h3>
-              <p class="proceso-step-desc">Te escuchamos y evaluamos tu caso teniendo en cuenta tu cuerpo en conjunto,
-                sin prisa y con atención plena.</p>
-            </div>
-            <div class="proceso-step reveal reveal-delay-1">
-              <h3 class="proceso-step-title">Diagnóstico global</h3>
-              <p class="proceso-step-desc">Buscamos el origen del problema, no solo dónde duele. Miramos el cuerpo como
-                un todo interrelacionado.</p>
-            </div>
-            <div class="proceso-step reveal reveal-delay-2">
-              <h3 class="proceso-step-title">Tratamiento personalizado</h3>
-              <p class="proceso-step-desc">Aplicamos las técnicas manuales que mejor se adaptan a ti, siempre suaves y
-                basadas en evidencia científica.</p>
-            </div>
-            <div class="proceso-step reveal reveal-delay-3">
-              <h3 class="proceso-step-title">Seguimiento y prevención</h3>
-              <p class="proceso-step-desc">Te acompañamos en la recuperación y te damos pautas para evitar recaídas y
-                mantener tu bienestar a largo plazo.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- QUITAR SCRIPT PARA MOSTRAR SECCIÓN RESEÑAS. DESCOMENTAR BOTON OPINIONES DEL NAV. CODIGO 11551155 -->
-      <script type="text/plain" data-comment>
-      <!-- ─── OPINIONES / RESEÑAS ───────────────────────────── -->
+    <!-- ─── OPINIONES (movidas arriba) ─── -->
       <section class="section section-dark" id="opiniones" aria-labelledby="opiniones-title">
         <div class="container">
           <div class="section-header centered">
@@ -869,6 +452,442 @@
 
         </div>
       </section>
+
+    <!-- ─── THREAD WRAPPER (hilo continuo) ───────────────── -->
+    <div class="thread-wrapper">
+      <div class="thread-rail" aria-hidden="true"></div>
+
+      <!-- ─── EL CENTRO / FILOSOFÍA ───────────────────────── -->
+      <section class="section" id="centro" aria-labelledby="centro-title">
+        <div class="container">
+          <div class="centro-inner">
+            <div class="centro-content reveal">
+              <div class="section-header">
+                <p class="eyebrow">Nuestro centro</p>
+                <h2 id="centro-title">Bienvenidos a Olmo Fisioterapia</h2>
+              </div>
+              <p>
+                Somos un centro de fisioterapia con más de 15 años de experiencia profesional. A través de la
+                fisioterapia y de las distintas formaciones realizadas a lo largo de nuestra trayectoria, ayudamos a
+                nuestros pacientes a cuidar, mantener y restablecer su estado de salud.
+              </p>
+              <p style="margin-top:16px;">
+                Partimos de una visión <strong class="centro-highlight">global</strong> del cuerpo: lo entendemos como
+                un todo interrelacionado, profundizando en las posibles <strong class="centro-highlight">causas</strong>
+                del problema y no solo en el foco de la dolencia.
+              </p>
+              <p style="margin-top:16px;">
+                El reciclaje y el aprendizaje continuo de nuevas técnicas de tratamiento —todas con <strong
+                  class="centro-highlight">evidencia científica</strong> y homologadas— es una máxima en nuestro
+                desarrollo profesional y una seña de identidad del centro.
+              </p>
+              <div style="margin-top:28px;">
+                <a href="#contacto" class="btn btn-primary">Pide tu cita ahora</a>
+              </div>
+            </div>
+            <div class="reveal reveal-delay-2">
+              <img src="assets/img/centro.svg"
+                alt="Interior de la consulta de Olmo Fisioterapia, ambiente luminoso y profesional" width="560"
+                height="420" class="centro-img" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── SERVICIOS / TÉCNICAS ─────────────────────────── -->
+      <section class="section section-mid" id="servicios" aria-labelledby="servicios-title">
+        <div class="container">
+          <div class="section-header centered">
+            <p class="eyebrow">Nuestros servicios</p>
+            <h2 id="servicios-title">Técnicas y tratamientos</h2>
+            <p class="text-lead" style="margin-top:12px;">
+              Formación continua para ofrecerte las técnicas más eficaces, siempre con base científica y adaptadas a tu
+              caso.
+            </p>
+          </div>
+
+          <p class="servicios-bonos" style="text-align:center;font-weight:700;margin:0 0 24px;">Sesión de fisioterapia desde 40 € · Osteopatía desde 50 € · Bonos de 5 sesiones desde 180 € <span style="font-weight:400;">(precios orientativos)</span></p>
+
+          <div class="servicios-grid">
+
+            <!-- 1. Osteopatía -->
+            <article class="servicio-card reveal">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <ellipse cx="14" cy="8" rx="5" ry="7" stroke="currentColor" stroke-width="2" />
+                  <path d="M9 14c0 4 2 9 5 9s5-5 5-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M6 18h4M18 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Osteopatía</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Sesión desde 50 €</p>
+              <p class="servicio-desc servicio-short">Acercamiento diagnóstico y terapéutico manual a las disfunciones
+                de movilidad articular y de los tejidos, buscando la pérdida de movilidad en cualquier estructura del
+                cuerpo para prevenirla y restaurarla.</p>
+              <p class="servicio-desc servicio-full">Acercamiento diagnóstico y terapéutico manual a las disfunciones de
+                movilidad articular y de los tejidos en general, por su implicación en la aparición de enfermedades.
+                Busca la pérdida de movilidad en cualquier estructura del cuerpo (óseo, visceral, craneal…) y la
+                restablece mediante técnicas manuales para prevenir y recuperar lesiones.</p>
+              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
+            </article>
+
+            <!-- 2. Método Poyet -->
+            <article class="servicio-card reveal reveal-delay-1">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path d="M8 20c0-5 3-10 6-10s6 5 6 10" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                  <path d="M5 14c1-3 3-5 5-5M23 14c-1-3-3-5-5-5" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                  <circle cx="14" cy="8" r="2" fill="currentColor" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Método Poyet</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Sesión desde 50 €</p>
+              <p class="servicio-desc servicio-short">Terapia manual basada en la osteopatía que considera la globalidad
+                del cuerpo: todo está entrelazado y no puede tratarse por partes aisladas. Busca la causa primaria y
+                restablece el equilibrio del organismo.</p>
+              <p class="servicio-desc servicio-full">Terapia manual basada en la osteopatía que considera la globalidad
+                del cuerpo: todo está entrelazado y no puede tratarse por partes aisladas. A lo largo de la vida el
+                cuerpo genera compensaciones (musculares, articulares, fasciales, viscerales…) buscando armonía; cuando
+                esa armonía se pierde, aparece la patología. El Método Poyet busca la causa primaria y restablece el
+                equilibrio para devolver al organismo la armonía perdida.</p>
+              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
+            </article>
+
+            <!-- 3. Inducción miofascial -->
+            <article class="servicio-card reveal reveal-delay-2">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path d="M4 14c4-6 8-6 12 0s8 6 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M4 18c4-4 8-4 12 0s8 4 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    opacity="0.6" />
+                  <path d="M4 10c4-4 8-4 12 0s8 4 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    opacity="0.4" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Inducción miofascial</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Sesión desde 40 €</p>
+              <p class="servicio-desc servicio-short">Método de evaluación y tratamiento del sistema fascial mediante
+                presiones sostenidas y estiramientos muy suaves. Apto para todas las edades, desde bebés hasta personas
+                de la tercera edad.</p>
+              <p class="servicio-desc servicio-full">Método de evaluación y tratamiento tridimensional del sistema
+                fascial mediante presiones sostenidas, posicionamientos específicos y estiramientos muy suaves, para
+                eliminar restricciones y equilibrar la función corporal. La fascia envuelve órganos, músculos y fibras
+                de forma continua, de ahí la importancia de tratarla. Son técnicas muy suaves, aptas para pacientes de
+                todas las edades, desde bebés hasta personas de la tercera edad.</p>
+              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
+            </article>
+
+            <!-- 4. Método Pialoux -->
+            <article class="servicio-card reveal">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <line x1="14" y1="4" x2="14" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M10 8c0 2 4 3 4 5s-4 3-4 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    opacity="0.6" />
+                  <path d="M18 8c0 2-4 3-4 5s4 3 4 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    opacity="0.6" />
+                  <circle cx="14" cy="6" r="2" fill="currentColor" opacity="0.5" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Método Pialoux (acupuntura)</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Sesión desde 45 €</p>
+              <p class="servicio-desc servicio-short">Toma de la Medicina Tradicional China la acupuntura para localizar
+                desequilibrios energéticos y restablecer la circulación normal de la energía. Su finalidad principal es
+                la prevención y el mantenimiento del equilibrio.</p>
+              <p class="servicio-desc servicio-full">Toma de la Medicina Tradicional China la acupuntura. Mediante
+                agujas y el diagnóstico sobre la arteria radial se localizan los desequilibrios energéticos del cuerpo
+                para restablecer la circulación normal de la energía, de modo que todas las estructuras del organismo
+                funcionen correctamente. Su finalidad principal es la prevención: ayudar a mantener el equilibrio y una
+                buena higiene de vida (idealmente con una visita por estación, o más frecuente ante un problema agudo).
+              </p>
+              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
+            </article>
+
+            <!-- 5. Fisioterapia en músicos -->
+            <article class="servicio-card reveal reveal-delay-1">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path d="M18 4v12a4 4 0 11-2-3.46V8l-8 2v10a4 4 0 11-2-3.46V6l12-2z" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Fisioterapia en músicos</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Sesión desde 40 €</p>
+              <p class="servicio-desc servicio-short">El músico enfrenta alto riesgo de lesión por movimientos
+                repetitivos y posturas forzadas. Valoramos las alteraciones posturales y aplicamos fisioterapia
+                específica, mejorando también la calidad y creatividad musical.</p>
+              <p class="servicio-desc servicio-full">El trabajo del músico conlleva alto riesgo de lesión por
+                movimientos repetitivos y posturas forzadas. Mediante la valoración de las alteraciones posturales, el
+                tratamiento de fisioterapia adaptado a cada lesión y la reeducación postural (con y sin instrumento),
+                mejoran la recuperación, la prevención de lesiones y la propia calidad y creatividad del músico.</p>
+              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
+            </article>
+
+            <!-- 6. Recomendaciones nutricionales -->
+            <article class="servicio-card reveal reveal-delay-2">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path d="M14 4c-5 0-8 5-8 10 0 3 2 6 5 7l1 3h4l1-3c3-1 5-4 5-7 0-5-3-10-8-10z" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M14 4c0 4-4 7-4 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    opacity="0.5" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Recomendaciones nutricionales</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Consulta desde 35 €</p>
+              <p class="servicio-desc servicio-short">La alimentación influye directamente en la salud del aparato
+                locomotor. Con orientación nutricional se pueden tratar y mejorar tendinitis, cefaleas, dolor, fatiga y
+                otros síntomas relacionados.</p>
+              <p class="servicio-desc servicio-full">Del "somos lo que comemos" se entiende la importancia de la
+                alimentación para la salud. Con consejos nutricionales se pueden tratar y mejorar muchas patologías:
+                tendinitis, cefaleas, dolor, fatiga y otros síntomas relacionados. El nutriente no es solo energía:
+                puede favorecer la regeneración celular o, al contrario, la degeneración.</p>
+              <button class="servicio-expand-btn" aria-expanded="false">Leer más</button>
+            </article>
+
+            <!-- 7. Terapia craneal bebés -->
+            <article class="servicio-card reveal">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="12" r="7" stroke="currentColor" stroke-width="2" />
+                  <path d="M10 19l-2 6M18 19l2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M12 8c0 1 1 2 2 2s2-1 2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    opacity="0.6" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Terapia craneal en bebés y niños</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Sesión desde 45 €</p>
+              <p class="servicio-desc">Terapia craneal suave, especialmente indicada para los más pequeños. Un cuidado
+                delicado y experto desde los primeros meses de vida.</p>
+            </article>
+
+            <!-- 8. Fisioterapia deportiva -->
+            <article class="servicio-card reveal reveal-delay-1">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle cx="18" cy="5" r="2.5" fill="currentColor" opacity="0.7" />
+                  <path d="M14 9l-4 8 4 4M14 9l4 4-2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M6 17l4-4M22 17l-4-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Fisioterapia deportiva</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Sesión desde 40 €</p>
+              <p class="servicio-desc">Tratamiento y prevención de lesiones en deportistas de todos los niveles, con
+                protocolos adaptados a las demandas específicas de cada actividad deportiva.</p>
+            </article>
+
+            <!-- 9. Medio acuático -->
+            <article class="servicio-card reveal reveal-delay-2">
+              <div class="servicio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path d="M4 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                  <path d="M4 22c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" opacity="0.5" />
+                  <path d="M9 14c2-4 5-7 8-7 1.5 0 2.5.5 3 1.5" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                  <circle cx="19" cy="8" r="2" fill="currentColor" opacity="0.6" />
+                </svg>
+              </div>
+              <h3 class="servicio-name">Reeducación en el medio acuático</h3>
+              <p class="servicio-precio" style="font-weight:700;color:var(--rosa-600);margin:0 0 8px;">Sesión desde 30 €</p>
+              <p class="servicio-desc">Programa de reeducación del movimiento en agua para la prevención y la
+                recuperación de lesiones, aprovechando las propiedades terapéuticas del medio acuático.</p>
+            </article>
+
+          </div><!-- /servicios-grid -->
+        </div>
+      </section>
+
+      <!-- ─── ¿QUÉ TRATAMOS? ───────────────────────────────── -->
+      <section class="section section-deepdark" id="dolencias" aria-labelledby="dolencias-title">
+        <div class="container">
+          <div class="section-header centered">
+            <p class="eyebrow">¿Te identificas con alguno de estos problemas?</p>
+            <h2 id="dolencias-title">Te ayudamos con…</h2>
+            <p style="margin-top:12px;color:var(--rosa-300);max-width:52ch;text-align:center;">
+              Si llevas tiempo conviviendo con cualquiera de estas molestias, tenemos la formación y la experiencia para
+              ayudarte a superarlas.
+            </p>
+          </div>
+          <div class="dolencias-grid">
+            <div class="dolencia-chip reveal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2C8 2 5 7 5 12s3 10 7 10 7-5 7-10S16 2 12 2z" stroke="currentColor" stroke-width="2" />
+                <path d="M12 8v8M9 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Cervicalgias
+            </div>
+            <div class="dolencia-chip reveal reveal-delay-1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2v20M8 6l4-4 4 4M8 18l4 4 4-4" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
+              Lumbalgias
+            </div>
+            <div class="dolencia-chip reveal reveal-delay-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 12c0-3 2-6 6-6s6 3 6 6-3 5-6 5" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+                <path d="M12 17v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Contracturas musculares
+            </div>
+            <div class="dolencia-chip reveal reveal-delay-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 12c4-8 12-8 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M4 16c4-6 12-6 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  opacity="0.6" />
+              </svg>
+              Problemas musculares
+            </div>
+            <div class="dolencia-chip reveal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+                <path d="M8 12c0-2 2-4 4-4s4 2 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Tendinitis
+            </div>
+            <div class="dolencia-chip reveal reveal-delay-1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="2" />
+                <path d="M12 13v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Cefaleas y migrañas
+            </div>
+            <div class="dolencia-chip reveal reveal-delay-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M14 5c3 0 5 2 5 5 0 4-5 9-7 9S5 14 5 10c0-3 2-5 5-5" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+                <circle cx="12" cy="10" r="2" fill="currentColor" opacity="0.5" />
+              </svg>
+              Lesiones deportivas
+            </div>
+          </div>
+          <div class="dolencias-cta reveal">
+            <p style="color:var(--rosa-300);margin-bottom:20px;text-align:center;">¿Tienes alguna otra molestia?
+              Consúltanos sin compromiso.</p>
+            <a href="#contacto" class="btn btn-primary">Pide tu valoración</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── EQUIPO ─────────────────────────────────────────── -->
+      <section class="section" id="equipo" aria-labelledby="equipo-title">
+        <div class="container">
+          <div class="section-header centered">
+            <p class="eyebrow">Nuestro equipo</p>
+            <h2 id="equipo-title">Profesionales comprometidos con tu salud</h2>
+            <p class="text-lead" style="margin-top:12px;text-align:center;">
+              Dos fisioterapeutas colegiados con más de 15 años de experiencia, en formación permanente para ofrecerte
+              siempre lo mejor.
+            </p>
+          </div>
+          <div class="equipo-grid">
+
+            <!-- Marta -->
+            <article class="equipo-card reveal">
+              <div class="equipo-img-wrap">
+                <img src="assets/img/equipo-marta.svg"
+                  alt="Marta, fisioterapeuta colegiado/a en Olmo Fisioterapia" width="400" height="300"
+                  class="equipo-img" loading="lazy" decoding="async">
+                <span class="equipo-coleg-badge">Colegiado/a</span>
+              </div>
+              <div class="equipo-body">
+                <p class="equipo-titulo">Fisioterapeuta</p>
+                <h3 class="equipo-name">Marta</h3>
+                <p class="equipo-exp">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                  Más de 15 años de experiencia
+                </p>
+                <div class="equipo-especialidades" aria-label="Especialidades de Marta">
+                  <span class="tag">Inducción miofascial</span>
+                  <span class="tag">Osteopatía</span>
+                  <span class="tag">Nutrición y lesiones</span>
+                  <span class="tag">Terapia craneal bebés</span>
+                  <span class="tag">Fisioterapia en músicos</span>
+                  <span class="tag">Fisioterapia deportiva</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Daniel -->
+            <article class="equipo-card reveal reveal-delay-2">
+              <div class="equipo-img-wrap">
+                <img src="assets/img/equipo-daniel.svg"
+                  alt="Daniel, fisioterapeuta colegiado/a en Olmo Fisioterapia" width="400" height="300"
+                  class="equipo-img" loading="lazy" decoding="async">
+                <span class="equipo-coleg-badge">Colegiado/a</span>
+              </div>
+              <div class="equipo-body">
+                <p class="equipo-titulo">Fisioterapeuta</p>
+                <h3 class="equipo-name">Daniel</h3>
+                <p class="equipo-exp">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                  Más de 15 años de experiencia
+                </p>
+                <div class="equipo-especialidades" aria-label="Especialidades de Daniel">
+                  <span class="tag">Método Poyet</span>
+                  <span class="tag">Método Pialoux</span>
+                  <span class="tag">Terapia craneal bebés</span>
+                  <span class="tag">Fisioterapia en músicos</span>
+                  <span class="tag">Fisioterapia deportiva</span>
+                  <span class="tag">Reeducación acuática</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── TU PRIMERA VISITA ─────────────────────────────── -->
+      <section class="section section-mid" id="proceso" aria-labelledby="proceso-title">
+        <div class="container">
+          <div class="section-header centered">
+            <p class="eyebrow">Cómo trabajamos</p>
+            <h2 id="proceso-title">Tu primera visita, paso a paso</h2>
+            <p class="text-lead" style="margin-top:12px;text-align:center;max-width:54ch;">
+              Sabemos que llegar a una consulta nueva puede generar dudas. Aquí te contamos exactamente qué esperar
+              desde el primer momento.
+            </p>
+          </div>
+          <div class="proceso-steps">
+            <div class="proceso-step reveal">
+              <h3 class="proceso-step-title">Valoración</h3>
+              <p class="proceso-step-desc">Te escuchamos y evaluamos tu caso teniendo en cuenta tu cuerpo en conjunto,
+                sin prisa y con atención plena.</p>
+            </div>
+            <div class="proceso-step reveal reveal-delay-1">
+              <h3 class="proceso-step-title">Diagnóstico global</h3>
+              <p class="proceso-step-desc">Buscamos el origen del problema, no solo dónde duele. Miramos el cuerpo como
+                un todo interrelacionado.</p>
+            </div>
+            <div class="proceso-step reveal reveal-delay-2">
+              <h3 class="proceso-step-title">Tratamiento personalizado</h3>
+              <p class="proceso-step-desc">Aplicamos las técnicas manuales que mejor se adaptan a ti, siempre suaves y
+                basadas en evidencia científica.</p>
+            </div>
+            <div class="proceso-step reveal reveal-delay-3">
+              <h3 class="proceso-step-title">Seguimiento y prevención</h3>
+              <p class="proceso-step-desc">Te acompañamos en la recuperación y te damos pautas para evitar recaídas y
+                mantener tu bienestar a largo plazo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- QUITAR SCRIPT PARA MOSTRAR SECCIÓN RESEÑAS. DESCOMENTAR BOTON OPINIONES DEL NAV. CODIGO 11551155 -->
+      <script type="text/plain" data-comment>
+      <!-- ─── OPINIONES / RESEÑAS ───────────────────────────── -->
 
     </div><!-- /thread-wrapper -->
     </script>
@@ -1013,7 +1032,7 @@
               <a href="https://wa.me/34600000000" class="contact-way" target="_blank" rel="noopener"
                 aria-label="Pedir cita por WhatsApp (abre en nueva pestaña)">
                 <div class="contact-way-icon wa" aria-hidden="true">
-                  <img src="assets/icons/whatsapp-icon-verde.svg" width="28" height="28" alt="icono whatsapp verde">
+                  <img src="assets/icons/whatsapp-icon-verde.svg" width="28" height="28" alt="icono whatsapp verde" loading="lazy" decoding="async">
                 </div>
                 <div>
                   <span class="contact-way-label">WhatsApp</span>
@@ -1094,6 +1113,7 @@
                   <strong>Horario:</strong> L–V 9:00–14:00 y 17:00–21:00
                 </div>
               </div>
+              <p style="margin:12px 0 0;"><a href="https://www.google.com/maps/dir/?api=1&destination=37.3826,-5.9730" class="btn btn-secondary btn-sm" target="_blank" rel="noopener">Cómo llegar</a></p>
             </address>
           </div>
 
@@ -1126,33 +1146,12 @@
                   <p class="form-error" role="alert"></p>
                 </div>
 
-                <div class="form-group">
-                  <label for="email" class="form-label">Correo electrónico</label>
-                  <input type="email" id="email" name="email" class="form-control" placeholder="tu@email.es (opcional)"
-                    autocomplete="email" inputmode="email">
-                  <p class="form-error" role="alert"></p>
-                </div>
+
 
                 <div class="form-group">
-                  <label for="como-conociste" class="form-label">¿Cómo nos conociste? <span
-                      style="color:var(--tinta-60);font-weight:400;">(opcional)</span></label>
-                  <select id="como-conociste" name="como_conociste" class="form-control form-select" autocomplete="off">
-                    <option value="">Selecciona una opción</option>
-                    <option value="Google">Búsqueda de Google</option>
-                    <option value="IA">Preguntando a una IA</option>
-                    <option value="Recomendacion">Recomendación de amigos o familiares</option>
-                    <option value="Redes sociales">Redes sociales</option>
-                    <option value="Ya soy cliente">Ya soy cliente</option>
-                    <option value="Pasaba por delante">Pasaba por delante</option>
-                    <option value="Otros">Otros</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="consulta" class="form-label">Tu consulta <span aria-hidden="true">*</span></label>
+                  <label for="consulta" class="form-label">Mensaje <span style="color:var(--tinta-60);font-weight:400;">(opcional)</span></label>
                   <textarea id="consulta" name="message" class="form-control"
-                    placeholder="Cuéntanos brevemente qué te ocurre o qué necesitas..." rows="4" required
-                    aria-required="true"></textarea>
+                    placeholder="Cuéntanos brevemente qué te ocurre o qué necesitas..." rows="4"></textarea>
                   <p class="form-error" role="alert"></p>
                 </div>
 
@@ -1202,7 +1201,7 @@
         <div class="footer-brand">
           <a href="#inicio" class="site-logo" aria-label="Olmo Fisioterapia — Ir al inicio">
             <div class="logo-mark" aria-hidden="true">
-              <img src="assets/icons/favicon.svg" alt="Logo de Olmo Fisioterapia" width="36" height="36">
+              <img src="assets/icons/favicon.svg" alt="Logo de Olmo Fisioterapia" width="36" height="36" loading="lazy" decoding="async">
             </div>
             <div class="logo-text-wrap">
               <span class="logo-name">Olmo Fisioterapia</span>
@@ -1318,12 +1317,19 @@
   <!-- ═══════════════════════════════════════════════════════
      BOTÓN FLOTANTE WHATSAPP
 ═══════════════════════════════════════════════════════════ -->
-  <a href="https://wa.me/34600000000" class="btn-whatsapp-float" target="_blank" rel="noopener"
+  <a href="https://wa.me/34600000000?text=Hola%2C%20quiero%20pedir%20cita" class="btn-whatsapp-float" target="_blank" rel="noopener"
     aria-label="Pedir cita por WhatsApp">
     <span class="wa-float-icon" aria-hidden="true">
-      <img src="assets/icons/whatsapp-icon-blanco.svg" width="28" height="28" alt="icono whatsapp blanco">
+      <img src="assets/icons/whatsapp-icon-blanco.svg" width="28" height="28" alt="icono whatsapp blanco" loading="lazy" decoding="async">
     </span>
   </a>
+
+  <!-- BARRA DE ACCIÓN MÓVIL -->
+  <nav class="mobile-action-bar" aria-label="Acciones rápidas">
+    <a href="tel:+34600000000" class="mab-btn">Llamar</a>
+    <a href="https://wa.me/34600000000?text=Hola%2C%20quiero%20pedir%20cita" class="mab-btn mab-wa" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="#contacto" class="mab-btn mab-cita">Pedir cita</a>
+  </nav>
   <!-- Scripts -->
   <script src="config.js"></script>
   <script src="main.js"></script>
