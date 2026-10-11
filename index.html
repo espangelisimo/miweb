@@ -308,11 +308,8 @@
           </div>
         </div>
 
-        <!-- Formulario gestionado por Web3Forms (ver _negocio/GUIA-DOMINIO-Y-FORMULARIO.md) -->
-        <form class="form info-card" action="https://api.web3forms.com/submit" method="POST" novalidate data-form>
-          <input type="hidden" name="access_key" value="[[WEB3FORMS_KEY]]">
-          <input type="hidden" name="subject" value="Nueva solicitud desde websinlio">
-          <input type="hidden" name="from_name" value="Web websinlio">
+        <!-- Formulario → functions/api/contacto.js (D1 + aviso por email). Ver _negocio/GUIA-FORMULARIO-CLOUDFLARE.md -->
+        <form class="form info-card" action="/api/contacto" method="POST" novalidate data-form>
           <fieldset class="choice">
             <legend>¿Qué necesitas?</legend>
             <label><input type="radio" name="necesidad" value="Auditoría gratuita" checked><span>Auditoría gratis</span></label>
@@ -330,6 +327,7 @@
           <div class="field"><label for="f-msg">Algo más que deba saber <span style="font-weight:400;color:var(--text-muted)">(opcional)</span></label><textarea id="f-msg" name="mensaje" rows="3" placeholder="Ej.: me llaman poco desde la web, quiero que me reserven online…"></textarea></div>
           <label class="consent"><input type="checkbox" name="privacidad" value="Acepta" required> <span>He leído y acepto la <a href="privacidad.html">política de privacidad</a>.</span></label>
           <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="cf-turnstile" data-sitekey="[[TURNSTILE_SITEKEY]]" data-language="es" data-size="flexible"></div>
           <button class="btn btn--primary btn--lg" type="submit">Quiero mi auditoría gratis</button>
           <p class="form__note">Responsable: Ángel Velarde Naranjo. Finalidad: responder a tu solicitud. No cedo tus datos a nadie. <a href="privacidad.html">Más información</a>.</p>
           <div class="form__success" role="status">¡Recibido! Te escribo en menos de 48 h con lo que encuentre. Si tienes prisa, escríbeme por WhatsApp.</div>
@@ -384,5 +382,6 @@
 
   <script src="js/base.js" defer></script>
   <script src="js/site.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

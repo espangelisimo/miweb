@@ -82,7 +82,8 @@
 
     form.addEventListener('submit', async e => {
       e.preventDefault();
-      if ($('[name="botcheck"]', form)?.value) return;
+      const bot = $('[name="botcheck"]', form);
+      if (bot && (bot.type === 'checkbox' ? bot.checked : bot.value)) return;
       const fields = $$('input:not([type=hidden]):not([name=botcheck]), textarea, select', form);
       const ok = fields.map(check).every(Boolean);
       if (!ok) { fields.find(f => f.getAttribute('aria-invalid') === 'true' || !f.checkValidity())?.focus(); return; }
@@ -99,6 +100,7 @@
         track('formulario');
       } catch (err) {
         console.warn('[form]', err.message);
+        window.turnstile?.reset();
         btn.disabled = false; btn.textContent = label;
         alert('No se ha podido enviar. Llámanos o escríbenos por WhatsApp, por favor.');
       }
