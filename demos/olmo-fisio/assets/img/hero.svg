@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#FBE9EF"/>
+  <rect x="60" y="60" width="680" height="480" rx="24" fill="#F6CFDD" stroke="#ED9FBA" stroke-width="2" stroke-dasharray="8 4"/>
+  <!-- Camera icon -->
+  <path d="M340 260 a20 20 0 0 1 20-20 h80 a20 20 0 0 1 20 20v100a20 20 0 0 1-20 20H360a20 20 0 0 1-20-20z" fill="none" stroke="#A93A5D" stroke-width="3"/>
+  <circle cx="400" cy="310" r="28" fill="none" stroke="#A93A5D" stroke-width="3"/>
+  <circle cx="400" cy="310" r="12" fill="#C24E72" opacity="0.4"/>
+  <rect x="360" y="250" width="20" height="12" rx="4" fill="#A93A5D"/>
+  <!-- Labels -->
+  <text x="400" y="410" font-family="sans-serif" font-size="18" font-weight="600" fill="#8E2F50" text-anchor="middle">REEMPLAZAR CON FOTO REAL</text>
+  <text x="400" y="436" font-family="sans-serif" font-size="14" fill="#6E5C66" text-anchor="middle">hero.webp — Sesión de fisioterapia / terapia manual</text>
+  <text x="400" y="460" font-family="sans-serif" font-size="13" fill="#6E5C66" text-anchor="middle">Formato recomendado: 1200×800px, WebP</text>
+</svg>

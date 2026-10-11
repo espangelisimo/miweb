@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://[[DOMINIO]]/demos/olmo-fisio/sitemap.xml
