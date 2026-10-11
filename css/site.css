@@ -191,3 +191,5 @@
 .maint__item h3::before { content: "✓"; display: grid; place-items: center; flex: none; width: 26px; height: 26px; border-radius: 8px; background: var(--accent); color: var(--ink-900); font-size: .8rem; }
 .maint__item p { margin-top: .6rem; font-size: var(--fs-sm); color: rgb(255 255 255 / .65); }
 .maint__note { margin-top: 2rem; text-align: center; font-size: var(--fs-sm); color: rgb(255 255 255 / .6); }
+.teaser { text-decoration: none; color: inherit; }
+.teaser .card__link { margin-top: 1.25rem; color: var(--brand); }

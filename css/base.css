@@ -318,3 +318,14 @@ p { text-wrap: pretty; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- PÁGINAS INTERIORES ---------- */
+.page-hero { padding-block: clamp(2rem, 1.5rem + 3vw, 4.5rem); background: linear-gradient(180deg, var(--bg-alt), var(--bg)); border-bottom: 1px solid var(--border); }
+.page-hero h1 { max-width: 22ch; font-size: clamp(2rem, 1.5rem + 2.4vw, 3.2rem); font-weight: 800; }
+.page-hero__lead { margin-top: 1rem; max-width: 60ch; font-size: var(--fs-lg); color: var(--text-muted); }
+.page-hero .btn-row { align-items: center; margin-top: 1.75rem; gap: 1rem 1.5rem; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.25rem; padding: 0; list-style: none; font-size: var(--fs-xs); color: var(--text-muted); }
+.breadcrumbs li:not(:last-child)::after { content: "/"; margin-left: .4rem; opacity: .5; }
+.breadcrumbs a { color: var(--text-muted); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--brand); }
+.breadcrumbs [aria-current] { color: var(--brand-ink); font-weight: 600; }
