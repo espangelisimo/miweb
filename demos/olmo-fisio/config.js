@@ -26,8 +26,8 @@ const CFG = {
 
   formKey:   '[[DEMO]]',
 
-  dominio:   'https://[[DOMINIO]]/demos/olmo-fisio/',
-  ogImage:   'https://[[DOMINIO]]/demos/olmo-fisio/assets/img/hero.webp',
+  dominio:   'https://websinlio.com/demos/olmo-fisio/',
+  ogImage:   'https://websinlio.com/demos/olmo-fisio/assets/img/hero.webp',
 
   googleReviewsUrl: '#',
   valoracionMedia:  '4.9',

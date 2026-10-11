@@ -3,4 +3,4 @@ Allow: /
 Disallow: /panel/
 Disallow: /api/
 
-Sitemap: https://[[DOMINIO]]/sitemap.xml
+Sitemap: https://websinlio.com/sitemap.xml

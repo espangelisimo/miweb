@@ -2,25 +2,25 @@
 <!-- Demo ficticia -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://[[DOMINIO]]/demos/olmo-fisio/</loc>
+    <loc>https://websinlio.com/demos/olmo-fisio/</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://[[DOMINIO]]/demos/olmo-fisio/aviso-legal.html</loc>
+    <loc>https://websinlio.com/demos/olmo-fisio/aviso-legal.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://[[DOMINIO]]/demos/olmo-fisio/politica-privacidad.html</loc>
+    <loc>https://websinlio.com/demos/olmo-fisio/politica-privacidad.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://[[DOMINIO]]/demos/olmo-fisio/politica-cookies.html</loc>
+    <loc>https://websinlio.com/demos/olmo-fisio/politica-cookies.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
