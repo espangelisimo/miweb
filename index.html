@@ -6,7 +6,7 @@
   <title>Diseño web para negocios locales en Sevilla | websinlio</title>
   <meta name="description" content="Encuentro dónde pierde clientes tu web y te la rehago. Ves tu web nueva antes de pagar nada. Diseño web para negocios locales en Sevilla, por Ángel Velarde.">
   <link rel="canonical" href="https://websinlio.com/">
-  <meta name="theme-color" content="#1c2a40">
+  <meta name="theme-color" content="#f4f1ea">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
@@ -23,7 +23,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/site.css">
 
@@ -44,7 +44,12 @@
         "priceRange": "€€",
         "areaServed": [{ "@type": "City", "name": "Sevilla" }, { "@type": "AdministrativeArea", "name": "Provincia de Sevilla" }],
         "address": { "@type": "PostalAddress", "addressLocality": "Sevilla", "addressRegion": "Andalucía", "addressCountry": "ES" },
-        "founder": { "@id": "https://websinlio.com/#angel" }
+        "founder": { "@id": "https://websinlio.com/#angel" },
+        "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Servicios", "itemListElement": [
+          { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Auditoría gratuita de fugas de clientes", "description": "Análisis de la web, la ficha de Google y la competencia local para ver por dónde se escapan los clientes." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño web para negocios locales", "description": "Web nueva o rehecha que tapa cada fuga, enseñada terminada antes de pagar." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento web sin permanencia", "description": "Alojamiento, cambios, copias de seguridad e informe mensual." } }
+        ] }
       },
       {
         "@type": "Person",
@@ -92,93 +97,102 @@
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero-x">
-      <div class="container">
-        <div>
-          <span class="pill reveal"><i>Nuevo</i> Ves tu web nueva antes de pagar</span>
-          <h1 class="reveal" style="--d:.05s">Tu web debería traerte clientes, <span class="hl">no espantarlos.</span></h1>
-          <p class="lead reveal" style="--d:.1s">Analizo por dónde se escapan los clientes de tu negocio en internet y te hago una web que lo soluciona. Te la enseño terminada, y solo si te convence, hablamos de precio.</p>
+    <!-- HERO: menos lío, más clientes -->
+    <section class="hx">
+      <div class="container hx__grid">
+        <div class="hx__copy">
+          <p class="hx__kicker reveal">Diseño web para negocios locales · Sevilla</p>
+          <h1 class="hx__title reveal" style="--d:.05s">Menos lío.<br><span>Más clientes.</span></h1>
+          <p class="hx__lead reveal" style="--d:.1s">Busco por dónde se te escapan los clientes hacia la competencia y te hago la web que lo arregla. <strong>Te la enseño terminada</strong>, y solo si te convence hablamos de precio.</p>
           <div class="btn-row reveal" style="--d:.15s">
             <a class="btn btn--primary btn--lg" href="#contacto"><svg><use href="#i-search"/></svg>Analiza mi web gratis</a>
-            <a class="btn btn--outline-light btn--lg" href="https://wa.me/34640562563?text=Hola%20%C3%81ngel%2C%20me%20interesa%20mejorar%20la%20web%20de%20mi%20negocio" data-track="whatsapp"><svg><use href="#i-wa"/></svg>Escríbeme por WhatsApp</a>
+            <a class="btn btn--ghost btn--lg" href="https://wa.me/34640562563?text=Hola%20%C3%81ngel%2C%20me%20interesa%20mejorar%20la%20web%20de%20mi%20negocio" data-track="whatsapp"><svg><use href="#i-wa"/></svg>Escríbeme por WhatsApp</a>
           </div>
-          <ul class="hero-x__trust reveal" style="--d:.2s">
-            <li>Sin pagar por adelantado</li>
-            <li>Trato directo conmigo</li>
-            <li>Negocios locales de Sevilla</li>
+          <ul class="hx__trust reveal" style="--d:.2s">
+            <li>No pagas nada por adelantado</li>
+            <li>Hablas siempre conmigo</li>
+            <li>Clínicas, talleres, bares, peluquerías…</li>
           </ul>
         </div>
 
-        <div class="audit reveal" style="--d:.15s" aria-label="Ejemplo de auditoría de una web">
-          <span class="audit__tag">Ejemplo de auditoría</span>
-          <div class="audit__head">
-            <span class="audit__url">tunegocio.es · móvil</span>
-            <span class="audit__score"><strong>38/100</strong><small>velocidad en móvil</small></span>
+        <figure class="informe reveal" style="--d:.12s" aria-label="Ejemplo de informe de fugas de una web">
+          <span class="informe__sello" aria-hidden="true">Gratis</span>
+          <header class="informe__head">
+            <span>Informe de fugas</span>
+            <code>tunegocio.es · móvil</code>
+          </header>
+          <ol class="informe__list">
+            <li><b>El teléfono no se puede pulsar</b><small>Hay que copiarlo a mano. Escribe al de al lado.</small><em>Botón Llamar</em></li>
+            <li><b>No hay WhatsApp</b><small>El canal que más usan tus clientes.</small><em>Chat directo</em></li>
+            <li><b>Tarda 6 s en cargar</b><small>Vuelve atrás y toca el siguiente resultado.</small><em>&lt; 2 s</em></li>
+            <li><b>Tus 4,8 ★ no se ven</b><small>Tu mejor argumento, escondido.</small><em>Reseñas arriba</em></li>
+          </ol>
+          <figcaption class="informe__foot"><span>Clientes que se van a la competencia</span><strong>≈ 12–20 <small>al mes</small></strong></figcaption>
+        </figure>
+      </div>
+
+      <!-- El hilo: el nudo del logo que se desenreda y sube -->
+      <svg class="hilo" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="hilo-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+            <stop offset=".3" stop-color="var(--accent)"/><stop offset=".36" stop-color="var(--brand-ink)"/>
+          </linearGradient>
+        </defs>
+        <path class="hilo__line" pathLength="1" d="M-20 200 L120 200 C200 200 232 104 186 100 C140 96 150 204 250 200 C330 196 352 104 306 100 C260 96 270 204 380 200 C520 196 610 204 700 196 C750 192 772 120 800 120 C832 120 842 200 872 200 C902 200 912 120 942 120 C972 120 982 200 1012 200 C1052 200 1090 120 1172 34"/>
+        <path class="hilo__tip" d="M1124 44 L1174 32 L1184 82"/>
+      </svg>
+    </section>
+
+    <!-- 01 · EL PROBLEMA: el camino del cliente -->
+    <section class="section camino" id="fugas">
+      <div class="container">
+        <header class="sh">
+          <span class="sh__num">01</span>
+          <div>
+            <h2>Tu cliente no se queja.<br>Se va al de al lado.</h2>
+            <p>Entre que alguien busca lo que vendes y te llama hay cuatro momentos. En cada uno puede irse con tu competencia, casi siempre por algo que se arregla. Es lo que encuentro una y otra vez en negocios de Sevilla.</p>
           </div>
-          <ul>
-            <li><span class="dot">!</span><span><b>El teléfono no se puede pulsar</b><small>Hay que copiarlo a mano</small></span><span class="fix">Botón Llamar</span></li>
-            <li><span class="dot">!</span><span><b>No hay WhatsApp</b><small>El canal que más usa tu cliente</small></span><span class="fix">Chat directo</span></li>
-            <li><span class="dot">!</span><span><b>Tarda 6 s en cargar</b><small>Muchos se van antes de verla</small></span><span class="fix">&lt; 2 s</span></li>
-            <li><span class="dot">!</span><span><b>Tus 4,8★ no se ven</b><small>Tu mejor argumento, escondido</small></span><span class="fix">Reseñas arriba</span></li>
-          </ul>
-          <div class="audit__foot"><span>Clientes que se escapan al mes</span><strong>≈ 12–20</strong></div>
-        </div>
+        </header>
+
+        <ol class="ruta">
+          <li class="reveal">
+            <span class="ruta__paso">Te busca</span>
+            <h3>No te encuentra</h3>
+            <p class="ruta__fuga">Busca "tu servicio + tu barrio" y salen otros antes que tú. Elige entre los que ve.</p>
+            <p class="ruta__fix">Google local, tu ficha cuidada y una página por servicio.</p>
+          </li>
+          <li class="reveal" style="--d:.06s">
+            <span class="ruta__paso">Entra</span>
+            <h3>Se va en 5 segundos</h3>
+            <p class="ruta__fuga">Tarda en cargar o no se entiende qué haces ni dónde estás. Vuelve atrás y toca el siguiente.</p>
+            <p class="ruta__fix">Carga en menos de 2 s y lo importante, en la primera pantalla.</p>
+          </li>
+          <li class="reveal" style="--d:.12s">
+            <span class="ruta__paso">Duda</span>
+            <h3>No se fía</h3>
+            <p class="ruta__fuga">Sin precios, fotos reales ni reseñas, el de al lado parece más seguro aunque sea peor.</p>
+            <p class="ruta__fix">Tus reseñas, tus fotos y precios orientativos a la vista.</p>
+          </li>
+          <li class="reveal" style="--d:.18s">
+            <span class="ruta__paso">Quiere contactar</span>
+            <h3>Quiere, pero no puede</h3>
+            <p class="ruta__fuga">Teléfono que no se pulsa, sin WhatsApp, formulario eterno. La fuga más cara: ya te había elegido.</p>
+            <p class="ruta__fix">Llamar, WhatsApp o reservar, siempre a un toque.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <div class="sectors">
-      <div class="container">
-        <p>Trabajo con negocios locales:</p>
-        <span class="chip">Clínicas</span><span class="chip">Fisioterapia</span><span class="chip">Restaurantes</span><span class="chip">Talleres</span><span class="chip">Peluquerías</span><span class="chip">Reformas</span><span class="chip">Comercios</span>
-      </div>
-    </div>
-
-    <!-- FUGAS -->
-    <section class="section" id="fugas">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">El problema</span>
-          <h2>Tu web no se ve mal. Se le escapan clientes.</h2>
-          <p>Casi nadie se queja de una web: simplemente se va a la de al lado. Estas son las fugas que encuentro una y otra vez en negocios de Sevilla.</p>
-        </div>
-        <div class="grid grid--4">
-          <article class="leak reveal">
-            <span class="leak__num">FUGA 01</span>
-            <h3>No te encuentran</h3>
-            <p>Buscan "tu servicio + tu barrio" en Google y aparece tu competencia, no tú.</p>
-            <div class="leak__fix">SEO local y ficha de Google optimizada</div>
-          </article>
-          <article class="leak reveal" style="--d:.06s">
-            <span class="leak__num">FUGA 02</span>
-            <h3>Se van en 5 segundos</h3>
-            <p>Carga lenta, no se adapta al móvil o no se entiende qué haces ni dónde estás.</p>
-            <div class="leak__fix">Rápida, clara y pensada para el móvil</div>
-          </article>
-          <article class="leak reveal" style="--d:.12s">
-            <span class="leak__num">FUGA 03</span>
-            <h3>No se fían</h3>
-            <p>Sin reseñas visibles, sin fotos reales, sin precios orientativos. Dudan y siguen buscando.</p>
-            <div class="leak__fix">Reseñas, fotos reales y precios claros</div>
-          </article>
-          <article class="leak reveal" style="--d:.18s">
-            <span class="leak__num">FUGA 04</span>
-            <h3>Quieren, pero no pueden</h3>
-            <p>Teléfono que no se pulsa, sin WhatsApp, formularios eternos. La fuga más cara de todas.</p>
-            <div class="leak__fix">Llamar o escribir, siempre a un toque</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CALCULADORA -->
-    <section class="section section--alt" id="calculadora">
-      <div class="container">
-        <div class="section-head section-head--center">
-          <span class="eyebrow">Haz la cuenta</span>
-          <h2>¿Cuánto te cuesta una web que no convierte?</h2>
-          <p>Mueve los valores con los datos aproximados de tu negocio.</p>
-        </div>
+    <!-- 02 · LA CUENTA -->
+    <section class="section cuenta" id="calculadora">
+      <div class="container cuenta__grid">
+        <header class="sh sh--dark">
+          <span class="sh__num">02</span>
+          <div>
+            <h2>¿Cuánto se lleva la competencia?</h2>
+            <p>Mueve los valores con los datos aproximados de tu negocio.</p>
+          </div>
+        </header>
         <div class="calc reveal" data-calc>
           <div class="calc__form">
             <div class="range">
@@ -198,7 +212,7 @@
             </div>
           </div>
           <div class="calc__result" aria-live="polite">
-            <span>Estás dejando de ganar aprox.</span>
+            <span>Se lo está llevando otro, aprox.</span>
             <span class="big" data-out="month">600 € <small>/ mes</small></span>
             <span><span class="year" data-out="year">7.200 € al año</span> · <span data-out="clients">10 clientes/mes</span></span>
             <a class="btn btn--primary" href="#contacto">Quiero saber mi cifra real</a>
@@ -208,104 +222,106 @@
       </div>
     </section>
 
-    <!-- PROCESO -->
+    <!-- 03 · CÓMO TRABAJO -->
     <section class="section" id="como-trabajo">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Cómo trabajo</span>
-          <h2>Primero te lo demuestro. Después hablamos.</h2>
-          <p>Sin reuniones eternas ni presupuestos a ciegas. Ves el resultado antes de decidir.</p>
-        </div>
-        <ol class="process">
-          <li class="is-free reveal"><h3>Analizo tu web</h3><p>Reviso tu web y tu ficha de Google como lo haría un cliente desde el móvil, y detecto dónde se escapan.</p></li>
-          <li class="is-free reveal" style="--d:.06s"><h3>Te hago la nueva</h3><p>Diseño la web solucionando cada fuga, con tus servicios, tus reseñas y tu marca.</p></li>
-          <li class="is-free reveal" style="--d:.12s"><h3>Te la enseño</h3><p>Te mando un vídeo corto con el antes y el después. Lo ves cuando quieras, sin compromiso.</p></li>
-          <li class="reveal" style="--d:.18s"><h3>La publicamos</h3><p>Si te convence, la ajustamos con tus datos y la ponemos en marcha en pocos días.</p></li>
+        <header class="sh">
+          <span class="sh__num">03</span>
+          <div>
+            <h2>Primero te lo demuestro.<br>Después hablamos.</h2>
+            <p>Sin reuniones eternas ni presupuestos a ciegas. Ves el resultado antes de decidir.</p>
+          </div>
+        </header>
+        <ol class="metodo">
+          <li class="reveal"><span class="metodo__n">01</span><h3>Analizo tu web</h3><p>Reviso tu web, tu ficha de Google y a tu competencia como lo haría un cliente desde el móvil.</p><span class="metodo__coste">Gratis</span></li>
+          <li class="reveal" style="--d:.06s"><span class="metodo__n">02</span><h3>Te hago la nueva</h3><p>Diseño la web tapando cada fuga, con tus servicios, tus reseñas y tu marca.</p><span class="metodo__coste">Gratis</span></li>
+          <li class="reveal" style="--d:.12s"><span class="metodo__n">03</span><h3>Te la enseño</h3><p>Te mando un vídeo de 90 segundos con el antes y el después. Lo ves cuando quieras.</p><span class="metodo__coste">Gratis</span></li>
+          <li class="metodo__pago reveal" style="--d:.18s"><span class="metodo__n">04</span><h3>La publicamos</h3><p>Si te convence, la ajustamos con tus datos y la ponemos en marcha en pocos días.</p><span class="metodo__coste">Solo si te convence</span></li>
         </ol>
       </div>
     </section>
 
-    <!-- PROYECTOS -->
-    <section class="section section--alt" id="proyectos">
+    <!-- 04 · PROYECTOS -->
+    <section class="section proyectos" id="proyectos">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Proyectos</span>
-          <h2>Webs pensadas para que el cliente dé el paso</h2>
-          <p>Proyectos demostrativos con negocios ficticios, construidos con el mismo método que aplico a cada cliente.</p>
-        </div>
+        <header class="sh">
+          <span class="sh__num">04</span>
+          <div>
+            <h2>Webs pensadas para que el cliente dé el paso</h2>
+            <p>Proyectos demostrativos con negocios ficticios, construidos con el mismo método que aplico a cada cliente.</p>
+          </div>
+        </header>
 
         <article class="project reveal">
-          <a class="project__media" href="demos/velia-dental/" target="_blank" rel="noopener">
-            <img src="img/demo-velia.webp" alt="Página de inicio de la web de Velia Clínica Dental" width="1200" height="758" loading="lazy">
+          <a class="project__media" href="demos/velia-dental/" target="_blank" rel="noopener" aria-label="Abrir la demo de Velia Clínica Dental">
+            <span class="project__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="img/demo-velia.webp" alt="Página de inicio de la web de Velia Clínica Dental" width="1200" height="758" loading="lazy" decoding="async">
           </a>
-          <div>
-            <span class="project__meta">Clínica dental · Proyecto demostrativo</span>
+          <div class="project__body">
+            <span class="project__meta">Clínica dental · Varias páginas</span>
             <h3>Velia Clínica Dental</h3>
-            <p>Web completa de varias páginas para una clínica dental, enfocada en que el paciente pida su primera visita.</p>
-            <ul class="checklist">
+            <p>Enfocada en que el paciente pida su primera visita.</p>
+            <ol class="tapadas">
               <li>Primera visita gratis y teléfono siempre visibles</li>
               <li>Precios y financiación claros por tratamiento</li>
-              <li>Páginas por especialidad para aparecer en Google</li>
-            </ul>
+              <li>Una página por especialidad para salir en Google</li>
+            </ol>
             <a class="btn btn--ghost" href="demos/velia-dental/" target="_blank" rel="noopener">Ver la demo →</a>
           </div>
         </article>
 
-        <article class="project reveal">
-          <a class="project__media" href="demos/olmo-fisio/" target="_blank" rel="noopener">
-            <img src="img/demo-olmo.webp" alt="Página de inicio de la web de Olmo Fisioterapia" width="1200" height="758" loading="lazy">
+        <article class="project project--alt reveal">
+          <a class="project__media" href="demos/olmo-fisio/" target="_blank" rel="noopener" aria-label="Abrir la demo de Olmo Fisioterapia">
+            <span class="project__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="img/demo-olmo.webp" alt="Página de inicio de la web de Olmo Fisioterapia" width="1200" height="758" loading="lazy" decoding="async">
           </a>
-          <div>
-            <span class="project__meta">Fisioterapia · Proyecto demostrativo</span>
+          <div class="project__body">
+            <span class="project__meta">Fisioterapia · Clínica de barrio</span>
             <h3>Olmo Fisioterapia</h3>
-            <p>Web para una clínica de fisioterapia y osteopatía de barrio, pensada para pedir cita en segundos desde el móvil.</p>
-            <ul class="checklist">
+            <p>Pensada para pedir cita en segundos desde el móvil.</p>
+            <ol class="tapadas">
               <li>Cita, WhatsApp y llamada en el primer pantallazo</li>
               <li>Equipo colegiado y años de experiencia, a la vista</li>
               <li>Diseño cálido y cercano, como la propia clínica</li>
-            </ul>
+            </ol>
             <a class="btn btn--ghost" href="demos/olmo-fisio/" target="_blank" rel="noopener">Ver la demo →</a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Y DESPUÉS (resume y enlaza) -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Y después</span>
-          <h2>No te dejo solo con tu web</h2>
-        </div>
-        <div class="grid grid--2">
-          <a class="card teaser reveal" href="mantenimiento">
-            <div class="card__icon"><svg><use href="#i-key"/></svg></div>
-            <h3>Mantenimiento sin permanencia</h3>
-            <p>Alojamiento, cambios cuando los necesites, copias de seguridad e informe mensual de cuántos clientes te llegan. Y cómo funciona el precio.</p>
-            <span class="card__link">Ver el mantenimiento</span>
-          </a>
-          <a class="card teaser reveal" style="--d:.08s" href="sobre-mi">
-            <div class="card__icon"><svg><use href="#i-eye"/></svg></div>
-            <h3>Quién está detrás</h3>
-            <p>Soy Ángel, diseñador web en Sevilla. Trato directo, sin jerga técnica y respuesta en 24 h. Aquí también resuelvo las dudas más frecuentes.</p>
-            <span class="card__link">Conóceme</span>
-          </a>
+    <!-- 05 · QUIÉN -->
+    <section class="section quien">
+      <div class="container quien__grid">
+        <figure class="quien__foto reveal">
+          <img src="img/angel.webp" alt="Ángel Velarde, diseñador web en Sevilla" width="800" height="800" loading="lazy" decoding="async">
+          <figcaption><b>Ángel Velarde</b> Diseñador web · Sevilla</figcaption>
+        </figure>
+        <div class="quien__txt reveal" style="--d:.08s">
+          <span class="sh__num">05</span>
+          <blockquote>“No te vendo una web. Te enseño los clientes que estás perdiendo y te doy la que los recupera.”</blockquote>
+          <p>Trabajas directamente conmigo, sin jerga técnica y con respuesta en 24 h. La web, el dominio y los textos son tuyos, sin permanencia.</p>
+          <div class="quien__links">
+            <a class="enlace" href="sobre-mi">Conóceme y resuelve tus dudas</a>
+            <a class="enlace" href="mantenimiento">Mantenimiento sin permanencia y cómo funciona el precio</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section class="section section--alt" id="contacto">
+    <!-- 06 · CONTACTO -->
+    <section class="section contacto" id="contacto">
       <div class="container contact">
         <div>
-          <span class="eyebrow">Auditoría gratuita</span>
-          <h2 style="font-size:var(--fs-2xl)">Te digo dónde pierdes clientes. Gratis.</h2>
-          <p style="margin-top:1rem;color:var(--text-muted)">Déjame el nombre de tu negocio o tu web y en menos de 48 h te envío lo que he encontrado. Sin compromiso y sin llamadas comerciales.</p>
+          <span class="sh__num">06</span>
+          <h2>Te digo dónde pierdes clientes. Gratis.</h2>
+          <p class="contacto__lead">Déjame el nombre de tu negocio o tu web y en menos de 48 h te envío lo que he encontrado, competencia incluida. Sin compromiso y sin llamadas comerciales.</p>
           <div class="contact-ways">
             <a class="contact-way" href="https://wa.me/34640562563?text=Hola%20%C3%81ngel%2C%20me%20interesa%20mejorar%20la%20web%20de%20mi%20negocio" data-track="whatsapp"><svg><use href="#i-wa"/></svg><span><b>WhatsApp</b><small>La forma más rápida</small></span></a>
             <a class="contact-way" href="tel:+34640562563" data-track="llamada"><svg><use href="#i-phone"/></svg><span><b>640 562 563</b><small>L-V de 9:00 a 20:00</small></span></a>
             <a class="contact-way" href="mailto:contacto@websinlio.com" data-track="email"><svg><use href="#i-mail"/></svg><span><b>contacto@websinlio.com</b><small>Respondo en 24 h</small></span></a>
           </div>
+          <svg class="contacto__flecha" viewBox="0 0 220 90" aria-hidden="true" focusable="false"><path d="M4 70 C40 72 52 30 80 30 C108 30 112 72 140 72 C168 72 180 40 212 14"/><path d="M186 16 L213 13 L210 40"/></svg>
         </div>
 
         <!-- Formulario → functions/api/contacto.js (D1 + aviso por email). Ver _negocio/GUIA-FORMULARIO-CLOUDFLARE.md -->
@@ -322,9 +338,9 @@
           </div>
           <div class="form__row">
             <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="field__error"></span></div>
-            <div class="field"><label for="f-tel">Teléfono <span style="font-weight:400;color:var(--text-muted)">(opcional)</span></label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel"><span class="field__error"></span></div>
+            <div class="field"><label for="f-tel">Teléfono <span class="opt">(opcional)</span></label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel"><span class="field__error"></span></div>
           </div>
-          <div class="field"><label for="f-msg">Algo más que deba saber <span style="font-weight:400;color:var(--text-muted)">(opcional)</span></label><textarea id="f-msg" name="mensaje" rows="3" placeholder="Ej.: me llaman poco desde la web, quiero que me reserven online…"></textarea></div>
+          <div class="field"><label for="f-msg">Algo más que deba saber <span class="opt">(opcional)</span></label><textarea id="f-msg" name="mensaje" rows="3" placeholder="Ej.: me llaman poco desde la web, quiero que me reserven online…"></textarea></div>
           <label class="consent"><input type="checkbox" name="privacidad" value="Acepta" required> <span>He leído y acepto la <a href="privacidad">política de privacidad</a>.</span></label>
           <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="cf-turnstile" data-sitekey="0x4AAAAAAFTuOg6EQhHJV2NC" data-language="es" data-size="flexible"></div>

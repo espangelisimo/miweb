@@ -1,0 +1,8 @@
+# Cloudflare Pages: el navegador revalida HTML/CSS/JS en cada visita (ETag) para que nunca mezcle
+# una página nueva con estilos viejos de caché. Las imágenes sí se cachean.
+/*.html
+  Cache-Control: no-cache
+/css/*
+  Cache-Control: no-cache
+/js/*
+  Cache-Control: no-cache
