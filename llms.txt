@@ -1,6 +1,6 @@
 # websinlio
 
-> Diseño web para negocios locales de Sevilla y provincia, por Ángel Velarde. Analizo gratis por dónde se escapan los clientes de un negocio hacia la competencia, le diseño la web que lo arregla y se la enseño antes de que pague nada.
+> Diseño web para negocios locales de toda España, por Ángel Velarde (trabajo en remoto, con videollamadas). Analizo gratis por dónde se escapan los clientes de un negocio hacia la competencia, le diseño la web que lo arregla y se la enseño antes de que pague nada.
 
 - Servicio: auditoría gratuita de fugas de clientes (web, ficha de Google y competencia local), diseño o rediseño web y mantenimiento sin permanencia.
 - Para quién: clínicas, fisioterapeutas, talleres, bares y restaurantes, peluquerías, comercios y otros negocios locales.
@@ -10,5 +10,5 @@
 
 ## Páginas
 - [Inicio](https://websinlio.com/): el problema, cómo trabajo, proyectos y auditoría gratis
-- [Precios](https://websinlio.com/precios): precio de lanzamiento para los 3 primeros negocios, Web Esencial 149,90 € y Web Completa 199,90 €, precio fijo (después, desde 299,90 € y 399,90 €); mantenimiento opcional 19,90 €/mes o 199 €/año, sin permanencia. Primero ves tu web; solo pagas si te la quedas.
+- [Precios](https://websinlio.com/precios): precio de lanzamiento con plazas limitadas,Web Esencial 149,90 € y Web Completa 199,90 €, precio fijo (después, desde 299,90 € y 399,90 €); mantenimiento opcional 19,90 €/mes o 199 €/año, sin permanencia. Primero ves tu web; solo pagas si te la quedas.
 - [Sobre mí](https://websinlio.com/sobre-mi): quién es Ángel y preguntas frecuentes

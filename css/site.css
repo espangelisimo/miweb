@@ -292,6 +292,8 @@ h3, h4 { letter-spacing: -0.01em; }
 .ptabs__tab[aria-selected="true"] { background: var(--ink-900, #14171f); border-color: var(--ink-900, #14171f); color: #fff; }
 .ptabs__tab:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .ptabs__panel[hidden] { display: none; }
+/* Cada pestaña se ve igual que la primera: sin el margen de "proyecto tras proyecto" (vale para las que se añadan) */
+.ptabs__panel, .ptabs__panel + .ptabs__panel { margin-top: 0; }
 .ptabs__panel:not([hidden]) { animation: ptabs-in .45s var(--ease) both; }
 @keyframes ptabs-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .ptabs__panel:not([hidden]) { animation: none; } }
