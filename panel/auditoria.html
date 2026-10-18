@@ -207,6 +207,9 @@
 
       // SEO local
       const loc = local?.address?.addressLocality || '';
+      // Negocio de área de servicio (trabaja a domicilio o en remoto, sin local abierto al público): Google no exige dirección ni mapa
+      const zona = !!local && !local.address?.streetAddress && [].concat(local.areaServed || []).some(a => /Country|AdministrativeArea|State/.test(a?.['@type'] || ''));
+      const NA_ZONA = 'No aplica: negocio que trabaja por zona, sin local abierto al público.';
       add('local', 2, !!local, local ? `Ficha de negocio en datos estructurados (${tipos(local).join(', ')})` : 'Sin LocalBusiness en JSON-LD', '', 'JSON-LD LocalBusiness (o su subtipo) con nombre, dirección, teléfono, horario y geo.');
       add('local', 1, local ? !!local.telephone : null, 'Teléfono en datos estructurados', '', 'Añadir telephone al JSON-LD.');
       add('local', 1, local ? !!local.address : null, 'Dirección en datos estructurados', loc, 'Añadir address (PostalAddress) al JSON-LD.');
@@ -215,10 +218,11 @@
       add('local', .5, local ? !!local.sameAs : null, 'Perfiles enlazados (sameAs: Google, redes)', '', 'Añadir sameAs con la ficha de Google e Instagram/Facebook.');
       add('local', 1.5, tels.length > 0, tels.length ? 'Teléfono pulsable' : 'El teléfono no se puede pulsar', tels.slice(0, 2).map(t => t.href.replace('tel:', '')).join(', '), '<a href="tel:+34…"> en cabecera y pie.');
       const dir = /\b(c\/|calle|avda\.?|avenida|plaza|pza\.?|carretera|ctra\.?|pol[ií]gono|p\.? ?i\.?)\s/i.test(texto) || /\b\d{5}\b/.test(texto);
-      add('local', 1, dir, dir ? 'Dirección visible' : 'No se ve la dirección', '', 'Dirección completa en texto, igual que en la ficha de Google.');
+      add('local', 1, zona ? null : dir, dir ? 'Dirección visible' : (zona ? 'Dirección' : 'No se ve la dirección'), zona ? NA_ZONA : '', 'Dirección completa en texto, igual que en la ficha de Google.');
       const mapa = !!doc.querySelector('iframe[src*="google.com/maps"],iframe[src*="maps.google"],a[href*="maps.app.goo"],a[href*="google.com/maps"],a[href*="goo.gl/maps"],a[href*="maps.google"]');
-      add('local', 1, mapa, mapa ? 'Mapa o enlace "Cómo llegar"' : 'Sin mapa ni "Cómo llegar"', '', 'Enlace a la ficha de Google Maps.');
-      add('local', 1, loc ? (title + ' ' + h1.join(' ')).toLowerCase().includes(loc.toLowerCase()) : null, loc ? `Localidad (${loc}) en título o H1` : 'Localidad en título o H1', loc ? '' : 'No se puede comprobar: falta la localidad en los datos estructurados.', 'Incluir la localidad en el title y el H1.');
+      add('local', 1, zona ? (mapa || !!(local.hasMap || [].concat(local.sameAs || []).some(u => /google\.[a-z.]+\/maps|maps\.app|cid=/.test(u))) ? 1 : 0) : mapa, mapa ? 'Mapa o enlace "Cómo llegar"' : (zona ? 'Ficha de Google enlazada en los datos' : 'Sin mapa ni "Cómo llegar"'), '', 'Enlace a la ficha de Google Maps.');
+      const zonaTxt = zona ? [].concat(local.areaServed).map(a => a?.name || '').filter(Boolean)[0] || '' : '';
+      add('local', 1, loc ? (title + ' ' + h1.join(' ')).toLowerCase().includes(loc.toLowerCase()) : (zonaTxt ? (title + ' ' + desc).toLowerCase().includes(zonaTxt.toLowerCase()) : null), loc ? `Localidad (${loc}) en título o H1` : (zonaTxt ? `Zona de trabajo (${zonaTxt}) en título o descripción` : 'Localidad en título o H1'), loc || zonaTxt ? '' : 'No se puede comprobar: falta la localidad en los datos estructurados.', 'Incluir la localidad o la zona en el title y el H1.');
       const horario = /horario|lunes|martes|l\s?[-–a]\s?v|lun\s?[-–]|de \d{1,2}[:.]\d{2}|\d{1,2}[:.]\d{2}\s?[-–]\s?\d{1,2}[:.]\d{2}/i.test(texto);
       add('local', 1, horario, horario ? 'Horario visible' : 'No se ve el horario', '', 'Horario en texto, coherente con Google.');
 
@@ -245,8 +249,9 @@
       const conAlt = imgs.filter(i => i.hasAttribute('alt')).length;
       add('a11y', 1.5, ratio(conAlt, imgs.length), `Imágenes con texto alternativo: ${conAlt} de ${imgs.length}`, '', 'alt descriptivo (o alt="" si es decorativa).');
       const campos = q('input:not([type=hidden]):not([type=submit]):not([type=button]),select,textarea');
-      const etiq = campos.filter(c => (c.id && doc.querySelector(`label[for="${CSS.escape(c.id)}"]`)) || c.closest('label') || c.getAttribute('aria-label') || c.getAttribute('aria-labelledby') || c.getAttribute('title')).length;
-      add('a11y', 1.5, ratio(etiq, campos.length), `Campos de formulario con etiqueta: ${etiq} de ${campos.length}`, '', '<label> visible para cada campo (el placeholder no vale).');
+      const reales = campos.filter(c => !/bot|honey|trampa/i.test(c.name || '') && !c.closest('[hidden],[aria-hidden="true"]'));
+      const etiq = reales.filter(c => (c.id && doc.querySelector(`label[for="${CSS.escape(c.id)}"]`)) || c.closest('label') || c.getAttribute('aria-label') || c.getAttribute('aria-labelledby') || c.getAttribute('title')).length;
+      add('a11y', 1.5, ratio(etiq, reales.length), `Campos de formulario con etiqueta: ${etiq} de ${reales.length}`, '', '<label> visible para cada campo (el placeholder no vale).');
       const sinNombre = [...enlaces.map(l => l.a), ...q('button')].filter(e => !e.textContent.trim() && !e.getAttribute('aria-label') && !e.getAttribute('title') && !e.querySelector('img[alt]:not([alt=""])')).length;
       add('a11y', 1, sinNombre === 0 ? 1 : tramo(sinNombre, 0, 6), sinNombre ? `${sinNombre} botones o enlaces sin nombre` : 'Botones y enlaces con nombre', '', 'aria-label en los iconos (WhatsApp, redes, menú).');
       add('a11y', .5, !!enlaces.find(l => /^#/.test(l.href) && /salt|skip|contenido/i.test(l.txt)), 'Enlace "Saltar al contenido"');
@@ -288,7 +293,7 @@
       const https = fin.protocol === 'https:';
       add('seg', 3, https, https ? 'HTTPS' : 'Sin HTTPS: el navegador avisa de "No seguro"', '', 'Certificado SSL (gratis con Cloudflare o Let\'s Encrypt).');
       const http = d.extras.http;
-      add('seg', 2, http ? /^https:/.test(http.final || '') : null, http ? (/^https:/.test(http.final || '') ? 'http:// redirige a https://' : 'http:// no redirige a https://') : 'Redirección a HTTPS');
+      add('seg', 2, http ? /^https:/.test(http.final || '') : null, http ? (/^https:/.test(http.final || '') ? 'http:// redirige a https://' : 'http:// no redirige a https://') : 'Redirección a HTTPS', http ? '' : 'No se puede comprobar desde el panel cuando se audita la propia web.');
       add('seg', 1.5, https ? !!H['strict-transport-security'] : null, H['strict-transport-security'] ? 'HSTS activo' : 'Sin HSTS', H['strict-transport-security'] || '', 'Cabecera Strict-Transport-Security.');
       const csp = H['content-security-policy'] || '';
       add('seg', 1, !!csp, csp ? 'Política de seguridad de contenidos (CSP)' : 'Sin CSP', '', 'Content-Security-Policy, aunque sea básica.');

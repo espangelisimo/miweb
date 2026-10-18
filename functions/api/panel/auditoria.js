@@ -63,7 +63,8 @@ export async function onRequestGet({ request, env }) {
   const base = fin.origin;
   const azar = Math.random().toString(36).slice(2, 10);
   const [http, robots, sitemap, llms, noExiste] = await Promise.all([
-    fin.protocol === 'https:' ? estado(`http://${fin.host}${fin.pathname}`) : Promise.resolve(null),
+    // Desde dentro de Cloudflare, la web propia no pasa por la redirección http→https (falso aviso): no se comprueba
+    fin.protocol === 'https:' && fin.host !== new URL(request.url).host ? estado(`http://${fin.host}${fin.pathname}`) : Promise.resolve(null),
     estado(`${base}/robots.txt`, true),
     estado(`${base}/sitemap.xml`),
     estado(`${base}/llms.txt`),
