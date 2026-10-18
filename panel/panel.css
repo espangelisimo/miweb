@@ -11,3 +11,34 @@ body { background: var(--bg-alt); }
 .empty, .error { padding: 2rem; text-align: center; background: #fff; border-radius: var(--radius); color: var(--text-muted); }
 .chip { display: inline-block; padding: .15rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 700; background: var(--bg-alt); border: 1px solid var(--border); white-space: nowrap; }
 .field { width: 100%; padding: .65rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); font: inherit; background: #fff; }
+
+/* ---------- Móvil (18-oct-2026): la cabecera tenía altura fija y las pestañas se montaban sobre el título ---------- */
+.header .container { height: auto; min-height: var(--header-h); flex-wrap: wrap; row-gap: .35rem; padding-block: .55rem; }
+@media (max-width: 640px) {
+  .header .logo img { height: 28px; }
+  .header .logo span { font-size: 1.1rem; }
+  .pnav { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: .3rem; }
+  .pnav a { text-align: center; padding: .65rem .3rem; font-size: .82rem; background: rgb(255 255 255 / .6); border: 1px solid var(--border); }
+  .pnav a[aria-current="page"] { border-color: var(--ink-900); }
+  .bar { padding-block: 1rem .75rem; gap: .6rem; }
+  .bar h1 { font-size: 1.35rem; width: 100%; }
+  main .filters { gap: .35rem; }
+  main .filters button { padding: .45rem .75rem; font-size: .8rem; min-height: 36px; }
+  .stats { grid-template-columns: repeat(3, 1fr) !important; gap: .4rem; }
+  main .stat { padding: .6rem .7rem; }
+  main .stat b { font-size: 1.2rem; }
+  main .stat span { font-size: .7rem; }
+  main .item { padding: .9rem; gap: .5rem; }
+  main .item h2 { font-size: 1.05rem; }
+  main .wcard { padding: .9rem 1rem; }
+  main .wcard h3 { font-size: 1.05rem; }
+  main .aform { padding: .9rem; }
+  main .aform .btn { width: 100%; }
+  main .resumen { padding: 1rem; gap: 1rem; }
+  main .resumen h2 { font-size: 1.05rem; }
+  main .bloque { padding: 1rem; }
+  main .cats { grid-template-columns: 1fr 1fr; gap: .5rem; }
+  main .cat { padding: .6rem; gap: .5rem; }
+  main .cat .d { display: none; }
+  table.hist { font-size: .78rem; }
+}
