@@ -7,7 +7,7 @@
   <meta name="description" content="Soy Ángel Velarde, diseñador y desarrollador web. Webs para negocios locales de toda España, con trato directo y sin jerga técnica.">
   <link rel="canonical" href="https://websinlio.com/sobre-mi">
   <meta name="theme-color" content="#1c2a40">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.svg?v=8b45f910" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
 
@@ -20,17 +20,21 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="font/bricolage-es.woff2?v=5d03b13c" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="font/inter-es.woff2?v=ae3f6350" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/base.css?v=1624d2a9">
-  <link rel="stylesheet" href="css/site.css?v=c1ea3cb2">
+  <link rel="stylesheet" href="css/site.css?v=549fe529">
 
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://websinlio.com/" },
     { "@type": "ListItem", "position": 2, "name": "Sobre mí", "item": "https://websinlio.com/sobre-mi" } ] }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "AboutPage", "url": "https://websinlio.com/sobre-mi", "dateModified": "2026-10-18", "mainEntity": {"@type": "Person", "@id": "https://websinlio.com/#angel", "name": "Ángel Velarde Naranjo", "jobTitle": "Diseñador y desarrollador web", "worksFor": {"@id": "https://websinlio.com/#negocio"}, "image": "https://websinlio.com/img/angel.webp", "knowsAbout": ["Diseño web", "SEO local", "Accesibilidad web", "Velocidad web"]}}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿De verdad me haces la web antes de pagar?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Estudio tu negocio, te enseño lo que ve un cliente cuando te busca y te presento la web que necesitas, en persona o por videollamada. Si te convence, dejas una pequeña fianza y la terminamos con tus datos. Si no, no me debes nada."}}, {"@type": "Question", "name": "¿Cuánto tardas?", "acceptedAnswer": {"@type": "Answer", "text": "La propuesta, unos días. Una vez me das el visto bueno y tus datos, una web de una página se publica en menos de una semana y una completa en 2 o 3 semanas."}}, {"@type": "Question", "name": "Ya tengo web. ¿Tengo que empezar de cero?", "acceptedAnswer": {"@type": "Answer", "text": "No. Aprovecho tu dominio, tus textos y tus fotos. Lo que cambia es cómo se presentan para que el cliente dé el paso."}}, {"@type": "Question", "name": "¿Y si no tengo web?", "acceptedAnswer": {"@type": "Answer", "text": "Mejor aún: empezamos bien desde el principio. Te ayudo también con el dominio y con tu ficha de Google."}}]}
   </script>
 </head>
 
@@ -51,7 +55,7 @@
   <header class="header" data-header>
     <div class="container">
       <a class="logo" href="./" aria-label="websinlio, inicio">
-        <img src="assets/logo-mark.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span>
+        <img src="assets/logo-mark.webp?v=d81bc19c" alt="" width="480" height="184"><span>web<b>sin</b>lio</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú" data-nav-toggle><span></span></button>
       <nav class="nav" id="nav" aria-label="Principal" data-nav>
@@ -80,7 +84,7 @@
     <section class="section" id="sobre-mi">
       <div class="container split">
         <figure class="about-photo reveal">
-          <img src="img/angel.webp" alt="Ángel Velarde, diseñador web de websinlio" width="800" height="800" fetchpriority="high">
+          <img src="img/angel.webp?v=8ccef9c2" alt="Ángel Velarde, diseñador web de websinlio" width="800" height="800" fetchpriority="high">
           <figcaption><b>Ángel Velarde</b>Diseñador web</figcaption>
         </figure>
         <div class="reveal" style="--d:.1s">
@@ -117,11 +121,11 @@
       <div class="container">
         <div class="section-head section-head--center">
           <span class="eyebrow">Dudas frecuentes</span>
-          <h2>Lo que suelen preguntarme</h2>
+          <h2>Cómo trabajo, en cuatro preguntas</h2>
         </div>
         <div class="faq">
           <details><summary>¿De verdad me haces la web antes de pagar?</summary><div><p>Sí. Estudio tu negocio, te enseño lo que ve un cliente cuando te busca y te presento la web que necesitas, en persona o por videollamada. Si te convence, dejas una pequeña fianza y la terminamos con tus datos. Si no, no me debes nada.</p></div></details>
-          <details><summary>¿Cuánto tardas?</summary><div><p>La propuesta, unos días. Una vez me das el visto bueno y tus datos, una web de una página se publica en menos de una semana y una completa en 2–3 semanas.</p></div></details>
+          <details><summary>¿Cuánto tardas?</summary><div><p>La propuesta, unos días. Una vez me das el visto bueno y tus datos, una web de una página se publica en menos de una semana y una completa en 2 o 3 semanas.</p></div></details>
           <details><summary>Ya tengo web. ¿Tengo que empezar de cero?</summary><div><p>No. Aprovecho tu dominio, tus textos y tus fotos. Lo que cambia es cómo se presentan para que el cliente dé el paso.</p></div></details>
           <details><summary>¿Y si no tengo web?</summary><div><p>Mejor aún: empezamos bien desde el principio. Te ayudo también con el dominio y con tu ficha de Google.</p></div></details>
         </div>
@@ -145,11 +149,11 @@
   <footer class="footer" data-footer>
     <div class="container">
       <div>
-        <a class="logo" href="./"><img src="assets/logo-mark-white.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span></a>
+        <a class="logo" href="./"><img src="assets/logo-mark-white.webp?v=c5ada43a" alt="" width="480" height="184" loading="lazy" decoding="async"><span>web<b>sin</b>lio</span></a>
         <p>Webs para negocios locales que no dejan escapar clientes. En toda España.</p>
       </div>
       <div>
-        <h4>Contacto</h4>
+        <h2 class="footer__t">Contacto</h2>
         <ul>
           <li><a href="https://wa.me/34640562563">WhatsApp</a></li>
           <li><a href="tel:+34640562563">640 562 563</a></li>
@@ -157,7 +161,7 @@
         </ul>
       </div>
       <div>
-        <h4>Web</h4>
+        <h2 class="footer__t">Web</h2>
         <ul>
           <li><a href="./#como-trabajo">Cómo trabajo</a></li>
           <li><a href="./#proyectos">Proyectos</a></li>
@@ -165,7 +169,7 @@
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h2 class="footer__t">Legal</h2>
         <ul>
           <li><a href="aviso-legal">Aviso legal</a></li>
           <li><a href="privacidad">Privacidad</a></li>

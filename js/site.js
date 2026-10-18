@@ -44,3 +44,23 @@
   });
   show(tabs.find(t => t.getAttribute('aria-selected') === 'true') || tabs[0]);
 })();
+
+// Antispam del formulario (Cloudflare Turnstile): se carga solo cuando el formulario está cerca o se toca,
+// no al abrir la página (menos JavaScript de terceros al inicio = mejor nota en PageSpeed).
+(() => {
+  const w = document.querySelector('.cf-turnstile');
+  if (!w) return;
+  let hecho = false;
+  const cargar = () => {
+    if (hecho) return; hecho = true;
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'; s.async = true;
+    document.head.append(s);
+  };
+  const form = w.closest('form');
+  form?.addEventListener('focusin', cargar, { once: true });
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(e => { if (e.some(x => x.isIntersecting)) { io.disconnect(); cargar(); } }, { rootMargin: '800px 0px' });
+    io.observe(form || w);
+  } else cargar();
+})();

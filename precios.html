@@ -7,7 +7,7 @@
   <meta name="description" content="Webs para negocios por 149,90 € (precio de lanzamiento; después, desde 299,90 €) y mantenimiento opcional por 19,90 €/mes, sin permanencia. Primero ves tu web; solo pagas si te la quedas.">
   <link rel="canonical" href="https://websinlio.com/precios">
   <meta name="theme-color" content="#1c2a40">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.svg?v=8b45f910" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
 
@@ -20,17 +20,21 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="font/bricolage-es.woff2?v=5d03b13c" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="font/inter-es.woff2?v=ae3f6350" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/base.css?v=1624d2a9">
-  <link rel="stylesheet" href="css/site.css?v=c1ea3cb2">
+  <link rel="stylesheet" href="css/site.css?v=549fe529">
 
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://websinlio.com/" },
     { "@type": "ListItem", "position": 2, "name": "Precios", "item": "https://websinlio.com/precios" } ] }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebPage", "url": "https://websinlio.com/precios", "name": "Precios de diseño web para negocios locales", "dateModified": "2026-10-18", "about": {"@id": "https://websinlio.com/#negocio"}, "mainEntity": {"@type": "OfferCatalog", "name": "Precios websinlio", "itemListElement": [{"@type": "Offer", "name": "Web Esencial (precio de lanzamiento)", "price": "149.90", "priceCurrency": "EUR", "seller": {"@id": "https://websinlio.com/#negocio"}, "itemOffered": {"@type": "Service", "name": "Web Esencial", "description": "Una página pensada para el móvil, botones de llamar y WhatsApp, horario, mapa, reseñas de Google, páginas legales y alta en Google."}}, {"@type": "Offer", "name": "Web Completa (precio de lanzamiento)", "price": "199.90", "priceCurrency": "EUR", "seller": {"@id": "https://websinlio.com/#negocio"}, "itemOffered": {"@type": "Service", "name": "Web Completa", "description": "Una página por servicio, precios, galería o antes y después, formulario que prepara el WhatsApp y preparada para asistentes de IA."}}, {"@type": "Offer", "name": "Plan de mantenimiento (opcional)", "priceCurrency": "EUR", "seller": {"@id": "https://websinlio.com/#negocio"}, "priceSpecification": {"@type": "UnitPriceSpecification", "price": "19.90", "priceCurrency": "EUR", "unitText": "mes"}, "itemOffered": {"@type": "Service", "name": "Mantenimiento web sin permanencia", "description": "Dominio incluido, cambios hasta unos 30 minutos al mes, ficha de Google al día, copias de seguridad e informe mensual."}}]}}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Ahora mismo, con el precio de lanzamiento, 149,90 € una web de una página y 199,90 € una de varias páginas, precio fijo. Después pasarán a costar desde 299,90 € y 399,90 €. El precio va siempre por escrito antes de empezar, y nunca pagas nada antes de ver tu web."}}, {"@type": "Question", "name": "¿Qué pasa después de publicarla?", "acceptedAnswer": {"@type": "Answer", "text": "El primer mes de cambios es gratis. Después puedes llevarla tú o dejarla en mis manos con el mantenimiento opcional (19,90 €/mes o 199 €/año, sin permanencia). Si no lo quieres, cada cambio pequeño cuesta 10 € y te digo el precio antes de hacerlo."}}, {"@type": "Question", "name": "¿Qué ocurre si al final no la quiero?", "acceptedAnswer": {"@type": "Answer", "text": "Si es antes de la fianza, nada, de verdad. Me dices «no, gracias» y ahí se queda: no firmas nada, no pagas nada y no tienes que darme explicaciones. Retiro la web de muestra, no uso tus datos para nada más y no voy a insistirte. La fianza es otra cosa: la dejas cuando ya has visto cómo queda tu web y decides seguir adelante, y con ella reservas mi trabajo para pulirla y publicarla. Por eso no se devuelve, salvo que haya un motivo de peso."}}, {"@type": "Question", "name": "¿La web será mía?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. El dominio va a tu nombre y la web es tuya. Si algún día quieres irte, te lo llevas todo."}}]}
   </script>
 </head>
 
@@ -51,7 +55,7 @@
   <header class="header" data-header>
     <div class="container">
       <a class="logo" href="./" aria-label="websinlio, inicio">
-        <img src="assets/logo-mark.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span>
+        <img src="assets/logo-mark.webp?v=d81bc19c" alt="" width="480" height="184"><span>web<b>sin</b>lio</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú" data-nav-toggle><span></span></button>
       <nav class="nav" id="nav" aria-label="Principal" data-nav>
@@ -72,7 +76,8 @@
       <div class="container">
         <nav class="breadcrumbs" aria-label="Migas de pan"><ol><li><a href="./">Inicio</a></li><li aria-current="page">Precios</li></ol></nav>
         <h1>Precios claros desde el principio. Y primero ves tu web.</h1>
-        <p class="page-hero__lead">Cuánto cuesta tu web, cómo se paga y qué pasa después de publicarla. Sin letra pequeña y sin pagar nada hasta que la hayas visto.</p>
+        <p class="page-hero__lead">Una web para tu negocio cuesta <strong>149,90&nbsp;€</strong> (una página) o <strong>199,90&nbsp;€</strong> (varias páginas) con el precio de lanzamiento: precio fijo y por escrito. Después pasará a costar desde 299,90&nbsp;€ y 399,90&nbsp;€. El mantenimiento es opcional, por 19,90&nbsp;€ al mes, y antes de pagar nada ves tu web.</p>
+        <p class="page-hero__fecha">Actualizado: octubre de 2026</p>
       </div>
     </section>
 
@@ -231,11 +236,11 @@
   <footer class="footer" data-footer>
     <div class="container">
       <div>
-        <a class="logo" href="./"><img src="assets/logo-mark-white.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span></a>
+        <a class="logo" href="./"><img src="assets/logo-mark-white.webp?v=c5ada43a" alt="" width="480" height="184" loading="lazy" decoding="async"><span>web<b>sin</b>lio</span></a>
         <p>Webs para negocios locales que no dejan escapar clientes. En toda España.</p>
       </div>
       <div>
-        <h4>Contacto</h4>
+        <h2 class="footer__t">Contacto</h2>
         <ul>
           <li><a href="https://wa.me/34640562563">WhatsApp</a></li>
           <li><a href="tel:+34640562563">640 562 563</a></li>
@@ -243,7 +248,7 @@
         </ul>
       </div>
       <div>
-        <h4>Web</h4>
+        <h2 class="footer__t">Web</h2>
         <ul>
           <li><a href="./#como-trabajo">Cómo trabajo</a></li>
           <li><a href="./#proyectos">Proyectos</a></li>
@@ -251,7 +256,7 @@
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h2 class="footer__t">Legal</h2>
         <ul>
           <li><a href="aviso-legal">Aviso legal</a></li>
           <li><a href="privacidad">Privacidad</a></li>

@@ -7,7 +7,7 @@
   <meta name="description" content="Estudio tu negocio y lo que ve un cliente cuando te busca, y te diseño la web que necesitas. La ves antes de pagar nada. Diseño web para negocios locales de toda España, por Ángel Velarde.">
   <link rel="canonical" href="https://websinlio.com/">
   <meta name="theme-color" content="#f4f1ea">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.svg?v=8b45f910" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
 
@@ -20,12 +20,10 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="font/bricolage-es.woff2?v=5d03b13c" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="font/inter-es.woff2?v=ae3f6350" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/base.css?v=1624d2a9">
-  <link rel="stylesheet" href="css/site.css?v=c1ea3cb2">
+  <link rel="stylesheet" href="css/site.css?v=549fe529">
 
   <script type="application/ld+json">
   {
@@ -45,21 +43,31 @@
         "areaServed": { "@type": "Country", "name": "España" },
         "address": { "@type": "PostalAddress", "addressCountry": "ES" },
         "founder": { "@id": "https://websinlio.com/#angel" },
+        "sameAs": ["https://www.google.com/maps?cid=10926802106731935356"],
+        "hasMap": "https://www.google.com/maps?cid=10926802106731935356",
+        "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "20:00" }],
+        "knowsAbout": ["Diseño web", "SEO local", "Google Business Profile", "Accesibilidad web", "Velocidad web", "Optimización para asistentes de IA"],
         "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Servicios", "itemListElement": [
           { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Estudio gratuito del negocio y de su presencia en internet", "description": "Lo que ve un cliente en la web, la ficha de Google y la competencia local, y una conversación con el dueño para entender qué necesita su negocio." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño web para negocios locales", "description": "Web nueva o rehecha según lo que necesita el negocio, enseñada antes de pagar." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento web sin permanencia", "description": "Alojamiento, cambios, copias de seguridad e informe mensual." } }
         ] }
       },
+      { "@type": "WebSite", "@id": "https://websinlio.com/#web", "url": "https://websinlio.com/", "name": "websinlio", "inLanguage": "es-ES", "publisher": { "@id": "https://websinlio.com/#negocio" } },
+      { "@type": "WebPage", "@id": "https://websinlio.com/#portada", "url": "https://websinlio.com/", "name": "Diseño web para negocios locales en toda España", "isPartOf": { "@id": "https://websinlio.com/#web" }, "about": { "@id": "https://websinlio.com/#negocio" }, "dateModified": "2026-10-18" },
       {
         "@type": "Person",
         "@id": "https://websinlio.com/#angel",
         "name": "Ángel Velarde Naranjo",
         "jobTitle": "Diseñador y desarrollador web",
-        "worksFor": { "@id": "https://websinlio.com/#negocio" }
+        "worksFor": { "@id": "https://websinlio.com/#negocio" },
+        "url": "https://websinlio.com/sobre-mi"
       }
     ]
   }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto cuesta una web para un negocio local?", "acceptedAnswer": {"@type": "Answer", "text": "Con el precio de lanzamiento, 149,90 € una web de una página y 199,90 € una de varias páginas, con precio fijo y por escrito. Después pasarán a costar desde 299,90 € y 399,90 €. El mantenimiento es opcional: 19,90 € al mes."}}, {"@type": "Question", "name": "¿Qué incluye el estudio gratuito?", "acceptedAnswer": {"@type": "Answer", "text": "Reviso lo que ve un cliente cuando te busca: tu web si la tienes, tu ficha de Google, tus redes y tu competencia. Después lo hablamos para entender qué necesita tu negocio. No tiene coste ni compromiso."}}, {"@type": "Question", "name": "¿Trabajas con negocios de cualquier ciudad?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Trabajo con negocios de toda España. El estudio y la presentación de la web se hacen por videollamada, y en persona cuando es posible."}}, {"@type": "Question", "name": "¿Cuánto se tarda en tener la web?", "acceptedAnswer": {"@type": "Answer", "text": "Una web de una página se publica en menos de una semana desde que me das el visto bueno y tus datos; una de varias páginas, en 2 o 3 semanas."}}, {"@type": "Question", "name": "¿Para qué negocios haces webs?", "acceptedAnswer": {"@type": "Answer", "text": "Para negocios locales que viven de que les llamen, les escriban o les reserven: clínicas y fisioterapeutas, talleres, lavaderos, veterinarias, bares y comercios."}}]}
   </script>
 </head>
 
@@ -80,7 +88,7 @@
   <header class="header" data-header>
     <div class="container">
       <a class="logo" href="./" aria-label="websinlio, inicio">
-        <img src="assets/logo-mark.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span>
+        <img src="assets/logo-mark.webp?v=d81bc19c" alt="" width="480" height="184"><span>web<b>sin</b>lio</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú" data-nav-toggle><span></span></button>
       <nav class="nav" id="nav" aria-label="Principal" data-nav>
@@ -101,21 +109,21 @@
     <section class="hx">
       <div class="container hx__grid">
         <div class="hx__copy">
-          <p class="hx__kicker reveal">Diseño web para negocios locales · Toda España</p>
-          <h1 class="hx__title reveal" style="--d:.05s">Menos lío.<br><span>Menos clientes perdidos.</span></h1>
-          <p class="hx__lead reveal" style="--d:.1s">Estudio tu negocio, miro lo que ve un cliente cuando te busca y te diseño la web que de verdad necesitas. <strong>Te la enseño antes de que pagues nada</strong>, y solo si te convence seguimos adelante.</p>
-          <div class="btn-row reveal" style="--d:.15s">
+          <p class="hx__kicker">Diseño web para negocios locales · Toda España</p>
+          <h1 class="hx__title" style="--d:.05s">Menos lío.<br><span>Menos clientes perdidos.</span></h1>
+          <p class="hx__lead" style="--d:.1s">Estudio tu negocio, miro lo que ve un cliente cuando te busca y te diseño la web que de verdad necesitas. <strong>Te la enseño antes de que pagues nada</strong>, y solo si te convence seguimos adelante.</p>
+          <div class="btn-row" style="--d:.15s">
             <a class="btn btn--primary btn--lg" href="#contacto"><svg><use href="#i-search"/></svg>Analiza mi web gratis</a>
             <a class="btn btn--ghost btn--lg" href="https://wa.me/34640562563?text=Hola%20%C3%81ngel%2C%20me%20interesa%20mejorar%20la%20web%20de%20mi%20negocio" data-track="whatsapp"><svg><use href="#i-wa"/></svg>Escríbeme por WhatsApp</a>
           </div>
-          <ul class="hx__trust reveal" style="--d:.2s">
+          <ul class="hx__trust" style="--d:.2s">
             <li>No pagas nada antes de ver tu web</li>
             <li>Hablas siempre conmigo</li>
             <li>Clínicas, talleres, bares, peluquerías…</li>
           </ul>
         </div>
 
-        <figure class="informe reveal" style="--d:.12s" aria-label="Ejemplo de lo que reviso en el estudio gratuito">
+        <figure class="informe" style="--d:.12s" aria-label="Ejemplo de lo que reviso en el estudio gratuito">
           <span class="informe__sello" aria-hidden="true">Gratis</span>
           <header class="informe__head">
             <span>Lo que veo desde fuera</span>
@@ -262,10 +270,10 @@
           </div>
 
         <!-- PANEL LAVADERO OCULTO
-        <article class="project ptabs__panel" role="tabpanel" id="panel-brio" aria-labelledby="tab-brio" tabindex="0">
+        <div class="project ptabs__panel" role="tabpanel" id="panel-brio" aria-labelledby="tab-brio" tabindex="0">
           <a class="project__media" href="demos/brio-car-wash/" target="_blank" rel="noopener" aria-label="Abrir la web de muestra de Brío Car Wash">
             <span class="project__bar" aria-hidden="true"><i></i><i></i><i></i></span>
-            <img src="img/demo-brio.webp" alt="Página de inicio de la web de muestra de Brío Car Wash" width="1200" height="758" loading="lazy" decoding="async">
+            <img src="img/demo-brio.webp?v=19cb805e" alt="Página de inicio de la web de muestra de Brío Car Wash" width="1200" height="758" loading="lazy" decoding="async">
           </a>
           <div class="project__body">
             <span class="project__meta">Lavadero de coches a mano · 8 páginas</span>
@@ -278,13 +286,13 @@
             </ol>
             <a class="btn btn--ghost" href="demos/brio-car-wash/" target="_blank" rel="noopener">Ver la web →</a>
           </div>
-        </article>
+        </div>
         -->
 
-        <article class="project ptabs__panel" role="tabpanel" id="panel-nudo" aria-labelledby="tab-nudo" tabindex="0">
+        <div class="project ptabs__panel" role="tabpanel" id="panel-nudo" aria-labelledby="tab-nudo" tabindex="0">
           <a class="project__media" href="demos/nudo-salud/" target="_blank" rel="noopener" aria-label="Abrir la web de muestra de Nudo Salud">
             <span class="project__bar" aria-hidden="true"><i></i><i></i><i></i></span>
-            <img src="img/demo-nudo.webp" alt="Página de inicio de la web de muestra de Nudo Salud" width="1200" height="758" loading="lazy" decoding="async">
+            <img src="img/demo-nudo.webp?v=056cd37d" alt="Página de inicio de la web de muestra de Nudo Salud" width="1200" height="758" loading="lazy" decoding="async">
           </a>
           <div class="project__body">
             <span class="project__meta">Fisioterapia, Pilates Reformer y entrenamiento · 12 páginas</span>
@@ -297,12 +305,12 @@
             </ol>
             <a class="btn btn--ghost" href="demos/nudo-salud/" target="_blank" rel="noopener">Ver la web →</a>
           </div>
-        </article>
+        </div>
 
-        <article class="project ptabs__panel" role="tabpanel" id="panel-huella" aria-labelledby="tab-huella" tabindex="0">
+        <div class="project ptabs__panel" role="tabpanel" id="panel-huella" aria-labelledby="tab-huella" tabindex="0">
           <a class="project__media" href="demos/la-huella-vet/" target="_blank" rel="noopener" aria-label="Abrir la web de muestra de Clínica Veterinaria La Huella">
             <span class="project__bar" aria-hidden="true"><i></i><i></i><i></i></span>
-            <img src="img/demo-huella.webp" alt="Página de inicio de la web de muestra de Clínica Veterinaria La Huella" width="1200" height="758" loading="lazy" decoding="async">
+            <img src="img/demo-huella.webp?v=bd7932d6" alt="Página de inicio de la web de muestra de Clínica Veterinaria La Huella" width="1200" height="758" loading="lazy" decoding="async">
           </a>
           <div class="project__body">
             <span class="project__meta">Clínica veterinaria · 11 páginas</span>
@@ -315,7 +323,7 @@
             </ol>
             <a class="btn btn--ghost" href="demos/la-huella-vet/" target="_blank" rel="noopener">Ver la web →</a>
           </div>
-        </article>
+        </div>
         </div>
       </div>
     </section>
@@ -324,7 +332,7 @@
     <section class="section quien">
       <div class="container quien__grid">
         <figure class="quien__foto reveal">
-          <img src="img/angel.webp" alt="Ángel Velarde, diseñador web de websinlio" width="800" height="800" loading="lazy" decoding="async">
+          <img src="img/angel.webp?v=8ccef9c2" alt="Ángel Velarde, diseñador web de websinlio" width="800" height="800" loading="lazy" decoding="async">
           <figcaption><b>Ángel Velarde</b> Diseñador web · Toda España</figcaption>
         </figure>
         <div class="quien__txt reveal" style="--d:.08s">
@@ -339,11 +347,31 @@
       </div>
     </section>
 
-    <!-- 06 · CONTACTO -->
+    <!-- 06 · PREGUNTAS (AEO: preguntas reales con respuesta directa) -->
+    <section class="section section--alt" id="preguntas">
+      <div class="container">
+        <header class="sh">
+          <span class="sh__num">06</span>
+          <div>
+            <h2>Lo que suelen preguntarme</h2>
+            <p>Respuestas cortas a las dudas de antes de empezar.</p>
+          </div>
+        </header>
+        <div class="faq">
+          <details><summary>¿Cuánto cuesta una web para un negocio local?</summary><div><p>Con el precio de lanzamiento, 149,90&nbsp;€ una web de una página y 199,90&nbsp;€ una de varias páginas, con precio fijo y por escrito. Después pasarán a costar desde 299,90&nbsp;€ y 399,90&nbsp;€. El mantenimiento es opcional: 19,90&nbsp;€ al mes. <a href="precios">Ver precios</a>.</p></div></details>
+          <details><summary>¿Qué incluye el estudio gratuito?</summary><div><p>Reviso lo que ve un cliente cuando te busca: tu web si la tienes, tu ficha de Google, tus redes y tu competencia. Después lo hablamos para entender qué necesita tu negocio. No tiene coste ni compromiso.</p></div></details>
+          <details><summary>¿Trabajas con negocios de cualquier ciudad?</summary><div><p>Sí. Trabajo con negocios de toda España. El estudio y la presentación de la web se hacen por videollamada, y en persona cuando es posible.</p></div></details>
+          <details><summary>¿Cuánto se tarda en tener la web?</summary><div><p>Una web de una página se publica en menos de una semana desde que me das el visto bueno y tus datos; una de varias páginas, en 2 o 3 semanas.</p></div></details>
+          <details><summary>¿Para qué negocios haces webs?</summary><div><p>Para negocios locales que viven de que les llamen, les escriban o les reserven: clínicas y fisioterapeutas, talleres, lavaderos, veterinarias, bares y comercios.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · CONTACTO -->
     <section class="section contacto" id="contacto">
       <div class="container contact">
         <div>
-          <span class="sh__num">06</span>
+          <span class="sh__num">07</span>
           <h2>Estudio tu negocio. Gratis.</h2>
           <p class="contacto__lead">Déjame el nombre de tu negocio o tu web. En menos de 48 h te escribo con lo que veo desde fuera, competencia incluida, y lo hablamos. Sin compromiso y sin llamadas comerciales.</p>
           <div class="contact-ways">
@@ -375,7 +403,7 @@
           <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="cf-turnstile" data-sitekey="0x4AAAAAAFTuOg6EQhHJV2NC" data-language="es" data-size="flexible"></div>
           <button class="btn btn--primary btn--lg" type="submit">Quiero mi auditoría gratis</button>
-          <p class="form__note">Responsable: Ángel Velarde Naranjo. Finalidad: responder a tu solicitud. No cedo tus datos a nadie. <a href="privacidad">Más información</a>.</p>
+          <p class="form__note">Responsable: Ángel Velarde Naranjo. Finalidad: responder a tu solicitud. No cedo tus datos a nadie. <a href="privacidad">Más información sobre privacidad</a>.</p>
           <div class="form__success" role="status">¡Recibido! Te escribo en menos de 48 h con lo que encuentre. Si tienes prisa, escríbeme por WhatsApp.</div>
         </form>
       </div>
@@ -385,11 +413,11 @@
   <footer class="footer" data-footer>
     <div class="container">
       <div>
-        <a class="logo" href="./"><img src="assets/logo-mark-white.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span></a>
+        <a class="logo" href="./"><img src="assets/logo-mark-white.webp?v=c5ada43a" alt="" width="480" height="184" loading="lazy" decoding="async"><span>web<b>sin</b>lio</span></a>
         <p>Webs para negocios locales que no dejan escapar clientes. En toda España.</p>
       </div>
       <div>
-        <h4>Contacto</h4>
+        <h2 class="footer__t">Contacto</h2>
         <ul>
           <li><a href="https://wa.me/34640562563">WhatsApp</a></li>
           <li><a href="tel:+34640562563">640 562 563</a></li>
@@ -397,7 +425,7 @@
         </ul>
       </div>
       <div>
-        <h4>Web</h4>
+        <h2 class="footer__t">Web</h2>
         <ul>
           <li><a href="#como-trabajo">Cómo trabajo</a></li>
           <li><a href="#proyectos">Proyectos</a></li>
@@ -405,7 +433,7 @@
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h2 class="footer__t">Legal</h2>
         <ul>
           <li><a href="aviso-legal">Aviso legal</a></li>
           <li><a href="privacidad">Privacidad</a></li>
@@ -427,7 +455,6 @@
   <a class="wa-float" href="https://wa.me/34640562563?text=Hola%20%C3%81ngel%2C%20me%20interesa%20mejorar%20la%20web%20de%20mi%20negocio" aria-label="Escríbeme por WhatsApp" data-track="whatsapp"><svg><use href="#i-wa"/></svg></a>
 
   <script src="js/base.js?v=7f514489" defer></script>
-  <script src="js/site.js?v=329fc088" defer></script>
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="js/site.js?v=0afb4828" defer></script>
 </body>
 </html>

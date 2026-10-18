@@ -4,11 +4,14 @@
    en un hilo azul que sube: ese hilo es el elemento gráfico de toda la web.
    Marca: azul profundo #233A5C + verde agua #64C49E (del logo) sobre papel cálido.
    ============================================================ */
+/* Fuentes propias (OFL, licencias en font/): sin peticiones a Google, con precarga en el <head> */
+@font-face { font-family: "Bricolage Grotesque"; src: url(../font/bricolage-es.woff2?v=5d03b13c) format("woff2"); font-weight: 500 800; font-display: swap; }
+@font-face { font-family: "Inter"; src: url(../font/inter-es.woff2?v=ae3f6350) format("woff2"); font-weight: 400 700; font-display: swap; }
 :root {
   --brand: oklch(44% 0.09 255);
   --brand-ink: oklch(32% 0.06 255);      /* ≈ #233A5C */
   --accent: oklch(77% 0.11 165);         /* ≈ #64C49E */
-  --accent-strong: oklch(52% 0.11 165);  /* verde legible sobre claro (AA) */
+  --accent-strong: oklch(47% 0.11 165);  /* verde legible sobre claro (AA, también sobre --bg-alt) */
   --ink-900: oklch(21% 0.04 255);
   --danger: oklch(55% 0.19 30);
   --radius: 14px;
@@ -347,3 +350,12 @@ h3, h4 { letter-spacing: -0.01em; }
 
 /* "opcional" del plan de mantenimiento: subrayado verde de la marca */
 .opcional { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: .22em; text-underline-offset: .28em; text-decoration-skip-ink: none; }
+
+/* PageSpeed 18-oct-2026: títulos del pie como h2 (orden de encabezados) con el mismo aspecto que antes */
+.footer h2.footer__t { color: #fff; font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 700; letter-spacing: 0; line-height: 1.4; margin-bottom: 1rem; }
+/* Botón de WhatsApp de la barra móvil con contraste AA (texto blanco) */
+.actionbar a.is-wa { background: #157a3f; }
+/* La tarjeta del hero ya no muestra una cifra de pérdida: pie en color de marca, no de alerta */
+.informe__foot strong { color: var(--brand-ink); }
+/* AEO: fecha de actualización visible en Precios */
+.page-hero__fecha { margin-top: .75rem; font-size: var(--fs-xs); color: var(--text-muted); }

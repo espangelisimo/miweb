@@ -1,8 +1,18 @@
-# Cloudflare Pages: el navegador revalida HTML/CSS/JS en cada visita (ETag) para que nunca mezcle
-# una página nueva con estilos viejos de caché. Las imágenes sí se cachean.
+# Cloudflare Pages
+# HTML: el navegador lo revalida en cada visita, así siempre ve la última versión publicada.
 /*.html
   Cache-Control: no-cache
+/
+  Cache-Control: no-cache
+# CSS, JS, fuentes e imágenes llevan ?v=<huella> (tools/versionar-web.mjs): si cambian, cambia la dirección.
+# Por eso pueden guardarse un año en el navegador sin riesgo de ver versiones viejas (mejor nota en PageSpeed).
 /css/*
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=31536000, immutable
 /js/*
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=31536000, immutable
+/font/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
