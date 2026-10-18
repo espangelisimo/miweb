@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- DEMO: quitar noindex solo al pasar a producción con el cliente -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Reserva tu plaza | Nudo Salud, Sevilla</title>
+  <meta name="description" content="Reserva tu plaza en Nudo Salud en cuatro pasos: área, bono, franja y nombre. Funciona en cualquier navegador y acaba en WhatsApp.">
+  <link rel="canonical" href="https://websinlio.com/demos/nudo-salud/reservar">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Reserva tu plaza | Nudo Salud, Sevilla">
+  <meta property="og:description" content="Reserva tu plaza en Nudo Salud en cuatro pasos: área, bono, franja y nombre. Funciona en cualquier navegador y acaba en WhatsApp.">
+  <meta property="og:image" content="https://websinlio.com/demos/nudo-salud/assets/icono-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cliente.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://websinlio.com/demos/nudo-salud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reservar",
+          "item": "https://websinlio.com/demos/nudo-salud/reservar"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icono-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Nudo Salud">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+<div class="muestra-band">Web de muestra de websinlio · negocio ficticio · <a href="https://websinlio.com/">websinlio.com</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="rough" x="-10%" y="-20%" width="120%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/></filter></svg>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="hdr" data-header>
+  <div class="wrap">
+    <a class="logo" href="./" aria-label="Nudo Salud, inicio"><span class="logo__w" aria-hidden="true">NUD<svg class="logo__o" viewBox="0 0 40 40"><path d="M25.1 6.0L27.7 6.6L29.7 8.3L31.6 10.1L33.4 12.1L34.5 14.5L35.2 17.1L35.7 19.8L35.6 22.5L34.9 25.1L33.9 27.6L32.4 29.9L30.7 32.0L28.3 33.5L25.9 34.8L23.3 35.9L20.6 36.2L17.8 35.8L15.0 35.6L12.4 34.5L9.9 33.2L7.8 31.3L6.3 28.8L4.7 26.4L3.6 23.8L3.2 20.9L3.3 18.0L3.8 15.2L4.7 12.4L6.2 9.8L8.3 7.8L10.5 5.9L13.0 4.2L15.8 3.4L18.7 3.0L21.7 2.9L24.6 3.3L27.4 4.4L30.2 5.5L32.5 7.6L34.5 9.8" stroke-width="3.4"/><path d="M33.2 9.1L34.4 11.6L35.7 14.1L36.5 16.7L36.8 19.4L36.5 22.2L35.8 24.8L35.1 27.4L33.2 29.5L31.6 31.6L29.5 33.2L27.2 34.7L24.7 35.8L22.0 36.0L19.4 35.8L16.8 35.5L14.3 34.6L12.0 33.5L9.9 31.9L8.1 30.0L6.6 27.9L5.5 25.5L5.1 22.9L4.4 20.4L4.9 17.8L5.3 15.3L6.4 13.0L7.8 10.8L9.6 9.0L11.6 7.5L13.7 6.2L16.1 5.2L18.6 5.1L21.1 4.9L23.5 5.6L25.9 6.2L28.0 7.5L29.9 9.0L31.6 10.8L33.1 12.7L34.1 14.9" stroke-width="1.8"/><path d="M18.6 6.1L20.7 5.5L22.8 6.3L25.0 6.6L26.9 7.7L28.7 8.9L30.8 9.9L31.8 12.0L33.2 13.7L33.8 15.9L34.5 18.1L34.8 20.3L34.3 22.6L34.3 24.9L33.4 27.1L32.3 29.1L30.8 31.0L29.0 32.6L27.0 33.8L24.7 34.5L22.4 34.9L20.1 35.4L17.8 35.2L15.5 34.7L13.1 34.4L11.1 33.0L9.0 31.8L7.4 30.0L5.8 28.1L5.0 25.8L3.8 23.6L3.8 21.0L3.7 18.6L3.7 16.0L4.9 13.8L5.7 11.5L7.4 9.6L8.7 7.3L10.8 5.9L12.9 4.4L15.5 4.1" stroke-width="1.2"/><path d="M36.7 13.9L37.0 16.5L37.7 18.9L37.5 21.5L37.1 23.9L36.1 26.3L35.0 28.5L33.6 30.5L32.0 32.5L29.9 33.8L28.0 35.4L25.7 36.3L23.3 36.9L20.8 37.1L18.4 36.7L16.0 36.3L13.6 35.9L11.6 34.5L9.4 33.3L7.6 31.7L6.4 29.5L4.9 27.6L4.0 25.4L3.3 23.0L3.1 20.6L3.4 18.2L4.0 15.9L4.9 13.7L5.8 11.5L7.1 9.5L9.0 7.9L10.9 6.6L12.9 5.4L15.0 4.3L17.3 4.0L19.6 3.9L22.0 3.9L24.3 4.3L26.4 5.3L28.5 6.3L30.3 7.8" stroke-width="0.9"/></svg></span><span class="logo__s" aria-hidden="true">SALUD</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" data-nav-toggle>Menú</button>
+    <nav class="nav" id="nav" aria-label="Principal" data-nav>
+      <ol><li><a href="entrenamiento.html">Entrenamiento</a></li><li><a href="pilates-reformer.html">Pilates Reformer</a></li><li><a href="fisioterapia.html">Fisioterapia</a></li><li><a href="fisioterapia-dermatofuncional.html">Dermatofuncional</a></li><li><a href="nutricion.html">Nutrición</a></li><li><a href="tarifas.html">Tarifas</a></li></ol>
+      <a class="btn btn--y" href="reservar.html?area=prueba">Prueba gratis</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="pg">
+  <span class="pg__num" aria-hidden="true">4</span>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Migas de pan"><ol><li><a href="./">Inicio</a></li><li><span aria-current="page">Reservar</span></li></ol></nav>
+    <span class="lbl">Cuatro pasos</span>
+    <h1 style="margin-top:1.2rem"><span class="h1-big">Reserva tu plaza</span><span class="h1-sub">En cualquier navegador, sin app.</span></h1>
+  </div>
+</section>
+<section class="sec" id="reserva" style="border-top:0">
+  <div class="wrap">
+    <p class="chrome-note"><span class="lbl">Sin trucos</span><span><span class="tachon"><span class="tz tz--s" data-tz="strike">Abre con Chrome</span></span>. Aquí funciona en Edge, Chrome, Safari, Firefox y el navegador del móvil.</span></p>
+    <form class="rsv" data-rsv novalidate>
+      <ol class="rsv__prog" aria-hidden="true"><li class="is-on">1 Área</li><li>2 Servicio</li><li>3 Franja</li><li>4 Nombre</li></ol>
+      <fieldset class="paso" data-paso="1"><legend>¿Qué área?</legend><div class="opts opts--2" data-opts="area"></div></fieldset>
+      <fieldset class="paso" data-paso="2" hidden><legend>¿Qué servicio o bono?</legend><div class="opts" data-opts="bono"></div></fieldset>
+      <fieldset class="paso" data-paso="3" hidden><legend>¿Qué franja te viene mejor?</legend><div class="opts opts--3" data-opts="franja"></div></fieldset>
+      <fieldset class="paso" data-paso="4" hidden><legend>¿Cómo te llamas?</legend><label class="l" for="r-nombre">Tu nombre</label><input type="text" id="r-nombre" name="nombre" autocomplete="given-name" placeholder="Tu nombre"><p class="rsv__err" role="alert" data-err></p></fieldset>
+      <div class="rsv__nav"><button class="btn" type="button" data-prev hidden>← Atrás</button><button class="btn btn--y" type="button" data-next>Siguiente →</button></div>
+      <div class="rsv__res" data-res hidden></div>
+      <noscript><p class="rsv__res">Este formulario necesita JavaScript. Escríbenos directamente por <a href="https://wa.me/34600000000?text=Hola%2C%20quiero%20reservar.">WhatsApp</a> o llama al <a href="tel:+34955000000">955 000 000</a>.</p></noscript>
+    </form>
+    
+  </div>
+</section>
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="lbl">02 — Horario</span><h2>Parrilla semanal</h2></div>
+    <p class="parrilla-p">L–V 8:00–21:00 · S 9:00–13:00 (horario de ejemplo) <a href="https://wa.me/34600000000?text=Hola%2C%20%C2%BFqu%C3%A9%20horarios%20y%20plazas%20libres%20ten%C3%A9is%3F" data-track="whatsapp">Escríbenos</a>.</p>
+    
+    <ul class="datos" style="margin-top:2rem"><li><span class="lbl">Teléfono</span><a href="tel:+34955000000" data-track="llamada">955 000 000</a></li><li><span class="lbl">Email</span><a href="mailto:hola@nudosalud.example">hola@nudosalud.example</a></li><li><span class="lbl">Dirección</span><span>C. de la Muestra, 12</span></li></ul>
+  </div>
+</section>
+<section class="sec selector selector--compact" id="nudo">
+  <div class="wrap">
+    <div class="sec-head"><span class="lbl">Atajo</span><h2>¿No sabes cuál elegir?</h2><p>Cada persona tiene su propia historia. Elige la tuya y te contestamos con servicio, bono y precio.</p></div>
+    <div class="g">
+      <div class="chips-wrap" style="grid-column:1/-1" data-chips-wrap>
+        <svg class="sel-arrow" aria-hidden="true" data-tz-static="arrow" viewBox="0 0 150 60" style="stroke:var(--y)"></svg>
+        <ul class="chips" data-chips><li><button class="chip" type="button" aria-pressed="false" data-situ="duele">Me duele algo<span class="tz" data-tz="ring" data-tz-manual></span></button></li><li><button class="chip" type="button" aria-pressed="false" data-situ="forma">Quiero ponerme en forma<span class="tz" data-tz="ring" data-tz-manual></span></button></li><li><button class="chip" type="button" aria-pressed="false" data-situ="embarazo">Estoy embarazada<span class="tz" data-tz="ring" data-tz-manual></span></button></li><li><button class="chip" type="button" aria-pressed="false" data-situ="piel">Quiero cuidar mi piel o tengo lipedema<span class="tz" data-tz="ring" data-tz-manual></span></button></li><li><button class="chip" type="button" aria-pressed="false" data-situ="comer">Quiero comer mejor<span class="tz" data-tz="ring" data-tz-manual></span></button></li><li><button class="chip" type="button" aria-pressed="false" data-situ="mayor">Tengo +60 y quiero moverme<span class="tz" data-tz="ring" data-tz-manual></span></button></li><li><button class="chip" type="button" aria-pressed="false" data-situ="hijos">Es para mis hijos<span class="tz" data-tz="ring" data-tz-manual></span></button></li><li><button class="chip" type="button" aria-pressed="false" data-situ="pareja">Quiero entrenar con alguien<span class="tz" data-tz="ring" data-tz-manual></span></button></li></ul>
+      </div>
+      <div class="receta receta--vacia" role="region" aria-live="polite" aria-label="Tu receta" data-receta><div><span class="lbl">Receta Nudo</span><p class="big" style="margin-top:.5rem">Elige una arriba y te la receto.</p></div></div>
+    </div>
+  </div>
+</section></main>
+<footer class="foot" data-footer>
+  <div class="wrap foot__g">
+    <div class="foot__brand">
+      <a class="logo" href="./" aria-label="Nudo Salud, inicio"><span class="logo__w" aria-hidden="true">NUD<svg class="logo__o" viewBox="0 0 40 40"><path d="M25.1 6.0L27.7 6.6L29.7 8.3L31.6 10.1L33.4 12.1L34.5 14.5L35.2 17.1L35.7 19.8L35.6 22.5L34.9 25.1L33.9 27.6L32.4 29.9L30.7 32.0L28.3 33.5L25.9 34.8L23.3 35.9L20.6 36.2L17.8 35.8L15.0 35.6L12.4 34.5L9.9 33.2L7.8 31.3L6.3 28.8L4.7 26.4L3.6 23.8L3.2 20.9L3.3 18.0L3.8 15.2L4.7 12.4L6.2 9.8L8.3 7.8L10.5 5.9L13.0 4.2L15.8 3.4L18.7 3.0L21.7 2.9L24.6 3.3L27.4 4.4L30.2 5.5L32.5 7.6L34.5 9.8" stroke-width="3.4"/><path d="M33.2 9.1L34.4 11.6L35.7 14.1L36.5 16.7L36.8 19.4L36.5 22.2L35.8 24.8L35.1 27.4L33.2 29.5L31.6 31.6L29.5 33.2L27.2 34.7L24.7 35.8L22.0 36.0L19.4 35.8L16.8 35.5L14.3 34.6L12.0 33.5L9.9 31.9L8.1 30.0L6.6 27.9L5.5 25.5L5.1 22.9L4.4 20.4L4.9 17.8L5.3 15.3L6.4 13.0L7.8 10.8L9.6 9.0L11.6 7.5L13.7 6.2L16.1 5.2L18.6 5.1L21.1 4.9L23.5 5.6L25.9 6.2L28.0 7.5L29.9 9.0L31.6 10.8L33.1 12.7L34.1 14.9" stroke-width="1.8"/><path d="M18.6 6.1L20.7 5.5L22.8 6.3L25.0 6.6L26.9 7.7L28.7 8.9L30.8 9.9L31.8 12.0L33.2 13.7L33.8 15.9L34.5 18.1L34.8 20.3L34.3 22.6L34.3 24.9L33.4 27.1L32.3 29.1L30.8 31.0L29.0 32.6L27.0 33.8L24.7 34.5L22.4 34.9L20.1 35.4L17.8 35.2L15.5 34.7L13.1 34.4L11.1 33.0L9.0 31.8L7.4 30.0L5.8 28.1L5.0 25.8L3.8 23.6L3.8 21.0L3.7 18.6L3.7 16.0L4.9 13.8L5.7 11.5L7.4 9.6L8.7 7.3L10.8 5.9L12.9 4.4L15.5 4.1" stroke-width="1.2"/><path d="M36.7 13.9L37.0 16.5L37.7 18.9L37.5 21.5L37.1 23.9L36.1 26.3L35.0 28.5L33.6 30.5L32.0 32.5L29.9 33.8L28.0 35.4L25.7 36.3L23.3 36.9L20.8 37.1L18.4 36.7L16.0 36.3L13.6 35.9L11.6 34.5L9.4 33.3L7.6 31.7L6.4 29.5L4.9 27.6L4.0 25.4L3.3 23.0L3.1 20.6L3.4 18.2L4.0 15.9L4.9 13.7L5.8 11.5L7.1 9.5L9.0 7.9L10.9 6.6L12.9 5.4L15.0 4.3L17.3 4.0L19.6 3.9L22.0 3.9L24.3 4.3L26.4 5.3L28.5 6.3L30.3 7.8" stroke-width="0.9"/></svg></span><span class="logo__s" aria-hidden="true">SALUD</span></a>
+      <p class="foot__tag">#DelNudoAlEquilibrio</p>
+    </div>
+    <div>
+      <h4>Áreas</h4>
+      <ul><li><a href="entrenamiento.html">Entrenamiento</a></li><li><a href="pilates-reformer.html">Pilates Reformer</a></li><li><a href="fisioterapia.html">Fisioterapia</a></li><li><a href="fisioterapia-dermatofuncional.html">Dermatofuncional</a></li><li><a href="nutricion.html">Nutrición</a></li><li><a href="fisioterapia.html#podologia">Podología</a></li></ul>
+    </div>
+    <div>
+      <h4>El centro</h4>
+      <ul><li><a href="tarifas.html">Tarifas</a></li><li><a href="reservar.html">Reservar</a></li><li><a href="./#donde">Dónde estamos</a></li><li><a href="./#tiendecita">La Tienda</a></li></ul>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul><li><a href="tel:+34955000000" data-track="llamada">955 000 000</a></li><li><a href="https://wa.me/34600000000?text=Hola%2C%20os%20escribo%20desde%20la%20web." data-track="whatsapp">WhatsApp</a></li><li><a href="mailto:hola@nudosalud.example">hola@nudosalud.example</a></li><li>C. de la Muestra, 12</li></ul>
+    </div>
+    <div class="foot__bottom">
+      <span>© <span data-year>2026</span> Nudo Salud</span>
+      <span><a href="aviso-legal.html">Aviso legal</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a></span>
+      <span>Web por <a href="https://espangelisimo.github.io/miweb/" rel="noopener">websinlio</a></span>
+    </div>
+  </div>
+</footer>
+<nav class="actionbar" aria-label="Contacto rápido" data-actionbar>
+  <a href="tel:+34955000000" data-track="llamada">Llamar</a>
+  <a href="https://wa.me/34600000000?text=Hola%2C%20quiero%20informaci%C3%B3n." data-track="whatsapp">WhatsApp</a>
+  <a class="is-main" href="reservar.html?area=prueba">Prueba gratis</a>
+</nav>
+<a class="wa-pill" href="https://wa.me/34600000000?text=Hola%2C%20quiero%20informaci%C3%B3n." data-track="whatsapp">WhatsApp</a>
+<script type="application/json" id="nudo-data">{"wa":"34600000000","groups":[{"id":"prueba","t":"Prueba gratis"},{"id":"entrenamiento","t":"Entrenamiento en grupo"},{"id":"reformer","t":"Pilates Reformer"},{"id":"combinados","t":"Combinados"},{"id":"especiales","t":"Programas especiales"},{"id":"personal","t":"Entrenamiento personal"},{"id":"fisio","t":"Fisioterapia"},{"id":"dermo","t":"Dermatofuncional"},{"id":"nutri","t":"Nutrición"}],"items":[{"id":"p-grupo","g":"prueba","n":"Prueba gratuita · entrenamiento en grupo","s":"Una clase","p":"0 €","m":"Hola, quiero la prueba gratuita de entrenamiento en grupo. ¿Qué días hay plazas?"},{"id":"p-reformer","g":"prueba","n":"Prueba gratuita · Pilates Reformer","s":"Una clase","p":"0 €","m":"Hola, quiero la prueba gratuita de Pilates Reformer. ¿Qué días hay plazas?"},{"id":"c-start","g":"entrenamiento","n":"NUDO Start","s":"4 sesiones","p":"55 €","m":"Hola, quiero el bono NUDO Start (4 sesiones, 55 €). ¿Tenéis plazas?"},{"id":"c-move","g":"entrenamiento","n":"NUDO Move","s":"8 sesiones","p":"75 €","m":"Hola, quiero el bono NUDO Move (8 sesiones, 75 €). ¿Tenéis plazas?"},{"id":"c-pro","g":"entrenamiento","n":"NUDO Pro","s":"12 sesiones","p":"90 €","m":"Hola, quiero el bono NUDO Pro (12 sesiones, 90 €). ¿Tenéis plazas?"},{"id":"c-unl","g":"entrenamiento","n":"NUDO Unlimited","s":"Mensual · 25 sesiones","p":"110 €","m":"Hola, quiero el bono NUDO Unlimited (Mensual · 25 sesiones, 110 €). ¿Tenéis plazas?"},{"id":"r-start","g":"reformer","n":"REFORMER Start","s":"4 sesiones","p":"75 €","m":"Hola, quiero el bono REFORMER Start (4 sesiones, 75 €). ¿Tenéis plazas?"},{"id":"r-move","g":"reformer","n":"REFORMER Move","s":"8 sesiones","p":"90 €","m":"Hola, quiero el bono REFORMER Move (8 sesiones, 90 €). ¿Tenéis plazas?"},{"id":"r-pro","g":"reformer","n":"REFORMER Pro","s":"12 sesiones","p":"105 €","m":"Hola, quiero el bono REFORMER Pro (12 sesiones, 105 €). ¿Tenéis plazas?"},{"id":"m-mix","g":"combinados","n":"NUDO Mix","s":"12 sesiones","p":"110 €","m":"Hola, quiero el bono NUDO Mix (12 sesiones, 110 €). ¿Tenéis plazas?"},{"id":"m-total","g":"combinados","n":"NUDO Total","s":"Funcional + Reformer · mensual ilimitado (25)","p":"130 €","m":"Hola, quiero el bono NUDO Total (Funcional + Reformer · mensual ilimitado (25), 130 €). ¿Tenéis plazas?"},{"id":"m-activa","g":"combinados","n":"NUDO Activa","s":"8 sesiones","p":"225 €","m":"Hola, quiero el bono NUDO Activa (8 sesiones, 225 €). ¿Tenéis plazas?"},{"id":"e-emb","g":"especiales","n":"Embarazo en Nudo","s":"8 sesiones","p":"95 €","m":"Hola, quiero el bono Embarazo en Nudo (8 sesiones, 95 €). ¿Tenéis plazas?"},{"id":"e-vital","g":"especiales","n":"Nudo Vital","s":"8 sesiones","p":"75 €","m":"Hola, quiero el bono Nudo Vital (8 sesiones, 75 €). ¿Tenéis plazas?"},{"id":"e-peques","g":"especiales","n":"Pequeñ@s Nudos","s":"8 sesiones · niños","p":"75 €","m":"Hola, quiero el bono Pequeñ@s Nudos (8 sesiones · niños, 75 €). ¿Tenéis plazas?"},{"id":"x-4","g":"personal","n":"Personal","s":"4 sesiones","p":"130 €","m":"Hola, quiero el bono Personal (4 sesiones, 130 €). ¿Tenéis plazas?"},{"id":"x-8","g":"personal","n":"Personal","s":"8 sesiones","p":"240 €","m":"Hola, quiero el bono Personal (8 sesiones, 240 €). ¿Tenéis plazas?"},{"id":"x-12","g":"personal","n":"Personal","s":"12 sesiones","p":"325 €","m":"Hola, quiero el bono Personal (12 sesiones, 325 €). ¿Tenéis plazas?"},{"id":"d-4","g":"personal","n":"Nudo Dúo (en pareja)","s":"4 sesiones","p":"150 €","m":"Hola, quiero el bono Nudo Dúo (en pareja) (4 sesiones, 150 €). ¿Tenéis plazas?"},{"id":"d-8","g":"personal","n":"Nudo Dúo (en pareja)","s":"8 sesiones","p":"260 €","m":"Hola, quiero el bono Nudo Dúo (en pareja) (8 sesiones, 260 €). ¿Tenéis plazas?"},{"id":"f-5","g":"fisio","n":"Fisioterapia · bono","s":"5 sesiones","p":"195 €","m":"Hola, quiero el bono Fisioterapia · bono (5 sesiones, 195 €). ¿Tenéis plazas?"},{"id":"f-10","g":"fisio","n":"Fisioterapia · bono","s":"10 sesiones","p":"365 €","m":"Hola, quiero el bono Fisioterapia · bono (10 sesiones, 365 €). ¿Tenéis plazas?"},{"id":"i-f1","g":"dermo","n":"INDIBA® facial","s":"1 sesión","p":"44 €","m":"Hola, quiero el bono INDIBA® facial (1 sesión, 44 €). ¿Tenéis plazas?"},{"id":"i-f5","g":"dermo","n":"INDIBA® facial","s":"5 sesiones","p":"200 €","m":"Hola, quiero el bono INDIBA® facial (5 sesiones, 200 €). ¿Tenéis plazas?"},{"id":"i-f10","g":"dermo","n":"INDIBA® facial","s":"10 sesiones","p":"380 €","m":"Hola, quiero el bono INDIBA® facial (10 sesiones, 380 €). ¿Tenéis plazas?"},{"id":"i-c1","g":"dermo","n":"INDIBA® corporal","s":"1 sesión","p":"55 €","m":"Hola, quiero el bono INDIBA® corporal (1 sesión, 55 €). ¿Tenéis plazas?"},{"id":"i-c5","g":"dermo","n":"INDIBA® corporal","s":"5 sesiones","p":"255 €","m":"Hola, quiero el bono INDIBA® corporal (5 sesiones, 255 €). ¿Tenéis plazas?"},{"id":"i-c10","g":"dermo","n":"INDIBA® corporal","s":"10 sesiones","p":"485 €","m":"Hola, quiero el bono INDIBA® corporal (10 sesiones, 485 €). ¿Tenéis plazas?"},{"id":"i-360","g":"dermo","n":"Nudo Dermo 360º (facial + corporal)","s":"10 sesiones","p":"430 €","m":"Hola, quiero el bono Nudo Dermo 360º (facial + corporal) (10 sesiones, 430 €). ¿Tenéis plazas?"},{"id":"s-1","g":"dermo","n":"Presoterapia","s":"1 sesión","p":"22 €","m":"Hola, quiero el bono Presoterapia (1 sesión, 22 €). ¿Tenéis plazas?"},{"id":"s-5","g":"dermo","n":"Presoterapia","s":"5 sesiones","p":"90 €","m":"Hola, quiero el bono Presoterapia (5 sesiones, 90 €). ¿Tenéis plazas?"},{"id":"s-10","g":"dermo","n":"Presoterapia","s":"10 sesiones","p":"160 €","m":"Hola, quiero el bono Presoterapia (10 sesiones, 160 €). ¿Tenéis plazas?"},{"id":"l-10","g":"dermo","n":"Nudo Lipedema · intensivo","s":"10 sesiones","p":"485 €","m":"Hola, quiero el bono Nudo Lipedema · intensivo (10 sesiones, 485 €). ¿Tenéis plazas?"},{"id":"n-m","g":"nutri","n":"Nutrición mensual · presencial","s":"4 sesiones con consulta inicial","p":"130 €","m":"Hola, quiero el bono Nutrición mensual · presencial (4 sesiones con consulta inicial, 130 €). ¿Tenéis plazas?"},{"id":"n-mo","g":"nutri","n":"Nutrición mensual · online","s":"4 sesiones con consulta inicial","p":"120 €","m":"Hola, quiero el bono Nutrición mensual · online (4 sesiones con consulta inicial, 120 €). ¿Tenéis plazas?"},{"id":"n-t","g":"nutri","n":"Nutrición trimestral · presencial","s":"7 sesiones con consulta inicial","p":"280 €","m":"Hola, quiero el bono Nutrición trimestral · presencial (7 sesiones con consulta inicial, 280 €). ¿Tenéis plazas?"},{"id":"n-to","g":"nutri","n":"Nutrición trimestral · online","s":"7 sesiones con consulta inicial","p":"260 €","m":"Hola, quiero el bono Nutrición trimestral · online (7 sesiones con consulta inicial, 260 €). ¿Tenéis plazas?"},{"id":"n-s","g":"nutri","n":"Nutrición seguimiento · presencial","s":"4 sesiones","p":"150 €","m":"Hola, quiero el bono Nutrición seguimiento · presencial (4 sesiones, 150 €). ¿Tenéis plazas?"},{"id":"n-so","g":"nutri","n":"Nutrición seguimiento · online","s":"4 sesiones","p":"130 €","m":"Hola, quiero el bono Nutrición seguimiento · online (4 sesiones, 130 €). ¿Tenéis plazas?"},{"id":"n-menu","g":"nutri","n":"Menú mensual","s":"Mensual","p":"85 €","m":"Hola, quiero el bono Menú mensual (Mensual, 85 €). ¿Tenéis plazas?"},{"id":"n-t3","g":"nutri","n":"Taller de cocina","s":"3 sesiones","p":"175 €","m":"Hola, quiero el bono Taller de cocina (3 sesiones, 175 €). ¿Tenéis plazas?"},{"id":"n-t5","g":"nutri","n":"Taller de cocina","s":"5 sesiones","p":"280 €","m":"Hola, quiero el bono Taller de cocina (5 sesiones, 280 €). ¿Tenéis plazas?"}],"situ":[{"id":"duele","t":"Me duele algo","area":"Fisioterapia","url":"fisioterapia.html","why":"Lo primero es que te vea la fisio. Tu espalda no necesita otro vídeo de YouTube.","bono":"f-5","alt":"También hay bono de 10 sesiones por 365 €.","bonoTxt":"Fisioterapia · bono · 5 sesiones","price":"195 €","msg":"Hola, mi nudo es: \"Me duele algo\". Me interesa Fisioterapia · bono (5 sesiones, 195 €). ¿Qué plazas tenéis?"},{"id":"forma","t":"Quiero ponerme en forma","area":"Entrenamiento funcional en grupo","url":"entrenamiento.html","why":"Grupos reducidos: más atención, mejores resultados. La primera clase es gratis hasta el 31/12/2026.","bono":"c-move","alt":"Empieza con la prueba gratuita (0 €) o con NUDO Start, 4 sesiones por 55 €.","bonoTxt":"NUDO Move · 8 sesiones","price":"75 €","msg":"Hola, mi nudo es: \"Quiero ponerme en forma\". Me interesa NUDO Move (8 sesiones, 75 €). ¿Qué plazas tenéis?"},{"id":"embarazo","t":"Estoy embarazada","area":"Embarazo en Nudo","url":"entrenamiento.html#embarazo","why":"Contigo desde el principio: un grupo pensado para esta etapa.","bono":"e-emb","alt":"","bonoTxt":"Embarazo en Nudo · 8 sesiones","price":"95 €","msg":"Hola, mi nudo es: \"Estoy embarazada\". Me interesa Embarazo en Nudo (8 sesiones, 95 €). ¿Qué plazas tenéis?"},{"id":"piel","t":"Quiero cuidar mi piel o tengo lipedema","area":"Dermatofuncional","url":"fisioterapia-dermatofuncional.html","why":"¿Tienes lipedema y sientes que tus piernas no responden como esperabas? Hay programa intensivo. Para piel, INDIBA® y presoterapia.","bono":"l-10","alt":"Para probar: INDIBA® facial, una sesión por 44 €.","bonoTxt":"Nudo Lipedema · intensivo · 10 sesiones","price":"485 €","msg":"Hola, mi nudo es: \"Quiero cuidar mi piel o tengo lipedema\". Me interesa Nudo Lipedema · intensivo (10 sesiones, 485 €). ¿Qué plazas tenéis?"},{"id":"comer","t":"Quiero comer mejor","area":"Nutrición","url":"nutricion.html","why":"Consulta inicial y seguimiento, en el centro u online.","bono":"n-m","alt":"Online, 120 €.","bonoTxt":"Nutrición mensual · presencial · 4 sesiones con consulta inicial","price":"130 €","msg":"Hola, mi nudo es: \"Quiero comer mejor\". Me interesa Nutrición mensual · presencial (4 sesiones con consulta inicial, 130 €). ¿Qué plazas tenéis?"},{"id":"mayor","t":"Tengo +60 y quiero moverme","area":"Nudo Vital","url":"entrenamiento.html#nudo-vital","why":"Un grupo propio de 8 sesiones. Escríbenos y te contamos si es el tuyo.","bono":"e-vital","alt":"","bonoTxt":"Nudo Vital · 8 sesiones","price":"75 €","msg":"Hola, mi nudo es: \"Tengo +60 y quiero moverme\". Me interesa Nudo Vital (8 sesiones, 75 €). ¿Qué plazas tenéis?"},{"id":"hijos","t":"Es para mis hijos","area":"Pequeñ@s Nudos","url":"entrenamiento.html#pequenos-nudos","why":"Crecer en movimiento: habilidad, confianza, autonomía.","bono":"e-peques","alt":"","bonoTxt":"Pequeñ@s Nudos · 8 sesiones · niños","price":"75 €","msg":"Hola, mi nudo es: \"Es para mis hijos\". Me interesa Pequeñ@s Nudos (8 sesiones · niños, 75 €). ¿Qué plazas tenéis?"},{"id":"pareja","t":"Quiero entrenar con alguien","area":"Nudo Dúo","url":"entrenamiento.html#personal","why":"Entrenamiento personal en pareja. Más atención, y alguien que no te deja faltar.","bono":"d-4","alt":"También de 8 sesiones por 260 €. Solo, con Personal desde 130 €.","bonoTxt":"Nudo Dúo (en pareja) · 4 sesiones","price":"150 €","msg":"Hola, mi nudo es: \"Quiero entrenar con alguien\". Me interesa Nudo Dúo (en pareja) (4 sesiones, 150 €). ¿Qué plazas tenéis?"}]}</script>
+<script src="js/cliente.js" defer></script>
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');</script>
+</body>
+</html>

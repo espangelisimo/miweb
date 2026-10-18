@@ -4,19 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Panel de solicitudes</title>
+  <title>Panel · Solicitudes</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="panel.css">
   <style>
-    body { background: var(--bg-alt); }
-    .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; }
-    .bar h1 { font-size: var(--fs-xl); }
     .filters { display: flex; flex-wrap: wrap; gap: .5rem; }
     .filters button { padding: .45rem .9rem; border-radius: 999px; border: 1px solid var(--border); background: #fff; font-size: var(--fs-sm); font-weight: 600; cursor: pointer; }
+    .filters .csv { align-self: center; margin-left: .5rem; font-size: var(--fs-sm); font-weight: 600; }
     .filters button[aria-pressed="true"] { background: var(--ink-900); border-color: var(--ink-900); color: #fff; }
     .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .75rem; margin-bottom: 1.25rem; }
     .stat { padding: 1rem 1.25rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); }
@@ -44,7 +43,7 @@
   <header class="header is-scrolled">
     <div class="container">
       <a class="logo" href="../"><img src="../assets/logo-mark.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span></a>
-      <a class="btn btn--ghost" href="../api/panel/solicitudes?formato=csv">Descargar Excel (CSV)</a>
+      <nav class="pnav" aria-label="Panel"><a href="./" aria-current="page">Solicitudes</a><a href="webs">Webs y demos</a><a href="auditoria">Auditoría</a></nav>
     </div>
   </header>
   <main class="container">
@@ -56,6 +55,7 @@
         <button aria-pressed="false" data-f="contactado">Contactadas</button>
         <button aria-pressed="false" data-f="cliente">Clientes</button>
         <button aria-pressed="false" data-f="descartado">Descartadas</button>
+        <a class="csv" href="../api/panel/solicitudes?formato=csv">Descargar Excel (CSV)</a>
       </div>
     </div>
     <div class="stats" id="stats"></div>

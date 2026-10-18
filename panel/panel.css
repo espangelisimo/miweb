@@ -1,0 +1,13 @@
+/* Panel privado de websinlio: cabecera con pestañas común a todas las páginas */
+body { background: var(--bg-alt); }
+.pnav { display: flex; flex-wrap: wrap; gap: .25rem; }
+.pnav a { padding: .7rem .9rem; border-radius: 999px; font-size: var(--fs-sm); font-weight: 600; color: var(--text-muted); text-decoration: none; }
+.pnav a:hover { color: var(--ink-900); background: var(--bg-alt); }
+.pnav a[aria-current="page"] { background: var(--ink-900); color: #fff; }
+.header .container { gap: 1rem; flex-wrap: wrap; }
+@media (max-width: 640px) { .header .container { padding-block: .6rem; } .pnav { width: 100%; justify-content: space-between; } .pnav a { padding: .7rem .7rem; } }
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; }
+.bar h1 { font-size: var(--fs-xl); }
+.empty, .error { padding: 2rem; text-align: center; background: #fff; border-radius: var(--radius); color: var(--text-muted); }
+.chip { display: inline-block; padding: .15rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 700; background: var(--bg-alt); border: 1px solid var(--border); white-space: nowrap; }
+.field { width: 100%; padding: .65rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); font: inherit; background: #fff; }

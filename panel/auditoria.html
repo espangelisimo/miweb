@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Panel · Auditoría de webs</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="panel.css">
+  <style>
+    .aform { display: flex; flex-wrap: wrap; gap: .75rem; padding: 1.25rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); }
+    .aform .field { flex: 1 1 320px; font-size: var(--fs-base, 1rem); }
+    .aform small { flex-basis: 100%; color: var(--text-muted); font-size: var(--fs-xs); }
+    .pasos { display: grid; gap: .3rem; margin: 1rem 0; padding: 0; list-style: none; font-size: var(--fs-sm); }
+    .pasos li::before { content: '○ '; }
+    .pasos li[data-e="ok"]::before { content: '✓ '; color: #1a7f37; font-weight: 800; }
+    .pasos li[data-e="mal"]::before { content: '✕ '; color: #b42318; font-weight: 800; }
+    .pasos li[data-e="run"]::before { content: '◌ '; color: var(--accent-strong); }
+    .pasos li[data-e="run"] { font-weight: 600; }
+    .res:empty, .pasos[hidden] { display: none; }
+    .res { display: grid; gap: 1.25rem; padding-bottom: 3rem; }
+    .resumen { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center; padding: 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); }
+    .resumen h2 { font-size: var(--fs-xl); word-break: break-all; }
+    .resumen .meta { font-size: var(--fs-sm); color: var(--text-muted); margin-top: .25rem; }
+    .resumen .acc { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .9rem; }
+    .nota { --c: #b42318; display: grid; place-items: center; width: 132px; aspect-ratio: 1; border-radius: 50%; background: conic-gradient(var(--c) calc(var(--v) * 1%), var(--bg-alt) 0); }
+    .nota > span { display: grid; place-items: center; width: 108px; aspect-ratio: 1; border-radius: 50%; background: #fff; font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; color: var(--ink-900); line-height: 1; }
+    .nota small { font-size: .8rem; color: var(--text-muted); font-family: var(--font-body, inherit); font-weight: 600; }
+    .nota--s { width: 62px; } .nota--s > span { width: 50px; font-size: 1.15rem; }
+    .c-ok { --c: #1a7f37; } .c-bien { --c: #6a9a1f; } .c-reg { --c: #c77700; } .c-mal { --c: #b42318; }
+    .cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: .75rem; }
+    .cat { display: flex; gap: .9rem; align-items: center; padding: .9rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: inherit; }
+    .cat b { display: block; font-size: var(--fs-sm); } .cat span.d { font-size: var(--fs-xs); color: var(--text-muted); }
+    .bloque { padding: 1.25rem 1.5rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); }
+    .bloque > header { display: flex; gap: 1rem; align-items: center; margin-bottom: .75rem; }
+    .bloque > header h3 { font-size: var(--fs-lg); }
+    .bloque > header p { font-size: var(--fs-xs); color: var(--text-muted); }
+    .checks { display: grid; gap: .1rem; padding: 0; list-style: none; }
+    .checks li { display: grid; grid-template-columns: 1.4rem 1fr; gap: .1rem .5rem; padding: .55rem 0; border-top: 1px solid var(--border); font-size: var(--fs-sm); }
+    .checks li::before { content: '✓'; font-weight: 800; color: #1a7f37; }
+    .checks li[data-v="medio"]::before { content: '!'; color: #c77700; }
+    .checks li[data-v="mal"]::before { content: '✕'; color: #b42318; }
+    .checks li[data-v="na"]::before { content: '–'; color: var(--text-muted); }
+    .checks li[data-v="na"] { color: var(--text-muted); }
+    .checks li > div { grid-column: 2; }
+    .checks .det { color: var(--text-muted); font-size: var(--fs-xs); }
+    .checks .fix { font-size: var(--fs-xs); color: var(--brand-ink); }
+    .lh { margin-top: .75rem; font-size: var(--fs-xs); color: var(--text-muted); }
+    .lh summary { cursor: pointer; font-weight: 600; }
+    .lh ul { margin: .4rem 0 0 1.1rem; }
+    .urg ol { margin: 0; padding-left: 1.2rem; display: grid; gap: .5rem; font-size: var(--fs-sm); }
+    .urg .fix { display: block; font-size: var(--fs-xs); color: var(--text-muted); }
+    table.hist { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); background: #fff; }
+    table.hist th, table.hist td { padding: .5rem .6rem; border-bottom: 1px solid var(--border); text-align: left; }
+    .delta-up { color: #1a7f37; font-weight: 700; } .delta-down { color: #b42318; font-weight: 700; }
+    .nota-aviso { font-size: var(--fs-xs); color: var(--text-muted); }
+    @media (max-width: 560px) { .resumen { grid-template-columns: 1fr; justify-items: start; } }
+    @media print { .header, .aform, .pasos, #historial, .resumen .acc { display: none !important; } body { background: #fff; } .bloque, .resumen, .cat { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <header class="header is-scrolled">
+    <div class="container">
+      <a class="logo" href="../"><img src="../assets/logo-mark.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span></a>
+      <nav class="pnav" aria-label="Panel"><a href="./">Solicitudes</a><a href="webs">Webs y demos</a><a href="auditoria" aria-current="page">Auditoría</a></nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="bar"><h1>Auditoría de webs</h1></div>
+    <form class="aform" id="f">
+      <label class="sr-only" for="url">Dirección de la web</label>
+      <input class="field" id="url" name="url" type="text" inputmode="url" placeholder="https://www.negocio.es" required autocomplete="off">
+      <button class="btn btn--primary" type="submit">Auditar</button>
+      <small>Nota de 0 a 10 en velocidad, SEO, SEO local, IA (AEO), accesibilidad, móvil, conversión, seguridad y legal. Usa los datos de Google PageSpeed (tarda 20-60 s) y lecturas pasivas de la web: no hace pruebas de ataque.</small>
+    </form>
+    <ol class="pasos" id="pasos" hidden></ol>
+    <div class="res" id="res"></div>
+    <section id="historial"></section>
+  </main>
+
+  <script>
+  (() => {
+    const API = '../api/panel/auditoria';
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const $ = id => document.getElementById(id);
+    const AÑO = new Date().getFullYear();
+
+    const CATS = [
+      { id: 'vel', n: 'Velocidad', d: 'Core Web Vitals y peso', w: 18 },
+      { id: 'seo', n: 'SEO técnico', d: 'Lo que Google necesita para indexarla', w: 15 },
+      { id: 'local', n: 'SEO local', d: 'Salir en "servicio + pueblo" y en Maps', w: 12 },
+      { id: 'aeo', n: 'IA (AEO)', d: 'Que ChatGPT, Gemini y Google IA la citen', w: 10 },
+      { id: 'a11y', n: 'Accesibilidad', d: 'WCAG AA: que la use todo el mundo', w: 12 },
+      { id: 'movil', n: 'Móvil', d: 'Responsive y cómoda con el dedo', w: 10 },
+      { id: 'conv', n: 'Conversión', d: 'Que el visitante contacte', w: 13 },
+      { id: 'seg', n: 'Seguridad', d: 'HTTPS, cabeceras y software expuesto', w: 10 },
+      { id: 'legal', n: 'Legal', d: 'RGPD, LSSI y cookies', w: 5 },
+    ];
+
+    // ---------- utilidades ----------
+    const clase = v => v >= 9 ? 'c-ok' : v >= 7 ? 'c-bien' : v >= 5 ? 'c-reg' : 'c-mal';
+    const anillo = (v, s) => `<div class="nota ${s ? 'nota--s ' : ''}${v == null ? '' : clase(v)}" style="--v:${v == null ? 0 : v * 10}"><span>${v == null ? '–' : v.toFixed(1).replace('.', ',')}${s ? '' : '<small>de 10</small>'}</span></div>`;
+    const tramo = (x, bueno, malo) => x == null ? null : x <= bueno ? 1 : x >= malo ? 0 : 1 - (x - bueno) / (malo - bueno);
+    const ratio = (n, t) => t ? n / t : null;
+
+    function pasos(lista) { $('pasos').hidden = false; $('pasos').innerHTML = lista.map(([id, t]) => `<li id="p-${id}">${t}</li>`).join(''); }
+    const paso = (id, e, extra) => { const li = $('p-' + id); if (!li) return; li.dataset.e = e; if (extra) li.textContent = li.textContent.replace(/ ·.*$/, '') + ' · ' + extra; };
+
+    function robotsReglas(txt) {
+      const g = {}; let agentes = [], ultimaUA = false;
+      for (const raw of (txt || '').split(/\r?\n/)) {
+        const l = raw.replace(/#.*/, '').trim(); if (!l) continue;
+        const [k, ...v] = l.split(':'); const key = k.trim().toLowerCase(), val = v.join(':').trim();
+        if (key === 'user-agent') { if (!ultimaUA) agentes = []; agentes.push(val.toLowerCase()); ultimaUA = true; continue; }
+        ultimaUA = false;
+        if (key === 'disallow') agentes.forEach(a => (g[a] ||= []).push(val));
+      }
+      return a => (g[a.toLowerCase()] || []).includes('/');
+    }
+
+    function jsonld(doc) {
+      const objs = [];
+      const recorrer = o => { if (Array.isArray(o)) return o.forEach(recorrer); if (o && typeof o === 'object') { if (o['@type']) objs.push(o); Object.values(o).forEach(recorrer); } };
+      doc.querySelectorAll('script[type="application/ld+json"]').forEach(s => { try { recorrer(JSON.parse(s.textContent)); } catch { objs.push({ '@type': '__error' }); } });
+      return objs;
+    }
+    const tipos = o => [].concat(o['@type']);
+
+    // ---------- análisis ----------
+    function analizar(d, psi, rotos) {
+      const C = [];
+      const add = (cat, peso, val, titulo, det = '', fix = '') => C.push({ cat, peso, val: val == null ? null : Math.max(0, Math.min(1, +val)), titulo, det, fix });
+      const doc = new DOMParser().parseFromString(d.texto, 'text/html');
+      const H = Object.fromEntries(Object.entries(d.headers).map(([k, v]) => [k.toLowerCase(), v]));
+      const fin = new URL(d.final);
+      const q = s => [...doc.querySelectorAll(s)];
+      const cuerpo = doc.body ? doc.body.cloneNode(true) : doc.createElement('body');
+      cuerpo.querySelectorAll('script,style,noscript,template,svg').forEach(n => n.remove());
+      const texto = cuerpo.textContent.replace(/\s+/g, ' ').trim();
+      const palabras = texto ? texto.split(' ').length : 0;
+      const enlaces = q('a[href]').map(a => ({ href: a.getAttribute('href').trim(), txt: a.textContent.replace(/\s+/g, ' ').trim(), a }));
+      const imgs = q('img');
+      const ld = jsonld(doc);
+      const ldTipos = ld.flatMap(tipos);
+      const local = ld.find(o => tipos(o).some(t => /LocalBusiness|Store|Restaurant|Dentist|Clinic|Medical|Physician|Physiotherapy|AutoRepair|Automotive|ProfessionalService|Salon|Beauty|Veterinary|FoodEstablishment|Bar|Cafe|Hotel|Gym|Exercise|Sports|Legal|Accounting|Insurance|RealEstate|Plumber|Electrician|HomeAndConstruction|Optician|Pharmacy|Bakery|Shop/i.test(t))) || ld.find(o => o.address && o.telephone);
+      const robots = d.extras.robots?.status === 200 && !/<html/i.test(d.extras.robots.texto || '') ? d.extras.robots.texto : '';
+      const bloquea = robotsReglas(robots);
+      const lr = psi.mobile?.lighthouseResult, lrD = psi.desktop?.lighthouseResult;
+      const cat = (r, c) => r?.categories?.[c]?.score ?? null;
+      const au = id => lr?.audits?.[id];
+      const meta = n => doc.querySelector(`meta[name="${n}" i]`)?.getAttribute('content') || '';
+      const title = (doc.querySelector('title')?.textContent || '').trim();
+      const desc = meta('description').trim();
+      const h1 = q('h1').map(h => h.textContent.trim()).filter(Boolean);
+      const tels = enlaces.filter(l => /^tel:/i.test(l.href));
+      const wa = enlaces.filter(l => /wa\.me|api\.whatsapp|whatsapp:\/\/|web\.whatsapp/i.test(l.href));
+      const ctaRe = /reserv|cita|llam|contact|pide|pedir|presupuesto|whatsapp|escr[ií]be|compra|agenda|book/i;
+      const ctas = [...enlaces.map(l => l.txt), ...q('button').map(b => b.textContent.trim())].filter(t => t && t.length < 50 && ctaRe.test(t));
+      const sinPSI = 'Sin datos de PageSpeed';
+
+      // Velocidad
+      const pm = cat(lr, 'performance'), pd = cat(lrD, 'performance');
+      add('vel', 5, pm, `PageSpeed móvil: ${pm == null ? '—' : Math.round(pm * 100)}/100`, pm == null ? sinPSI : 'La nota que Google calcula para el móvil, que es lo que usa para posicionar.', 'Imágenes en WebP y a su tamaño, menos JavaScript de terceros, alojamiento rápido.');
+      add('vel', 2, pd, `PageSpeed ordenador: ${pd == null ? '—' : Math.round(pd * 100)}/100`, pd == null ? sinPSI : '');
+      const lcp = au('largest-contentful-paint')?.numericValue, cls = au('cumulative-layout-shift')?.numericValue, tbt = au('total-blocking-time')?.numericValue;
+      add('vel', 2, tramo(lcp, 2500, 4000), `LCP (lo principal visible): ${lcp == null ? '—' : (lcp / 1000).toFixed(1).replace('.', ',') + ' s'}`, 'Google pide menos de 2,5 s en móvil.', 'Imagen principal ligera con fetchpriority="high" y sin bloqueos de CSS/JS.');
+      add('vel', 1.5, tramo(cls, .1, .25), `CLS (saltos al cargar): ${cls == null ? '—' : cls.toFixed(2).replace('.', ',')}`, 'Google pide menos de 0,1.', 'Poner width y height a imágenes, iframes y anuncios.');
+      add('vel', 1.5, tramo(tbt, 200, 600), `Bloqueo por JavaScript (TBT): ${tbt == null ? '—' : Math.round(tbt) + ' ms'}`, 'Relacionado con INP (respuesta al tocar). Bueno: < 200 ms.', 'Quitar scripts y plugins que no aportan; cargar el resto con defer.');
+      const crux = psi.mobile?.loadingExperience;
+      if (crux?.overall_category) add('vel', 2, { FAST: 1, AVERAGE: .5, SLOW: 0 }[crux.overall_category] ?? null, `Usuarios reales (Chrome): ${{ FAST: 'rápida', AVERAGE: 'mejorable', SLOW: 'lenta' }[crux.overall_category] || crux.overall_category}`, 'Datos de campo de los últimos 28 días: es lo que Google usa de verdad para posicionar.');
+      add('vel', 1, tramo(d.ms, 800, 2500), `Respuesta del servidor: ${d.ms} ms`, 'Medido desde Cloudflare, incluye redirecciones.', 'Caché de página o un alojamiento más rápido.');
+      const kb = Math.round(d.texto.length / 1024);
+      add('vel', .5, tramo(kb, 150, 500), `Peso del HTML: ${kb} KB`, '', 'Quitar código incrustado que sobra (constructores visuales, estilos repetidos).');
+      const modernas = imgs.filter(i => /\.(webp|avif)(\?|$)/i.test(i.currentSrc || i.getAttribute('src') || '') || i.closest('picture')?.querySelector('source[type*="webp"],source[type*="avif"]')).length;
+      add('vel', 1, ratio(modernas, imgs.length), `Imágenes en WebP/AVIF: ${modernas} de ${imgs.length}`, '', 'Convertir a WebP (pesan 30-70 % menos).');
+      const lazy = imgs.slice(1).filter(i => i.getAttribute('loading') === 'lazy').length;
+      add('vel', .5, imgs.length > 2 ? ratio(lazy, imgs.length - 1) : null, `Carga diferida de imágenes: ${lazy} de ${Math.max(imgs.length - 1, 0)}`, '', 'loading="lazy" en todas menos la principal.');
+      const dims = imgs.filter(i => i.getAttribute('width') && i.getAttribute('height')).length;
+      add('vel', .5, ratio(dims, imgs.length), `Imágenes con medidas (evita saltos): ${dims} de ${imgs.length}`);
+      const ext = new Set(q('script[src]').map(s => { try { return new URL(s.getAttribute('src'), d.final).hostname; } catch { return ''; } }).filter(h => h && h !== fin.hostname));
+      add('vel', .5, tramo(ext.size, 4, 12), `Dominios de scripts externos: ${ext.size}`, [...ext].slice(0, 8).join(', '), 'Cada script de terceros (chats, píxeles, widgets) ralentiza.');
+
+      // SEO técnico
+      const noindex = /noindex/i.test(meta('robots') + ' ' + (H['x-robots-tag'] || ''));
+      add('seo', 2, d.status === 200, `Respuesta ${d.status}`, d.cadena.length > 1 ? `Redirecciones: ${d.cadena.map(c => c.status).join(' → ')}` : '');
+      add('seo', 3, !noindex, noindex ? 'Bloqueada para Google (noindex)' : 'Indexable por Google', noindex ? 'Google no la mostrará en los resultados.' : '', 'Quitar el noindex (salvo que sea una demo).');
+      add('seo', 2, robots ? !bloquea('*') : .6, robots ? (bloquea('*') ? 'robots.txt bloquea toda la web' : 'robots.txt correcto') : 'Sin robots.txt', '', 'Crear robots.txt con Allow: / y la línea Sitemap.');
+      add('seo', 1, d.extras.sitemap?.status === 200, d.extras.sitemap?.status === 200 ? 'sitemap.xml presente' : 'Sin sitemap.xml', '', 'Crear sitemap.xml y enviarlo en Search Console.');
+      add('seo', 2, title ? tramo(Math.abs(Math.min(Math.max(title.length, 30), 65) - title.length), 0, 30) : 0, title ? `Título (${title.length} caracteres)` : 'Sin título', title ? `«${title}»` : '', 'Entre 30 y 65 caracteres: servicio + localidad + marca.');
+      add('seo', 1.5, desc ? (desc.length >= 70 && desc.length <= 165 ? 1 : .5) : 0, desc ? `Meta descripción (${desc.length} caracteres)` : 'Sin meta descripción', desc ? `«${desc.slice(0, 160)}»` : '', 'Entre 70 y 160 caracteres, con beneficio y llamada a la acción.');
+      add('seo', 1.5, h1.length === 1 ? 1 : h1.length > 1 ? .5 : 0, h1.length === 1 ? 'Un H1' : h1.length ? `${h1.length} H1` : 'Sin H1', h1.slice(0, 3).map(h => `«${h.slice(0, 80)}»`).join(' · '), 'Un solo H1 que diga qué es y dónde.');
+      add('seo', .5, q('h2').length >= 2, `Subtítulos H2: ${q('h2').length}`);
+      const canon = doc.querySelector('link[rel="canonical"]')?.getAttribute('href');
+      add('seo', 1, !!canon, canon ? 'Canonical definido' : 'Sin canonical', canon || '', 'Añadir <link rel="canonical"> en cada página.');
+      add('seo', 1, !!doc.documentElement.getAttribute('lang'), doc.documentElement.getAttribute('lang') ? `Idioma declarado: ${doc.documentElement.getAttribute('lang')}` : 'Sin idioma declarado (lang)', '', '<html lang="es">.');
+      const og = doc.querySelector('meta[property="og:title"]') && doc.querySelector('meta[property="og:image"]');
+      add('seo', .5, !!og, og ? 'Vista previa al compartir (Open Graph)' : 'Sin Open Graph', '', 'og:title, og:description y og:image para WhatsApp y redes.');
+      add('seo', 1, d.extras.noExiste?.status === 404, d.extras.noExiste?.status === 404 ? 'Las páginas que no existen dan 404' : `Una página inexistente devuelve ${d.extras.noExiste?.status}`, '', 'Configurar un 404 real (los "soft 404" confunden a Google).');
+      add('seo', .5, !!doc.querySelector('link[rel~="icon"]'), doc.querySelector('link[rel~="icon"]') ? 'Favicon' : 'Sin favicon', '', 'Google lo muestra junto al resultado.');
+      if (rotos) { const r = Object.entries(rotos).filter(([, s]) => !s || s >= 400); add('seo', 2, r.length ? Math.max(0, 1 - r.length / 3) : 1, r.length ? `${r.length} enlaces internos rotos` : `Enlaces internos correctos (${Object.keys(rotos).length} revisados)`, r.slice(0, 5).map(([u, s]) => `${s || 'error'} ${u}`).join(' · '), 'Corregir o redirigir con 301.'); }
+      const ps = cat(lr, 'seo');
+      add('seo', 3, ps, `Lighthouse SEO: ${ps == null ? '—' : Math.round(ps * 100)}/100`, ps == null ? sinPSI : '');
+
+      // SEO local
+      const loc = local?.address?.addressLocality || '';
+      add('local', 2, !!local, local ? `Ficha de negocio en datos estructurados (${tipos(local).join(', ')})` : 'Sin LocalBusiness en JSON-LD', '', 'JSON-LD LocalBusiness (o su subtipo) con nombre, dirección, teléfono, horario y geo.');
+      add('local', 1, local ? !!local.telephone : null, 'Teléfono en datos estructurados', '', 'Añadir telephone al JSON-LD.');
+      add('local', 1, local ? !!local.address : null, 'Dirección en datos estructurados', loc, 'Añadir address (PostalAddress) al JSON-LD.');
+      add('local', 1, local ? !!(local.openingHours || local.openingHoursSpecification) : null, 'Horario en datos estructurados', '', 'Añadir openingHoursSpecification al JSON-LD.');
+      add('local', .5, local ? !!local.geo : null, 'Coordenadas (geo)', '', 'Añadir geo (latitud y longitud) al JSON-LD.');
+      add('local', .5, local ? !!local.sameAs : null, 'Perfiles enlazados (sameAs: Google, redes)', '', 'Añadir sameAs con la ficha de Google e Instagram/Facebook.');
+      add('local', 1.5, tels.length > 0, tels.length ? 'Teléfono pulsable' : 'El teléfono no se puede pulsar', tels.slice(0, 2).map(t => t.href.replace('tel:', '')).join(', '), '<a href="tel:+34…"> en cabecera y pie.');
+      const dir = /\b(c\/|calle|avda\.?|avenida|plaza|pza\.?|carretera|ctra\.?|pol[ií]gono|p\.? ?i\.?)\s/i.test(texto) || /\b\d{5}\b/.test(texto);
+      add('local', 1, dir, dir ? 'Dirección visible' : 'No se ve la dirección', '', 'Dirección completa en texto, igual que en la ficha de Google.');
+      const mapa = !!doc.querySelector('iframe[src*="google.com/maps"],iframe[src*="maps.google"],a[href*="maps.app.goo"],a[href*="google.com/maps"],a[href*="goo.gl/maps"],a[href*="maps.google"]');
+      add('local', 1, mapa, mapa ? 'Mapa o enlace "Cómo llegar"' : 'Sin mapa ni "Cómo llegar"', '', 'Enlace a la ficha de Google Maps.');
+      add('local', 1, loc ? (title + ' ' + h1.join(' ')).toLowerCase().includes(loc.toLowerCase()) : null, loc ? `Localidad (${loc}) en título o H1` : 'Localidad en título o H1', loc ? '' : 'No se puede comprobar: falta la localidad en los datos estructurados.', 'Incluir la localidad en el title y el H1.');
+      const horario = /horario|lunes|martes|l\s?[-–a]\s?v|lun\s?[-–]|de \d{1,2}[:.]\d{2}|\d{1,2}[:.]\d{2}\s?[-–]\s?\d{1,2}[:.]\d{2}/i.test(texto);
+      add('local', 1, horario, horario ? 'Horario visible' : 'No se ve el horario', '', 'Horario en texto, coherente con Google.');
+
+      // AEO
+      const llms = d.extras.llms?.status === 200;
+      add('aeo', 1.5, llms, llms ? 'llms.txt presente' : 'Sin llms.txt', '', 'Resumen del negocio para asistentes de IA.');
+      add('aeo', 1.5, ldTipos.includes('FAQPage'), ldTipos.includes('FAQPage') ? 'Preguntas frecuentes estructuradas (FAQPage)' : 'Sin FAQPage', '', 'Preguntas reales de clientes con respuesta directa y su JSON-LD.');
+      const preg = q('h2,h3,summary,dt').filter(h => /\?/.test(h.textContent)).length;
+      add('aeo', 1.5, Math.min(preg / 3, 1), `Preguntas como encabezados: ${preg}`, '', 'Encabezados con las preguntas que la gente hace a la IA ("¿Cuánto cuesta…?").');
+      const jsDep = palabras < 150 && q('script').length > 5;
+      add('aeo', 1.5, jsDep ? 0 : tramo(-palabras, -400, -100), `Texto legible sin JavaScript: ${palabras} palabras`, jsDep ? 'El contenido parece depender de JavaScript: las IA y a veces Google no lo leen.' : '', 'Texto real en el HTML: servicios, precios, zona, preguntas.');
+      add('aeo', 1, ldTipos.some(t => /Service|Offer|Product|Menu|OfferCatalog/.test(t)), 'Servicios u ofertas en datos estructurados', '', 'Service/Offer con nombre, descripción y precio.');
+      const bots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'ClaudeBot', 'Google-Extended'].filter(b => bloquea(b));
+      add('aeo', 1.5, !bots.length, bots.length ? `Bloquea a bots de IA: ${bots.join(', ')}` : 'No bloquea a los asistentes de IA', '', 'Permitirlos en robots.txt si se quiere aparecer en sus respuestas.');
+      const precios = /\d\s?€|€\s?\d|\beur\b/i.test(texto);
+      add('aeo', 1, precios, precios ? 'Precios o datos concretos' : 'Sin precios ni cifras', '', 'Las IA citan datos concretos: precios orientativos, tiempos, años.');
+      add('aeo', .5, q('ul li, ol li, table').length >= 6, 'Contenido estructurado (listas/tablas)');
+      add('aeo', .5, ld.some(o => tipos(o).some(t => /Organization|Person/.test(t)) || o.founder || o.author) || !!local, 'Quién está detrás (Organization/Person)');
+
+      // Accesibilidad
+      const pa = cat(lr, 'accessibility');
+      add('a11y', 5, pa, `Lighthouse accesibilidad: ${pa == null ? '—' : Math.round(pa * 100)}/100`, pa == null ? sinPSI : '');
+      add('a11y', 1, !!doc.documentElement.getAttribute('lang'), 'Idioma de la página (lectores de pantalla)');
+      const conAlt = imgs.filter(i => i.hasAttribute('alt')).length;
+      add('a11y', 1.5, ratio(conAlt, imgs.length), `Imágenes con texto alternativo: ${conAlt} de ${imgs.length}`, '', 'alt descriptivo (o alt="" si es decorativa).');
+      const campos = q('input:not([type=hidden]):not([type=submit]):not([type=button]),select,textarea');
+      const etiq = campos.filter(c => (c.id && doc.querySelector(`label[for="${CSS.escape(c.id)}"]`)) || c.closest('label') || c.getAttribute('aria-label') || c.getAttribute('aria-labelledby') || c.getAttribute('title')).length;
+      add('a11y', 1.5, ratio(etiq, campos.length), `Campos de formulario con etiqueta: ${etiq} de ${campos.length}`, '', '<label> visible para cada campo (el placeholder no vale).');
+      const sinNombre = [...enlaces.map(l => l.a), ...q('button')].filter(e => !e.textContent.trim() && !e.getAttribute('aria-label') && !e.getAttribute('title') && !e.querySelector('img[alt]:not([alt=""])')).length;
+      add('a11y', 1, sinNombre === 0 ? 1 : tramo(sinNombre, 0, 6), sinNombre ? `${sinNombre} botones o enlaces sin nombre` : 'Botones y enlaces con nombre', '', 'aria-label en los iconos (WhatsApp, redes, menú).');
+      add('a11y', .5, !!enlaces.find(l => /^#/.test(l.href) && /salt|skip|contenido/i.test(l.txt)), 'Enlace "Saltar al contenido"');
+      const vp = meta('viewport');
+      const zoom = /user-scalable\s*=\s*(no|0)|maximum-scale\s*=\s*1(\.0)?\b/i.test(vp);
+      add('a11y', 1, !zoom, zoom ? 'Impide hacer zoom' : 'Permite hacer zoom', '', 'Quitar user-scalable=no y maximum-scale=1.');
+      const ifr = q('iframe'); add('a11y', .5, ifr.length ? ratio(ifr.filter(i => i.title).length, ifr.length) : null, 'Iframes con título');
+
+      // Móvil
+      add('movil', 3, /width\s*=\s*device-width/i.test(vp), vp ? 'Viewport para móvil' : 'Sin etiqueta viewport: no es responsive', vp, '<meta name="viewport" content="width=device-width, initial-scale=1">.');
+      add('movil', 1, vp ? !/width\s*=\s*\d/.test(vp) : null, 'Ancho no fijo');
+      const lhv = au('viewport')?.score, fs = au('font-size')?.score;
+      add('movil', 1, lhv ?? null, 'Lighthouse: viewport correcto');
+      add('movil', 1, fs ?? null, 'Lighthouse: textos legibles en móvil');
+      add('movil', 1.5, pm, `Rendimiento en móvil: ${pm == null ? '—' : Math.round(pm * 100)}/100`, pm == null ? sinPSI : '');
+      add('movil', 1, tels.length > 0 || wa.length > 0, 'Contacto a un toque (teléfono o WhatsApp)');
+      const resp = imgs.filter(i => i.getAttribute('srcset') || i.closest('picture')).length;
+      add('movil', .5, imgs.length > 2 ? Math.min(ratio(resp, imgs.length) * 2, 1) : null, `Imágenes adaptadas a la pantalla (srcset): ${resp} de ${imgs.length}`);
+      const tipoTel = q('input[type=tel],input[type=email],input[inputmode]').length;
+      add('movil', .5, campos.length ? (tipoTel ? 1 : 0) : null, 'Teclado adecuado en formularios (type="tel"/"email")');
+
+      // Conversión
+      add('conv', 2, tels.length > 0, tels.length ? 'Botón de llamar' : 'Sin botón de llamar');
+      add('conv', 2, wa.length > 0, wa.length ? 'WhatsApp directo' : 'Sin WhatsApp', '', 'Enlace wa.me con mensaje preparado.');
+      add('conv', 1.5, Math.min(ctas.length / 3, 1), `Llamadas a la acción: ${ctas.length}`, [...new Set(ctas)].slice(0, 5).map(t => `«${t}»`).join(' · '), 'Botón principal claro (Reservar, Pedir cita, Llamar) repetido en la página.');
+      const primeros = q('header a, header button, main section:first-of-type a, main section:first-of-type button, body > section:first-of-type a').map(e => e.textContent).join(' ');
+      add('conv', 1, ctaRe.test(primeros) || tels.some(t => t.a.closest('header')), 'Acción visible en la primera pantalla', '', 'CTA en la cabecera y en el hero.');
+      const forms = q('form').map(f => new Set([...f.querySelectorAll('input:not([type=hidden]):not([type=submit]):not([type=button]):not([type=checkbox]),select,textarea')].filter(c => !/bot|honey|trampa/i.test(c.name || '') && !c.closest('[hidden],[aria-hidden="true"]')).map((c, i) => c.name || 'sin-nombre-' + i)).size);
+      add('conv', 1, forms.length ? (Math.max(...forms) <= 5 ? 1 : .4) : null, forms.length ? `Formulario de ${Math.max(...forms)} campos` : 'Sin formulario', '', '4 campos como máximo.');
+      const resenas = /reseñas|opiniones|testimonios|valoraci|★|estrellas|google reviews?/i.test(texto);
+      add('conv', 1.5, resenas, resenas ? 'Reseñas u opiniones visibles' : 'Sin reseñas visibles', '', 'Las reseñas reales de Google cerca del botón.');
+      add('conv', 1, precios, precios ? 'Precios orientativos' : 'Sin precios', '', 'Precios "desde" quitan miedo y filtran.');
+      add('conv', 1, horario, 'Horario a la vista');
+      add('conv', .5, imgs.length >= 4, `Fotos: ${imgs.length}`, '', 'Fotos reales del local y del equipo.');
+      const años = [...texto.matchAll(/(?:©|copyright)\s*(?:\d{4}\s*[-–]\s*)?(\d{4})/gi)].map(m => +m[1]);
+      add('conv', .5, años.length ? (Math.max(...años) >= AÑO - 1 ? 1 : 0) : null, años.length ? `Año del pie: ${Math.max(...años)}` : 'Año del pie', años.length && Math.max(...años) < AÑO - 1 ? 'Da sensación de web abandonada.' : '');
+
+      // Seguridad
+      const https = fin.protocol === 'https:';
+      add('seg', 3, https, https ? 'HTTPS' : 'Sin HTTPS: el navegador avisa de "No seguro"', '', 'Certificado SSL (gratis con Cloudflare o Let\'s Encrypt).');
+      const http = d.extras.http;
+      add('seg', 2, http ? /^https:/.test(http.final || '') : null, http ? (/^https:/.test(http.final || '') ? 'http:// redirige a https://' : 'http:// no redirige a https://') : 'Redirección a HTTPS');
+      add('seg', 1.5, https ? !!H['strict-transport-security'] : null, H['strict-transport-security'] ? 'HSTS activo' : 'Sin HSTS', H['strict-transport-security'] || '', 'Cabecera Strict-Transport-Security.');
+      const csp = H['content-security-policy'] || '';
+      add('seg', 1, !!csp, csp ? 'Política de seguridad de contenidos (CSP)' : 'Sin CSP', '', 'Content-Security-Policy, aunque sea básica.');
+      add('seg', .5, /nosniff/i.test(H['x-content-type-options'] || ''), 'X-Content-Type-Options: nosniff');
+      add('seg', 1, !!H['x-frame-options'] || /frame-ancestors/i.test(csp), 'Protección contra clickjacking', '', 'X-Frame-Options: SAMEORIGIN o frame-ancestors.');
+      add('seg', .5, !!H['referrer-policy'], 'Referrer-Policy');
+      add('seg', .3, !!H['permissions-policy'], 'Permissions-Policy');
+      const gen = meta('generator');
+      const expone = [H['x-powered-by'] && `X-Powered-By: ${H['x-powered-by']}`, /\d/.test(H.server || '') && `Server: ${H.server}`, /\d/.test(gen) && `Generator: ${gen}`].filter(Boolean);
+      add('seg', 1.5, !expone.length, expone.length ? 'Muestra versiones de software' : 'No muestra versiones de software', expone.join(' · '), 'Ocultar versiones: facilita ataques automáticos a versiones con fallos conocidos.');
+      const mixto = https ? q('script[src^="http:"],img[src^="http:"],link[rel=stylesheet][href^="http:"],iframe[src^="http:"],source[src^="http:"]').length : 0;
+      add('seg', 1.5, https ? !mixto : null, mixto ? `${mixto} recursos sin cifrar (contenido mixto)` : 'Sin contenido mixto');
+      const jq = q('script[src*="jquery"]').map(s => s.getAttribute('src')).find(s => /jquery[.-]?(1\.|2\.|3\.[0-4]\.)|ver=(1\.|2\.|3\.[0-4]\.)/i.test(s));
+      add('seg', 1, !jq, jq ? 'jQuery antiguo con fallos conocidos' : 'Sin librerías antiguas detectadas', jq || '');
+      const wp = /wp-content|wp-includes/.test(d.texto);
+      if (wp) add('seg', .5, /\d/.test(gen) ? 0 : .7, 'WordPress detectado', 'Requiere actualizar núcleo y plugins: es lo más atacado.');
+      const pb = cat(lr, 'best-practices');
+      add('seg', 2, pb, `Lighthouse buenas prácticas: ${pb == null ? '—' : Math.round(pb * 100)}/100`, pb == null ? sinPSI : 'Incluye librerías vulnerables y errores de consola.');
+
+      // Legal
+      const tiene = re => enlaces.some(l => re.test(l.href + ' ' + l.txt));
+      add('legal', 1.5, tiene(/aviso.?legal|legal/i), tiene(/aviso.?legal|legal/i) ? 'Aviso legal' : 'Sin aviso legal', '', 'Obligatorio (LSSI): titular, NIF y contacto.');
+      add('legal', 1.5, tiene(/privacidad|privacy/i), tiene(/privacidad|privacy/i) ? 'Política de privacidad' : 'Sin política de privacidad', '', 'Obligatoria (RGPD) si hay formulario o datos.');
+      const rastreo = /gtag\(|googletagmanager|fbq\(|connect\.facebook\.net|hotjar|clarity\.ms|doubleclick/i.test(d.texto);
+      add('legal', 1, tiene(/cookie/i) || !rastreo ? 1 : 0, tiene(/cookie/i) ? 'Política de cookies' : 'Sin política de cookies');
+      const banner = /cookiebot|cookieyes|cookie-law-info|complianz|iubenda|onetrust|cookie-?(banner|consent|notice)|klaro|tarteaucitron/i.test(d.texto);
+      add('legal', 1.5, rastreo ? banner : null, rastreo ? (banner ? 'Aviso de cookies con rastreo' : 'Rastrea sin aviso de cookies') : 'Sin cookies de rastreo', '', 'Banner con "Rechazar" tan visible como "Aceptar".');
+      const consent = q('form input[type=checkbox]').length > 0 || /privacidad/i.test(q('form').map(f => f.textContent).join(' '));
+      add('legal', 1, forms.length ? consent : null, 'Formulario con aceptación de privacidad');
+
+      return { C, info: { final: d.final, wp, palabras, imgs: imgs.length, lhFallos: lhFallos(lr) } };
+    }
+
+    function lhFallos(lr) {
+      if (!lr) return {};
+      const out = {};
+      for (const [c, k] of [['performance', 'vel'], ['seo', 'seo'], ['accessibility', 'a11y'], ['best-practices', 'seg']]) {
+        out[k] = (lr.categories[c]?.auditRefs || []).filter(r => r.weight > 0).map(r => lr.audits[r.id]).filter(a => a && a.score !== null && a.score < .9 && a.scoreDisplayMode !== 'informative' && a.scoreDisplayMode !== 'notApplicable').map(a => a.title).slice(0, 10);
+      }
+      return out;
+    }
+
+    function puntuar(C) {
+      const notas = {};
+      for (const c of CATS) {
+        const l = C.filter(x => x.cat === c.id && x.val !== null);
+        const p = l.reduce((s, x) => s + x.peso, 0);
+        notas[c.id] = p ? Math.round(l.reduce((s, x) => s + x.peso * x.val, 0) / p * 100) / 10 : null;
+      }
+      const v = CATS.filter(c => notas[c.id] != null);
+      const w = v.reduce((s, c) => s + c.w, 0);
+      return { notas, global: w ? Math.round(v.reduce((s, c) => s + c.w * notas[c.id], 0) / w * 10) / 10 : null };
+    }
+
+    // ---------- pintar ----------
+    const estado = v => v === null ? 'na' : v >= .9 ? 'ok' : v >= .5 ? 'medio' : 'mal';
+    function pintar(url, r, avisos) {
+      const { C, info } = r, { notas, global } = puntuar(C);
+      const prev = historial().find(h => h.url === info.final);
+      const urg = C.filter(x => x.val !== null && x.val < .9).map(x => ({ ...x, imp: CATS.find(c => c.id === x.cat).w * x.peso * (1 - x.val) })).sort((a, b) => b.imp - a.imp).slice(0, 6);
+      const delta = prev && global != null ? Math.round((global - prev.global) * 10) / 10 : null;
+      $('res').innerHTML = `
+        <section class="resumen">
+          ${anillo(global)}
+          <div>
+            <h2>${esc(info.final)}</h2>
+            <p class="meta">Auditada el ${new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' })}${delta !== null ? ` · <span class="${delta >= 0 ? 'delta-up' : 'delta-down'}">${delta >= 0 ? '+' : ''}${String(delta).replace('.', ',')}</span> respecto al ${new Date(prev.fecha).toLocaleDateString('es-ES')}` : ''}${info.wp ? ' · WordPress' : ''}</p>
+            ${avisos.length ? `<p class="nota-aviso">${avisos.map(esc).join('<br>')}</p>` : ''}
+            <div class="acc"><button class="btn btn--ghost" type="button" id="copiar">Copiar resumen</button><button class="btn btn--ghost" type="button" onclick="print()">Imprimir o guardar PDF</button><a class="btn btn--ghost" href="https://pagespeed.web.dev/analysis?url=${encodeURIComponent(info.final)}" target="_blank" rel="noopener">Ver en PageSpeed</a></div>
+          </div>
+        </section>
+        <div class="cats">${CATS.map(c => `<a class="cat" href="#cat-${c.id}">${anillo(notas[c.id], true)}<div><b>${c.n}</b><span class="d">${c.d}</span></div></a>`).join('')}</div>
+        ${urg.length ? `<section class="bloque urg"><header><h3>Lo más urgente</h3></header><ol>${urg.map(x => `<li><b>${esc(x.titulo)}</b> <span class="chip">${CATS.find(c => c.id === x.cat).n}</span>${x.fix ? `<span class="fix">${esc(x.fix)}</span>` : ''}</li>`).join('')}</ol></section>` : ''}
+        ${CATS.map(c => `<section class="bloque" id="cat-${c.id}"><header>${anillo(notas[c.id], true)}<div><h3>${c.n}</h3><p>${c.d}</p></div></header>
+          <ul class="checks">${C.filter(x => x.cat === c.id).sort((a, b) => (a.val ?? 2) - (b.val ?? 2)).map(x => `<li data-v="${estado(x.val)}"><div><b>${esc(x.titulo)}</b>${x.det ? `<div class="det">${esc(x.det)}</div>` : ''}${x.fix && x.val !== null && x.val < .9 ? `<div class="fix">→ ${esc(x.fix)}</div>` : ''}</div></li>`).join('')}</ul>
+          ${info.lhFallos[c.id]?.length ? `<details class="lh"><summary>Lo que marca Google (Lighthouse) en esta parte: ${info.lhFallos[c.id].length}</summary><ul>${info.lhFallos[c.id].map(t => `<li>${esc(t)}</li>`).join('')}</ul></details>` : ''}
+        </section>`).join('')}`;
+      $('copiar').onclick = () => {
+        const txt = [`Auditoría de ${info.final} — ${String(global).replace('.', ',')}/10`, ...CATS.map(c => `${c.n}: ${notas[c.id] == null ? '—' : String(notas[c.id]).replace('.', ',')}`), '', 'Lo más urgente:', ...urg.map((x, i) => `${i + 1}. ${x.titulo}${x.fix ? ' → ' + x.fix : ''}`)].join('\n');
+        navigator.clipboard.writeText(txt).then(() => { $('copiar').textContent = 'Copiado'; });
+      };
+      guardar({ url: info.final, fecha: Date.now(), global, notas });
+      pintarHistorial();
+    }
+
+    // ---------- historial (solo en este navegador) ----------
+    function historial() { try { return JSON.parse(localStorage.getItem('auditorias') || '[]'); } catch { return []; } }
+    function guardar(h) { try { localStorage.setItem('auditorias', JSON.stringify([h, ...historial()].slice(0, 40))); } catch {} }
+    function pintarHistorial() {
+      const h = historial();
+      $('historial').innerHTML = h.length ? `<div class="bar"><h2 style="font-size:var(--fs-lg)">Últimas auditorías <small class="nota-aviso">(guardadas en este navegador)</small></h2></div>
+        <div style="overflow-x:auto"><table class="hist"><thead><tr><th>Web</th><th>Fecha</th><th>Nota</th><th></th></tr></thead><tbody>${h.map(x => `<tr><td>${esc(x.url)}</td><td>${new Date(x.fecha).toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'short' })}</td><td><b>${x.global == null ? '—' : String(x.global).replace('.', ',')}</b></td><td><a href="?url=${encodeURIComponent(x.url)}">Repetir</a></td></tr>`).join('')}</tbody></table></div>` : '';
+    }
+
+    // ---------- PageSpeed ----------
+    async function pagespeed(url, estrategia) {
+      const r = await fetch(`${API}?psi=${estrategia}&url=${encodeURIComponent(url)}`);
+      const j = r.ok ? await r.json() : null;
+      if (j && !j.sinClave) return j;
+      const cats = ['performance', 'seo', 'accessibility', 'best-practices'].map(c => `category=${c}`).join('&');
+      const g = await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=${estrategia}&locale=es&${cats}`);
+      if (!g.ok) throw new Error(g.status === 429 ? 'límite de Google alcanzado (añade PSI_KEY)' : `error ${g.status}`);
+      return g.json();
+    }
+
+    // ---------- flujo ----------
+    async function auditar(raw) {
+      const url = /^https?:\/\//i.test(raw) ? raw.trim() : 'https://' + raw.trim();
+      history.replaceState(null, '', '?url=' + encodeURIComponent(url));
+      $('res').innerHTML = '';
+      const btn = $('f').querySelector('button'); btn.disabled = true;
+      pasos([['html', 'Leyendo la web, cabeceras, robots.txt, sitemap y llms.txt'], ['psim', 'PageSpeed de Google en móvil'], ['psid', 'PageSpeed de Google en ordenador'], ['links', 'Comprobando enlaces internos']]);
+      const avisos = [];
+      paso('html', 'run'); paso('psim', 'run'); paso('psid', 'run');
+      const pM = pagespeed(url, 'mobile').then(j => (paso('psim', 'ok'), j)).catch(e => (paso('psim', 'mal', e.message), avisos.push('PageSpeed móvil: ' + e.message), null));
+      const pD = pagespeed(url, 'desktop').then(j => (paso('psid', 'ok'), j)).catch(e => (paso('psid', 'mal', e.message), avisos.push('PageSpeed ordenador: ' + e.message), null));
+      try {
+        const r = await fetch(`${API}?url=${encodeURIComponent(url)}`);
+        const d = await r.json();
+        if (!r.ok) throw new Error(d.error || `error ${r.status}`);
+        paso('html', 'ok', `${d.status} en ${d.ms} ms`);
+        paso('links', 'run');
+        const doc = new DOMParser().parseFromString(d.texto, 'text/html');
+        const origen = new URL(d.final).origin;
+        const internos = [...new Set([...doc.querySelectorAll('a[href]')].map(a => { try { return new URL(a.getAttribute('href'), d.final); } catch { return null; } }).filter(u => u && u.origin === origen && /^https?:/.test(u.protocol) && !u.pathname.startsWith('/cdn-cgi/')).map(u => u.href.split('#')[0]))].slice(0, 25);
+        const rotos = internos.length ? await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ enlaces: internos }) }).then(r => r.ok ? r.json() : null).catch(() => null) : {};
+        paso('links', rotos ? 'ok' : 'mal', rotos ? `${Object.keys(rotos).length} revisados` : 'no se han podido revisar');
+        const [mobile, desktop] = await Promise.all([pM, pD]);
+        if (!mobile) avisos.push('Nota provisional: sin PageSpeed faltan las mediciones de Google (velocidad, Lighthouse) y la nota suele salir más alta de lo real.');
+        pintar(url, analizar(d, { mobile, desktop }, rotos), avisos);
+      } catch (e) {
+        paso('html', 'mal', e.message);
+        $('res').innerHTML = `<p class="error">${esc(e.message)}</p>`;
+      } finally { btn.disabled = false; }
+    }
+
+    $('f').addEventListener('submit', e => { e.preventDefault(); auditar($('url').value); });
+    pintarHistorial();
+    const inicial = new URLSearchParams(location.search).get('url');
+    if (inicial) { $('url').value = inicial; auditar(inicial); }
+  })();
+  </script>
+</body>
+</html>

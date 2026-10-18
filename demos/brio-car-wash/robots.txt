@@ -1,0 +1,3 @@
+# DEMO: no indexar. En producción: permitir Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, GPTBot, PerplexityBot, ClaudeBot, Claude-SearchBot, Applebot y enlazar el sitemap.
+User-agent: *
+Disallow: /

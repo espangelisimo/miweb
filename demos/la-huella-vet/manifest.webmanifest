@@ -1,0 +1,31 @@
+{
+  "id": "/demos/la-huella-vet/",
+  "name": "Clínica Veterinaria La Huella",
+  "short_name": "La Huella Vet",
+  "lang": "es-ES",
+  "start_url": "/demos/la-huella-vet/",
+  "scope": "/demos/la-huella-vet/",
+  "display": "standalone",
+  "background_color": "#04181d",
+  "theme_color": "#04181d",
+  "icons": [
+    {
+      "src": "assets/icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

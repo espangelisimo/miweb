@@ -1,0 +1,20 @@
+# Nudo Salud
+
+> Centro de salud y movimiento (web de muestra de websinlio, negocio ficticio) en Sevilla: fisioterapia, Pilates Reformer, entrenamiento funcional, fisioterapia dermatofuncional (INDIBA, presoterapia, lipedema), nutrición y podología. Grupos reducidos. Primera clase gratis (entrenamiento en grupo y Pilates Reformer) hasta el 31/12/2026.
+
+- Dirección: C. de la Muestra, 12, Sevilla
+- Teléfono y WhatsApp: 955 000 000
+- Email: hola@nudosalud.example
+- Horario: consultar por WhatsApp
+- Actualizado: octubre 2026
+
+## Servicios y precios (desde)
+- [Entrenamiento funcional](https://websinlio.com/demos/nudo-salud/entrenamiento): grupos desde 55 € (4 sesiones); personal desde 130 €; Embarazo en Nudo 95 €; Nudo Vital 75 €; Pequeñ@s Nudos 75 €.
+- [Pilates Reformer](https://websinlio.com/demos/nudo-salud/pilates-reformer): desde 75 € (4 sesiones); NUDO Total (funcional + Reformer, mensual) 130 €.
+- [Fisioterapia y podología](https://websinlio.com/demos/nudo-salud/fisioterapia): bono 5 sesiones 195 €; bono 10 sesiones 365 €.
+- [Fisioterapia dermatofuncional](https://websinlio.com/demos/nudo-salud/fisioterapia-dermatofuncional): INDIBA facial desde 44 €; INDIBA corporal desde 55 €; presoterapia desde 22 €; Nudo Lipedema (10 sesiones) 485 €.
+- [Nutrición](https://websinlio.com/demos/nudo-salud/nutricion): plan mensual 130 € (online 120 €); trimestral 280 € (online 260 €); menú mensual 85 €.
+
+## Más
+- [Todas las tarifas](https://websinlio.com/demos/nudo-salud/tarifas)
+- [Reservar en 4 pasos (abre WhatsApp)](https://websinlio.com/demos/nudo-salud/reservar)

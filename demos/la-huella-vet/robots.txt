@@ -1,0 +1,8 @@
+# DEMO: no indexar. En producción, sustituir por Allow y añadir Sitemap.
+User-agent: *
+Disallow: /
+
+# --- PRODUCCIÓN ---
+# User-agent: *
+# Allow: /
+# Sitemap: https://[[DOMINIO]]/sitemap.xml

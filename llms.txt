@@ -1,14 +1,14 @@
 # websinlio
 
-> Diseño web para negocios locales de Sevilla y provincia, por Ángel Velarde. Analizo gratis por dónde se escapan los clientes de un negocio hacia la competencia, le hago la web que lo arregla y se la enseño terminada antes de que pague nada.
+> Diseño web para negocios locales de Sevilla y provincia, por Ángel Velarde. Analizo gratis por dónde se escapan los clientes de un negocio hacia la competencia, le diseño la web que lo arregla y se la enseño antes de que pague nada.
 
 - Servicio: auditoría gratuita de fugas de clientes (web, ficha de Google y competencia local), diseño o rediseño web y mantenimiento sin permanencia.
 - Para quién: clínicas, fisioterapeutas, talleres, bares y restaurantes, peluquerías, comercios y otros negocios locales.
-- Cómo funciona: 1) analizo tu web, 2) te hago la nueva, 3) te la enseño en un vídeo de 90 segundos, 4) solo si te convence, la publicamos.
+- Cómo funciona: 1) estudio tu negocio (gratis), 2) te doy el análisis de por dónde se te escapan los clientes (gratis), 3) diseño la web que lo arregla y te la presento en persona o por videollamada (gratis), 4) si te convence, dejas una pequeña fianza (reserva tu web; no se devuelve salvo motivo de peso) y me pasas los datos de tu negocio, 5) la pulimos, la publicamos y pagas el resto descontando la fianza. El primer mes de mantenimiento y cambios va incluido.
 - La web, el dominio y los textos son del cliente. Sin permanencia.
 - Contacto: WhatsApp y teléfono 640 562 563 (L-V 9:00-20:00), contacto@websinlio.com.
 
 ## Páginas
 - [Inicio](https://websinlio.com/): el problema, cómo trabajo, proyectos y auditoría gratis
-- [Mantenimiento](https://websinlio.com/mantenimiento): qué incluye y cómo funciona el precio
+- [Precios](https://websinlio.com/precios): precio de lanzamiento para los 3 primeros negocios, Web Esencial 149,90 € y Web Completa 199,90 €, precio fijo (después, desde 299,90 € y 399,90 €); mantenimiento opcional 19,90 €/mes o 199 €/año, sin permanencia. Primero ves tu web; solo pagas si te la quedas.
 - [Sobre mí](https://websinlio.com/sobre-mi): quién es Ángel y preguntas frecuentes

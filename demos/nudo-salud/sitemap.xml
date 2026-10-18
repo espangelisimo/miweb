@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dominio provisional de la demo. En producción: sustituir https://websinlio.com/demos/nudo-salud/ por el dominio definitivo. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://websinlio.com/demos/nudo-salud/</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/entrenamiento</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/pilates-reformer</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/fisioterapia</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/fisioterapia-dermatofuncional</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/nutricion</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/tarifas</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/reservar</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/aviso-legal</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/privacidad</loc><lastmod>2026-10-12</lastmod></url>
+  <url><loc>https://websinlio.com/demos/nudo-salud/cookies</loc><lastmod>2026-10-12</lastmod></url>
+</urlset>

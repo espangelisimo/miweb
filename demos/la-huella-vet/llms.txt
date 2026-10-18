@@ -1,0 +1,19 @@
+# Clínica Veterinaria La Huella
+
+> Clínica veterinaria integral y peluquería canina en C. de la Muestra, 12, 41000 Sevilla. Un equipo de veterinarias la lleva desde hace poco. Sigue abierta.
+
+- Horario (hasta nuevo aviso): lunes a viernes, 10:00-18:00. Sábado y domingo, cerrado.
+- Teléfono y WhatsApp: 955 000 000 (+34600000000)
+- Correo: hola@la-huella.example
+- Valoración: 4,7 sobre 5 en 128 reseñas (valoración de ejemplo)
+- Urgencias: en horario de clínica, llamando antes. Fuera de horario no se garantiza atención.
+- Precios: orientativos, octubre de 2026; el final se confirma tras ver al animal.
+
+## Páginas
+- [Portada](https://websinlio.com/demos/la-huella-vet/): la clínica sigue abierta, qué le pasa a tu mascota, horario
+- [Urgencias veterinarias](https://websinlio.com/demos/la-huella-vet/urgencias-veterinarias): semáforo para decidir qué hacer y cuándo llamar
+- [Peluquería canina](https://websinlio.com/demos/la-huella-vet/peluqueria-canina): precios orientativos por tamaño y servicio
+- [Vacunas para perros y gatos](https://websinlio.com/demos/la-huella-vet/vacunas-perros-gatos): qué toca según la edad y desde cuánto
+- [Castración de perros y gatos](https://websinlio.com/demos/la-huella-vet/castracion-perros-gatos): precio, proceso y recuperación
+- [Tarifas](https://websinlio.com/demos/la-huella-vet/tarifas): consulta, microchip, desparasitación, analítica, dental
+- [Nueva etapa](https://websinlio.com/demos/la-huella-vet/nueva-etapa): quiénes somos y por qué la clínica sigue abierta

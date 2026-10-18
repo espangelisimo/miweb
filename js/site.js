@@ -24,3 +24,27 @@
   Object.values(inputs).forEach(i => i.addEventListener('input', update));
   update();
 })();
+
+// Pestañas de proyectos: sin JS se ven todas; con JS, una cada vez (teclado: flechas, Inicio, Fin)
+(() => {
+  const list = document.querySelector('.ptabs__list');
+  if (!list) return;
+  const tabs = [...list.querySelectorAll('[role="tab"]')];
+  const show = (t, focus) => {
+    tabs.forEach(x => {
+      const on = x === t;
+      x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => show(t));
+    t.addEventListener('keydown', e => {
+      const k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (k === undefined) return;
+      e.preventDefault(); show(tabs[(k + tabs.length) % tabs.length], true);
+    });
+  });
+  show(tabs.find(t => t.getAttribute('aria-selected') === 'true') || tabs[0]);
+})();

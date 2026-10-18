@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Panel · Webs y demos</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="panel.css">
+  <style>
+    .tools { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin-bottom: 1.25rem; }
+    .tools .field { max-width: 340px; }
+    .tools label.chk { display: flex; gap: .4rem; align-items: center; font-size: var(--fs-sm); }
+    .grupo { margin-bottom: 2rem; }
+    .grupo > h2 { font-size: var(--fs-lg); margin-bottom: .75rem; display: flex; gap: .5rem; align-items: baseline; }
+    .grupo > h2 small { font-size: var(--fs-sm); color: var(--text-muted); font-weight: 600; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: .75rem; }
+    .wcard { display: flex; flex-direction: column; gap: .5rem; padding: 1.1rem 1.2rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); }
+    .wcard h3 { font-size: var(--fs-lg); line-height: 1.2; }
+    .wcard .meta { font-size: var(--fs-xs); color: var(--text-muted); }
+    .wcard .prox { font-size: var(--fs-sm); padding: .5rem .7rem; background: var(--bg-alt); border-radius: var(--radius-sm); }
+    .wcard .prox.vence { background: #fdecea; }
+    .wcard .acc { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; padding-top: .4rem; }
+    .wcard .acc { flex-direction: column; align-items: flex-start; }
+    .wcard .links { font-size: var(--fs-sm); }
+    .wcard .acc a { font-size: var(--fs-sm); font-weight: 600; }
+    .wcard .acc a.btn { padding: .5rem .9rem; font-size: var(--fs-sm); }
+    .wcard[data-principal="false"] { opacity: .7; }
+    .bar .meta { margin-right: auto; font-size: var(--fs-xs); color: var(--text-muted); }
+    .chip--conversacion { background: #e6f4ea; border-color: #b7dfc3; }
+    .chip--enviado { background: #e8f0fe; border-color: #c3d4f7; }
+    .chip--preparando { background: #fff4e0; border-color: #f3d38a; }
+    .chip--clientes { background: var(--ink-900); border-color: var(--ink-900); color: #fff; }
+    .chip--cerrados { opacity: .7; }
+    .aviso { padding: 1rem 1.25rem; margin-bottom: 1.25rem; background: #fff7e6; border: 1px solid #f3d38a; border-radius: var(--radius); font-size: var(--fs-sm); }
+  </style>
+</head>
+<body>
+  <header class="header is-scrolled">
+    <div class="container">
+      <a class="logo" href="../"><img src="../assets/logo-mark.png" alt="" width="480" height="184"><span>web<b>sin</b>lio</span></a>
+      <nav class="pnav" aria-label="Panel"><a href="./">Solicitudes</a><a href="webs" aria-current="page">Webs y demos</a><a href="auditoria">Auditoría</a></nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="bar">
+      <h1>Webs y demos</h1>
+      <a class="btn btn--ghost" href="https://dash.cloudflare.com/" target="_blank" rel="noopener">Abrir Cloudflare</a>
+    </div>
+    <div class="tools">
+      <input class="field" type="search" id="q" placeholder="Buscar negocio, sector o fase…" aria-label="Buscar">
+      <label class="chk"><input type="checkbox" id="viejas"> Ver versiones antiguas</label>
+    </div>
+    <div id="aviso"></div>
+    <div id="demos"><p class="empty">Cargando demos…</p></div>
+
+    <section class="grupo">
+      <h2>Muestras de mi web <small>websinlio.com/demos</small></h2>
+      <div class="cards" id="muestras"></div>
+    </section>
+    <section class="grupo">
+      <h2>Mi web</h2>
+      <div class="cards" id="mias"></div>
+    </section>
+  </main>
+
+  <script>
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const auditar = u => `auditoria?url=${encodeURIComponent(u)}`;
+    const fecha = s => s ? new Date(s).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+    const ORDEN = ['Conversación', 'Enviado', 'Preparando', 'Clientes', 'Cantera', 'Cerrados', ''];
+
+    const tarjeta = d => {
+      const vence = d.fechaProximo && new Date(d.fechaProximo) <= new Date();
+      return `<article class="wcard" data-principal="${d.principal !== false}" data-q="${esc([d.negocio, d.sector, d.localidad, d.faseTxt, d.slug].join(' ').toLowerCase())}">
+        <div><h3>${esc(d.negocio)}</h3>
+        <p class="meta">${esc([d.sector, d.localidad].filter(Boolean).join(' · '))}${d.principal === false ? ' · versión anterior' : ''}</p></div>
+        <div>${d.faseTxt ? `<span class="chip chip--${esc((d.grupo || '').normalize('NFD').replace(/[^a-z]/gi, '').toLowerCase())}">${esc(d.faseTxt)}</span>` : '<span class="chip">Sin fase en el registro</span>'} ${d.perdidaMes ? `<span class="chip">Fuga ${esc(d.perdidaMes)}</span>` : ''}</div>
+        ${d.proximo ? `<p class="prox${vence ? ' vence' : ''}"><b>${d.fechaProximo ? esc(fecha(d.fechaProximo)) + ': ' : ''}</b>${esc(d.proximo)}</p>` : ''}
+        <p class="meta">${d.actualizada ? 'Demo actualizada el ' + esc(fecha(d.actualizada)) : ''}</p>
+        <div class="acc">
+          <a class="btn btn--primary" href="${esc(d.demo)}" target="_blank" rel="noopener">Abrir demo</a>
+          <span class="links">${[d.webActual && `<a href="${esc(d.webActual)}" target="_blank" rel="noopener">Su web actual</a>`, d.webActual && `<a href="${auditar(d.webActual)}">Auditar su web</a>`, `<a href="${auditar(d.demo)}">Auditar demo</a>`].filter(Boolean).join('<span aria-hidden="true"> · </span>')}</span>
+        </div>
+      </article>`;
+    };
+
+    const fija = (nombre, meta, url) => `<article class="wcard"><div><h3>${nombre}</h3><p class="meta">${meta}</p></div>
+      <div class="acc"><a class="btn btn--primary" href="${url}" target="_blank" rel="noopener">Abrir</a><a href="${auditar(new URL(url, location.origin).href)}">Auditar</a></div></article>`;
+
+    document.getElementById('muestras').innerHTML = [
+      fija('Nudo Salud', 'Fisio y pilates · visible en la portada', '../demos/nudo-salud/'),
+      fija('Clínica Veterinaria La Huella', 'Veterinaria · visible en la portada', '../demos/la-huella-vet/'),
+      fija('Brío Car Wash', 'Lavadero · oculta en la portada', '../demos/brio-car-wash/'),
+    ].join('');
+    document.getElementById('mias').innerHTML = [
+      fija('websinlio.com', 'Portada', '../'),
+      fija('Precios', 'Precios y mantenimiento', '../precios'),
+    ].join('');
+
+    let demos = [];
+    function pintar() {
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const viejas = document.getElementById('viejas').checked;
+      const lista = demos.filter(d => (viejas || d.principal !== false) && (!q || [d.negocio, d.sector, d.localidad, d.faseTxt, d.slug].join(' ').toLowerCase().includes(q)));
+      const pos = d => { const i = ORDEN.indexOf(d.grupo || ''); return i < 0 ? ORDEN.length : i; };
+      lista.sort((a, b) => pos(a) - pos(b) || (a.fechaProximo || '9').localeCompare(b.fechaProximo || '9'));
+      document.getElementById('demos').innerHTML = lista.length
+        ? `<section class="grupo"><h2>Demos de clientes <small>${lista.length} · demos.websinlio.com</small></h2><div class="cards">${lista.map(tarjeta).join('')}</div></section>`
+        : '<p class="empty">No hay demos con este filtro.</p>';
+      document.querySelectorAll('#muestras .wcard, #mias .wcard').forEach(c => c.hidden = q && !c.textContent.toLowerCase().includes(q));
+    }
+
+    fetch('../api/panel/webs', { credentials: 'same-origin' }).then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
+      demos = j.demos || [];
+      if (j.aviso) document.getElementById('aviso').innerHTML = `<p class="aviso">${esc(j.aviso)}</p>`;
+      if (j.generado) document.querySelector('.bar h1').insertAdjacentHTML('afterend', `<span class="meta">Índice del ${esc(fecha(j.generado))}</span>`);
+      pintar();
+    }).catch(s => {
+      document.getElementById('demos').innerHTML = `<p class="error">No se han podido cargar las demos (${esc(s)}). ${s === 401 ? 'Vuelve a iniciar sesión recargando la página.' : ''}</p>`;
+    });
+    document.getElementById('q').addEventListener('input', pintar);
+    document.getElementById('viejas').addEventListener('change', pintar);
+  </script>
+</body>
+</html>

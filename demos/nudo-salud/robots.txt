@@ -1,0 +1,36 @@
+# DEMO: no indexar. En producción, borrar el bloque de arriba y descomentar el de abajo.
+User-agent: *
+Disallow: /
+
+# --- PRODUCCIÓN ---
+# User-agent: Googlebot
+# Allow: /
+#
+# User-agent: Bingbot
+# Allow: /
+#
+# User-agent: OAI-SearchBot
+# Allow: /
+#
+# User-agent: ChatGPT-User
+# Allow: /
+#
+# User-agent: GPTBot
+# Allow: /
+#
+# User-agent: PerplexityBot
+# Allow: /
+#
+# User-agent: ClaudeBot
+# Allow: /
+#
+# User-agent: Claude-SearchBot
+# Allow: /
+#
+# User-agent: Applebot
+# Allow: /
+#
+# User-agent: *
+# Allow: /
+#
+# Sitemap: https://[[DOMINIO]]/sitemap.xml

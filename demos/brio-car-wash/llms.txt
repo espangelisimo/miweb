@@ -1,0 +1,28 @@
+# Brío Car Wash (web de muestra de websinlio, negocio ficticio) (web de muestra de websinlio, negocio ficticio)
+
+> Lavadero de coches a mano en Sevilla (Sevilla). Un coche cada vez, con cita previa. Centro de estética para el vehículo.
+
+- Dirección: C. de la Muestra, 12, 41000 Sevilla
+- Teléfono: +34955000000
+- WhatsApp: https://wa.me/34600000000
+- Email: hola@ejemplo.invalid
+- Horario: L-V 9:00-19:00, S 9:00-14:00
+- Actualizado: octubre 2026
+
+## Servicios y precios (orientativos, el precio final se confirma tras ver el coche)
+- BRÍO basic: desde 25 € (unos 45 min): exterior a mano con espuma activa, llantas, secado y cristales
+- BRÍO premium: desde 50 € (unos 90 min): lo del basic más aspirado, salpicadero, plásticos, paneles y cristales por dentro
+- BRÍO deluxe: desde 90 € (unas 3-4 h): lo del premium más tapicería a fondo, moquetas, bajos y cera protectora
+- Aplicación de ozono (desinfecta y elimina olores): 25 €
+- Tratamiento antilluvia: 10 €
+- Limpieza de tapicería (asientos desmontados, moquetas, bajos, paneles de puerta): precio según el coche
+- Pulido de faros: precio según el estado de los faros
+- Alfombrillas a medida: precio a consultar
+- Recogida y entrega del vehículo: zona y coste a consultar
+- Tarjeta Brío: cada 10 lavados, 1 BRÍO basic gratis
+
+## Páginas
+- [Inicio: lavado a mano y precios](https://websinlio.com/demos/brio-car-wash/)
+- [Limpieza de tapicería de coche](https://websinlio.com/demos/brio-car-wash/limpieza-tapiceria-coche)
+- [Ozono para coche](https://websinlio.com/demos/brio-car-wash/ozono-coche)
+- [Pulido de faros](https://websinlio.com/demos/brio-car-wash/pulido-faros)
