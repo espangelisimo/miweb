@@ -1,4 +1,4 @@
-/* websinlio — calculadora de clientes perdidos */
+/* websinlio — calculadora: cuánto vale un cliente que repite (solo con los datos del dueño; no estima pérdidas) */
 (() => {
   const calc = document.querySelector('[data-calc]');
   if (!calc) return;
@@ -8,23 +8,19 @@
   const out = Object.fromEntries([...calc.querySelectorAll('[data-out]')].map(o => [o.dataset.out, o]));
 
   const update = () => {
-    const visits = +inputs.visits.value;
     const ticket = +inputs.ticket.value;
-    const gain = +inputs.gain.value;
+    const veces = +inputs.veces.value;
+    const anos = +inputs.anos.value;
     Object.values(inputs).forEach(i => i.style.setProperty('--p', `${((i.value - i.min) / (i.max - i.min)) * 100}%`));
-    const clients = visits * gain / 100;
-    const month = clients * ticket;
-    out.visits.textContent = fmt(visits);
     out.ticket.textContent = `${fmt(ticket)} €`;
-    out.gain.textContent = `+${String(gain).replace('.', ',')} %`;
-    out.month.innerHTML = `${fmt(month)} € <small>/ mes</small>`;
-    out.year.textContent = `${fmt(month * 12)} € al año`;
-    out.clients.textContent = `${fmt(clients)} clientes/mes`;
+    out.veces.textContent = `${fmt(veces)} ${veces === 1 ? 'vez' : 'veces'}`;
+    out.anos.textContent = `${fmt(anos)} ${anos === 1 ? 'año' : 'años'}`;
+    out.total.innerHTML = `${fmt(ticket * veces * anos)} €`;
+    out.year.textContent = `${fmt(ticket * veces)} € al año`;
   };
   Object.values(inputs).forEach(i => i.addEventListener('input', update));
   update();
 })();
-
 // Pestañas de proyectos: sin JS se ven todas; con JS, una cada vez (teclado: flechas, Inicio, Fin)
 (() => {
   const list = document.querySelector('.ptabs__list');
